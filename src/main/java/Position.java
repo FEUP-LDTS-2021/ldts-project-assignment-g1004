@@ -23,8 +23,10 @@ public class Position {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Position position = (Position) o;
         return x == position.x && y == position.y;
     }
@@ -32,6 +34,10 @@ public class Position {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    public double distanceTo(Position position) {
+        return Math.sqrt(Math.pow(this.x - position.x, 2) + Math.pow(this.y - position.y, 2));
     }
 
     public void moveTo(Position position) {
