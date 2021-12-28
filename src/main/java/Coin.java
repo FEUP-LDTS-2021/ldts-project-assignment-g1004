@@ -10,7 +10,7 @@ public class Coin extends Element {
 
     @Override
     public void draw(TextGraphics screen) {
-        screen.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
+        screen.setForegroundColor(TextColor.Factory.fromString("#CCCC00"));
         screen.enableModifiers(SGR.BOLD);
         screen.putString(new TerminalPosition(getPosition().getX(), getPosition().getY()), "$");
     }

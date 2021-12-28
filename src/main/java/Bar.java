@@ -10,9 +10,8 @@ public class Bar extends Element {
 
     @Override
     public void draw(TextGraphics screen) {
-        screen.setForegroundColor(TextColor.Factory.fromString("#FFA500"));
-        screen.enableModifiers(SGR.BOLD);
-        screen.putString(new TerminalPosition(getPosition().getX(), getPosition().getY()), "H");
+        screen.setBackgroundColor(TextColor.Factory.fromString("#FFA500"));
+        screen.putString(new TerminalPosition(position.getX(), position.getY()), " ");
     }
 
     @Override

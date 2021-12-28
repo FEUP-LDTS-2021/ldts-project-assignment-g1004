@@ -11,7 +11,5 @@ public abstract class Element {
         return position;
     }
 
-
-
     public abstract void draw(TextGraphics screen);
 }

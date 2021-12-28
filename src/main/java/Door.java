@@ -10,7 +10,7 @@ public class Door extends Element {
 
     @Override
     public void draw(TextGraphics screen) {
-        screen.setForegroundColor(TextColor.Factory.fromString("#8B0000"));
+        screen.setForegroundColor(TextColor.Factory.fromString("#0000FF"));
         screen.enableModifiers(SGR.BOLD);
         screen.putString(new TerminalPosition(getPosition().getX(), getPosition().getY()), "0");
     }
