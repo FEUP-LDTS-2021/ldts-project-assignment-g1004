@@ -1,15 +1,22 @@
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Ladder {
     private final Position top;
     private final Position bottom;
+    private final List<Bar> bars;
 
     public Ladder(Position top, Position bottom) {
         this.top = top;
         this.bottom = bottom;
+        int n = bottom.getY() - top.getY() + 1;
+
+        List<Bar> bars = new ArrayList<>();
+        for (int i = 0; i < n; i++)
+            bars.add(new Bar(top.getX(), top.getY() + i));
+        this.bars = bars;
     }
 
     public Position getTop() {
@@ -21,11 +28,7 @@ public class Ladder {
     }
 
     public void draw(TextGraphics screen) {
-        screen.setForegroundColor(TextColor.Factory.fromString("#FFA500"));
-        screen.enableModifiers(SGR.BOLD);
-
-        int n = bottom.getY() - top.getY() + 1;
-        for (int i = 0; i < n; i++)
-            screen.putString(new TerminalPosition(top.getX(), top.getY() + i), "H");
+        for (Bar b : bars)
+            b.draw(screen);
     }
 }
