@@ -1,6 +1,6 @@
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class PositionTest {
     private Position position;
@@ -9,7 +9,7 @@ public class PositionTest {
     public void setup() {
         position = new Position(1, 2);
     }
-    /*
+
     @Test
     public void distanceTo() {
         Position p2 = new Position(3, 5);
@@ -28,5 +28,4 @@ public class PositionTest {
         Assertions.assertEquals(2, position.getX());
         Assertions.assertEquals(4, position.getY());
     }
-    */
 }
