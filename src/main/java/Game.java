@@ -14,7 +14,7 @@ public class Game {
 
     public Game() {
         try {
-            TerminalSize terminalSize = new TerminalSize(60, 30);
+            TerminalSize terminalSize = new TerminalSize(60, 20);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
             Terminal terminal = terminalFactory.createTerminal();
             screen = new TerminalScreen(terminal);
@@ -26,7 +26,7 @@ public class Game {
             e.printStackTrace();
         }
 
-        arena = new Arena(60, 30);
+        arena = new Arena(60, 20);
     }
 
     private void draw() throws IOException {

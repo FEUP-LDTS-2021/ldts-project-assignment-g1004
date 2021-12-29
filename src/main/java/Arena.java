@@ -26,8 +26,8 @@ public class Arena {
         platforms = createPlatforms();
         ladders = createLadders();
         coins = createCoins();
-        key = new Key(2, 7);
-        door = new Door(58, 7);
+        key = new Key(2, 3);
+        door = new Door(58, 3);
     }
 
     private List<Wall> createWalls(){
@@ -49,11 +49,14 @@ public class Arena {
     private List<Platform> createPlatforms() {
         List<Platform> platforms = new ArrayList<>();
 
-        platforms.add(new Platform(new Position(19, 24), new Position(41, 24)));
-        platforms.add(new Platform(new Position(14, 16), new Position(25, 16)));
-        platforms.add(new Platform(new Position(35, 16), new Position(46, 16)));
-        platforms.add(new Platform(new Position(1, 8), new Position(16, 8)));
-        platforms.add(new Platform(new Position(44, 8), new Position(58, 8)));
+        platforms.add(new Platform(new Position(18, 16), new Position(34, 16)));
+        platforms.add(new Platform(new Position(6, 13), new Position(48, 13)));
+        platforms.add(new Platform(new Position(4, 10), new Position(17, 10)));
+        platforms.add(new Platform(new Position(26, 10), new Position(50, 10)));
+        platforms.add(new Platform(new Position(10, 7), new Position(30, 7)));
+        platforms.add(new Platform(new Position(40, 7), new Position(52, 7)));
+        platforms.add(new Platform(new Position(1, 4), new Position(25, 4)));
+        platforms.add(new Platform(new Position(48, 4), new Position(58, 4)));
 
         return platforms;
     }
@@ -61,11 +64,14 @@ public class Arena {
     private List<Ladder> createLadders() {
         List<Ladder> ladders = new ArrayList<>();
 
-        ladders.add(new Ladder(new Position(30, 25), new Position(30, 28)));
-        ladders.add(new Ladder(new Position(20, 17), new Position(20, 23)));
-        ladders.add(new Ladder(new Position(40, 17), new Position(40, 23)));
-        ladders.add(new Ladder(new Position(15, 9), new Position(15, 15)));
-        ladders.add(new Ladder(new Position(45, 9), new Position(45, 15)));
+        ladders.add(new Ladder(new Position(20, 16), new Position(20, 18)));
+        ladders.add(new Ladder(new Position(30, 13), new Position(30, 15)));
+        ladders.add(new Ladder(new Position(16, 10), new Position(16, 12)));
+        ladders.add(new Ladder(new Position(11, 7), new Position(11, 9)));
+        ladders.add(new Ladder(new Position(28, 7), new Position(28, 9)));
+        ladders.add(new Ladder(new Position(41, 7), new Position(41, 9)));
+        ladders.add(new Ladder(new Position(23, 4), new Position(23, 6)));
+        ladders.add(new Ladder(new Position(50, 4), new Position(50, 6)));
 
         return ladders;
     }
@@ -73,15 +79,14 @@ public class Arena {
     private List<Coin> createCoins() {
         List<Coin> coins = new ArrayList<>();
 
-        coins.add(new Coin(40, 28));
-        coins.add(new Coin(24, 23));
-        coins.add(new Coin(37, 23));
-        coins.add(new Coin(25, 15));
-        coins.add(new Coin(35, 15));
-        coins.add(new Coin(17, 15));
-        coins.add(new Coin(42, 15));
-        coins.add(new Coin(9, 7));
-        coins.add(new Coin(50, 7));
+        coins.add(new Coin(40, 18));
+        coins.add(new Coin(18, 15));
+        coins.add(new Coin(31, 15));
+        coins.add(new Coin(8, 12));
+        coins.add(new Coin(37, 12));
+        coins.add(new Coin(32, 9));
+        coins.add(new Coin(44, 6));
+        coins.add(new Coin(12, 3));
 
         return coins;
     }
