@@ -11,7 +11,7 @@ public class Platform {
     public Platform(Position left, Position right) {
         this.left = left;
         this.right = right;
-        this.walls = createWalls();
+        walls = createWalls();
     }
 
     private List<Wall> createWalls() {
