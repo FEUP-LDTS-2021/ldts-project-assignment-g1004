@@ -9,10 +9,13 @@ public class Platform {
     public Platform(Position left, Position right) {
         this.left = left;
         this.right = right;
+        this.walls = createWalls();
+    }
 
+    private List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
         // to do
-        this.walls = walls;
+        return walls;
     }
 
     public Position getLeft() {
@@ -21,6 +24,10 @@ public class Platform {
 
     public Position getRight() {
         return right;
+    }
+
+    public List<Wall> getWalls() {
+        return walls;
     }
 
     public void draw() {
