@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class Game {
     private Screen screen;
+    private Arena arena;
 
     public Game() {
         try {
@@ -24,14 +25,18 @@ public class Game {
         catch (IOException e) {
             e.printStackTrace();
         }
+
+        arena = new Arena(60, 20);
     }
 
     private void draw() throws IOException {
-        // to do
+        screen.clear();
+        arena.draw(screen.newTextGraphics());
+        screen.refresh();
     }
 
     private void processKey(KeyStroke key) {
-        // to do
+        arena.processKey(key);
     }
 
     public void run() {
