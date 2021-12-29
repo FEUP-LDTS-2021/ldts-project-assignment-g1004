@@ -16,6 +16,7 @@ public class Arena {
     private List<Coin> coins;
     private Key key;
     private Door door;
+    private Hero hero;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -26,6 +27,7 @@ public class Arena {
         coins = createCoins();
         key = new Key(2, 3);
         door = new Door(58, 3);
+        hero = new Hero(1, 18);
     }
 
     private List<Wall> createWalls(){
@@ -111,9 +113,19 @@ public class Arena {
 
         key.draw(screen);
         door.draw(screen);
+        hero.draw(screen);
     }
 
     public void processKey(KeyStroke key) {
         // to do
+    }
+
+    public void moveHero(Position position){
+        // to do
+    }
+
+    private boolean canHeroMove(Position pos){
+        // to do
+        return true;
     }
 }
