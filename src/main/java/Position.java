@@ -37,11 +37,11 @@ public class Position {
     }
 
     public double distanceTo(Position position) {
-        // to do
-        return 0;
+        return Math.sqrt(Math.pow(this.x - position.x, 2) + Math.pow(this.y - position.y, 2));
     }
 
     public void moveTo(Position position) {
-        // to do
+        this.x = position.getX();
+        this.y = position.getY();
     }
 }
