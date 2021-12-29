@@ -19,23 +19,19 @@ public class Hero {
     }
 
     public Position moveUp() {
-        // to do
-        return new Position();
+        return new Position(position.getX(), position.getY() - 1);
     }
 
     public Position moveDown() {
-        // to do
-        return new Position();
+        return new Position(position.getX(), position.getY() + 1);
     }
 
     public Position moveLeft() {
-        // to do
-        return new Position();
+        return new Position(position.getX() - 1, position.getY());
     }
 
     public Position moveRight() {
-        // to do
-        return new Position();
+        return new Position(position.getX() + 1, position.getY());
     }
 
     public void draw(TextGraphics screen) {
