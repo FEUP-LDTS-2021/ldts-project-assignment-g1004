@@ -1,3 +1,5 @@
+import com.googlecode.lanterna.graphics.TextGraphics;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,11 @@ public class Platform {
 
     private List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
-        // to do
+
+        int n = right.getX() - left.getX() + 1;
+        for (int i = 0; i < n; i++)
+            walls.add(new Wall(left.getX() + i, left.getY()));
+
         return walls;
     }
 
@@ -30,7 +36,8 @@ public class Platform {
         return walls;
     }
 
-    public void draw() {
-        // to do
+    public void draw(TextGraphics screen) {
+        for (Wall w : walls)
+            w.draw(screen);
     }
 }
