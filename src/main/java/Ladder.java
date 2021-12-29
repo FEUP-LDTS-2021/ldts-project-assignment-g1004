@@ -1,3 +1,5 @@
+import com.googlecode.lanterna.graphics.TextGraphics;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,11 @@ public class Ladder {
 
     private List<Bar> createBars() {
         List<Bar> bars = new ArrayList<>();
-        // to do
+
+        int n = bottom.getY() - top.getY() + 1;
+        for (int i = 0; i < n; i++)
+            bars.add(new Bar(top.getX(), top.getY() + i));
+
         return bars;
     }
 
@@ -30,7 +36,8 @@ public class Ladder {
         return bars;
     }
 
-    public void draw() {
-        // to do
+    public void draw(TextGraphics screen) {
+        for (Bar b : bars)
+            b.draw(screen);
     }
 }
