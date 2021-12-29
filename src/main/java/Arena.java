@@ -8,7 +8,7 @@ public class Arena {
     private final int width;
     private final int height;
 
-    public Arena(int width, int height){
+    public Arena(int width, int height) {
         this.width = width;
         this.height = height;
     }
