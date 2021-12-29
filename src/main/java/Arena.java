@@ -21,7 +21,7 @@ public class Arena {
     public Arena(int width, int height){
         this.height = height;
         this.width = width;
-        hero = new Hero(10, 10);
+        hero = new Hero(10, 9);
         walls = createWalls();
         platforms = createPlatforms();
         ladders = createLadders();
@@ -113,6 +113,7 @@ public class Arena {
 
         key.draw(screen);
         door.draw(screen);
+        hero.draw(screen);
     }
 
     public void processKey(KeyStroke key) {
