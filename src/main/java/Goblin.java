@@ -9,10 +9,9 @@ public class Goblin extends Monster {
     }
 
     @Override
-    public Position move() {
+    public void move() {
         // to do
         // moves from one end of the platform to the other and vice versa repetitively
-        return new Position();
     }
 
     @Override

@@ -10,5 +10,13 @@ public abstract class Monster extends Element {
         steps = 0;
     }
 
-    public abstract Position move();
+    public boolean movingForward() {
+        return forward;
+    }
+
+    public int getSteps() {
+        return steps;
+    }
+
+    public abstract void move();
 }

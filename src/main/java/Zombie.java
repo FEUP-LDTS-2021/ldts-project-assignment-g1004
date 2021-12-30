@@ -9,10 +9,9 @@ public class Zombie extends Monster {
     }
 
     @Override
-    public Position move() {
+    public void move() {
         // to do
         // moves 2 steps forward 1 backward 2 forward 1 backword and so on from one end of the platform to the other
-        return new Position();
     }
 
     @Override

@@ -9,11 +9,10 @@ public class Ghost extends Monster {
     }
 
     @Override
-    public Position move() {
+    public void move() {
         // to do
         // moves 4 steps forward and teleports to a random spot
         // when it reaches an end it teleports to the other instead of changing direction
-        return new Position();
     }
 
     @Override
