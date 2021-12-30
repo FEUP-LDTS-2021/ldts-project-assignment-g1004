@@ -3,6 +3,8 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
+import java.util.Random;
+
 public class Ghost extends Monster {
     public Ghost(int x, int y, Platform p) {
         super(x, y, p);
@@ -10,9 +12,25 @@ public class Ghost extends Monster {
 
     @Override
     public void move() {
-        // to do
-        // moves 4 steps forward and teleports to a random spot
-        // when it reaches an end it teleports to the other instead of changing direction
+        int x = position.getX(), y = position.getY();
+        int l = platform.getLeft().getX(), r = platform.getRight().getX();
+
+        if (steps == 4) {
+            Random random = new Random();
+            int s = r - l + 1;
+            int n = random.nextInt(s);
+
+            position = new Position(l + n, y);
+            steps = 0;
+        }
+        else {
+            if (x == r)
+                position = new Position(l, y);
+            else
+                position = new Position(x + 1, y);
+
+            steps++;
+        }
     }
 
     @Override
