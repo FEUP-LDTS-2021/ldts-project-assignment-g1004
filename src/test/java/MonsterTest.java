@@ -19,7 +19,9 @@ public class MonsterTest {
         zombie.move();
         Position p = new Position(4, 4);
         Assertions.assertEquals(p, zombie.getPosition());
+        Assertions.assertTrue(zombie.movingForward());
 
+        ghost.move();
         ghost.move();
         ghost.move();
         ghost.move();
