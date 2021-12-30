@@ -128,4 +128,8 @@ public class Arena {
         // to do
         return true;
     }
+
+    private void retrieveCoins() {
+        // to do
+    }
 }
