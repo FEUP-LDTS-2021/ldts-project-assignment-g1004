@@ -120,11 +120,11 @@ public class Arena {
         // to do
     }
 
-    public void moveHero(Position position){
+    public void moveHero(Position position) {
         // to do
     }
 
-    private boolean canHeroMove(Position pos){
+    private boolean canHeroMove(Position pos) {
         // to do
         return true;
     }
