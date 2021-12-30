@@ -10,8 +10,17 @@ public class Goblin extends Monster {
 
     @Override
     public void move() {
-        // to do
-        // moves from one end of the platform to the other and vice versa repetitively
+        int x = position.getX(), y = position.getY();
+
+        if (x == platform.getRight().getX())
+            forward = false;
+        else if (x == platform.getLeft().getX())
+            forward = true;
+
+        if (forward)
+            position = new Position(x + 1, y);
+        else
+            position = new Position(x - 1, y);
     }
 
     @Override

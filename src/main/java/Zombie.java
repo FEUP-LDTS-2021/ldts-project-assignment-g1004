@@ -10,8 +10,33 @@ public class Zombie extends Monster {
 
     @Override
     public void move() {
-        // to do
-        // moves 2 steps forward 1 backward 2 forward 1 backword and so on from one end of the platform to the other
+        int x = position.getX(), y = position.getY();
+
+        if (x == platform.getRight().getX())
+            forward = false;
+        else if (x == platform.getLeft().getX())
+            forward = true;
+
+        if (forward) {
+            if (steps == 2) {
+                position = new Position(x - 1, y);
+                steps = 0;
+            }
+            else {
+                position = new Position(x + 1, y);
+                steps++;
+            }
+        }
+        else {
+            if (steps == 2) {
+                position = new Position(x + 1, y);
+                steps = 0;
+            }
+            else {
+                position = new Position(x - 1, y);
+                steps++;
+            }
+        }
     }
 
     @Override
