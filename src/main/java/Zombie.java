@@ -19,21 +19,21 @@ public class Zombie extends Monster {
 
         if (forward) {
             if (steps == 2) {
-                position = new Position(x - 1, y);
+                position.moveTo(new Position(x - 1, y));
                 steps = 0;
             }
             else {
-                position = new Position(x + 1, y);
+                position.moveTo(new Position(x + 1, y));
                 steps++;
             }
         }
         else {
             if (steps == 2) {
-                position = new Position(x + 1, y);
+                position.moveTo(new Position(x + 1, y));
                 steps = 0;
             }
             else {
-                position = new Position(x - 1, y);
+                position.moveTo(new Position(x - 1, y));
                 steps++;
             }
         }

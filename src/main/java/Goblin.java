@@ -18,9 +18,9 @@ public class Goblin extends Monster {
             forward = true;
 
         if (forward)
-            position = new Position(x + 1, y);
+            position.moveTo(new Position(x + 1, y));
         else
-            position = new Position(x - 1, y);
+            position.moveTo(new Position(x - 1, y));
     }
 
     @Override

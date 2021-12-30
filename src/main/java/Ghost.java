@@ -20,14 +20,14 @@ public class Ghost extends Monster {
             int s = r - l + 1;
             int n = random.nextInt(s);
 
-            position = new Position(l + n, y);
+            position.moveTo(new Position(l + n, y));
             steps = 0;
         }
         else {
             if (x == r)
-                position = new Position(l, y);
+                position.moveTo(new Position(l, y));
             else
-                position = new Position(x + 1, y);
+                position.moveTo(new Position(x + 1, y));
 
             steps++;
         }
