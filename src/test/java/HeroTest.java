@@ -6,20 +6,17 @@ public class HeroTest {
     public void move() {
         Hero h = new Hero(10, 10);
 
-        h.moveUp();
         Position p1 = new Position(10, 9);
-        Assertions.assertEquals(p1, h.getPosition());
+        Assertions.assertEquals(p1, h.moveUp());
 
-        h.moveDown();
-        Position p2 = new Position(10, 10);
-        Assertions.assertEquals(p2, h.getPosition());
+        Position p2 = new Position(10, 11);
+        Assertions.assertEquals(p2, h.moveDown());
 
-        h.moveLeft();
         Position p3 = new Position(9, 10);
-        Assertions.assertEquals(p3, h.getPosition());
+        Assertions.assertEquals(p3, h.moveLeft());
 
-        h.moveRight();
-        Position p4 = new Position(10, 10);
-        Assertions.assertEquals(p4, h.getPosition());
+        Position p4 = new Position(11, 10);
+        Assertions.assertEquals(p4, h.moveRight());
+
     }
 }
