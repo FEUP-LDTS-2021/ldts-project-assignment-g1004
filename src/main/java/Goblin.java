@@ -9,18 +9,8 @@ public class Goblin extends Monster {
     }
 
     @Override
-    public void move() {
-        int x = position.getX(), y = position.getY();
-
-        if (x == platform.getRight().getX())
-            forward = false;
-        else if (x == platform.getLeft().getX())
-            forward = true;
-
-        if (forward)
-            position.moveTo(new Position(x + 1, y));
-        else
-            position.moveTo(new Position(x - 1, y));
+    protected MoveStrategy createMoveStrategy() {
+        return new RegularStrategy();
     }
 
     @Override

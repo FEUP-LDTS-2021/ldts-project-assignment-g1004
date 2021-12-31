@@ -9,34 +9,8 @@ public class Zombie extends Monster {
     }
 
     @Override
-    public void move() {
-        int x = position.getX(), y = position.getY();
-
-        if (x == platform.getRight().getX())
-            forward = false;
-        else if (x == platform.getLeft().getX())
-            forward = true;
-
-        if (forward) {
-            if (steps == 2) {
-                position.moveTo(new Position(x - 1, y));
-                steps = 0;
-            }
-            else {
-                position.moveTo(new Position(x + 1, y));
-                steps++;
-            }
-        }
-        else {
-            if (steps == 2) {
-                position.moveTo(new Position(x + 1, y));
-                steps = 0;
-            }
-            else {
-                position.moveTo(new Position(x - 1, y));
-                steps++;
-            }
-        }
+    protected MoveStrategy createMoveStrategy() {
+        return new ConfusedStrategy();
     }
 
     @Override

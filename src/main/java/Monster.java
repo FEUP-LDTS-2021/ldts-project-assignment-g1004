@@ -1,13 +1,19 @@
 public abstract class Monster extends Element {
-    protected Platform platform;
-    protected boolean forward;
-    protected int steps;
+    private final Platform platform;
+    private boolean forward;
+    private int steps;
+    private MoveStrategy movement;
 
     public Monster(int x, int y, Platform p) {
         super(x, y);
         platform = p;
         forward = true;
         steps = 0;
+        movement = createMoveStrategy();
+    }
+
+    public Platform getPlatform() {
+        return platform;
     }
 
     public boolean movingForward() {
@@ -18,5 +24,21 @@ public abstract class Monster extends Element {
         return steps;
     }
 
-    public abstract void move();
+    public void checkDirection() {
+        // to do
+    }
+
+    public void step() {
+        // to do
+    }
+
+    public void reset() {
+        // to do
+    }
+
+    public void move() {
+        // to do
+    }
+
+    protected abstract MoveStrategy createMoveStrategy();
 }

@@ -11,26 +11,8 @@ public class Ghost extends Monster {
     }
 
     @Override
-    public void move() {
-        int x = position.getX(), y = position.getY();
-        int l = platform.getLeft().getX(), r = platform.getRight().getX();
-
-        if (steps == 4) {
-            Random random = new Random();
-            int s = r - l + 1;
-            int n = random.nextInt(s);
-
-            position.moveTo(new Position(l + n, y));
-            steps = 0;
-        }
-        else {
-            if (x == r)
-                position.moveTo(new Position(l, y));
-            else
-                position.moveTo(new Position(x + 1, y));
-
-            steps++;
-        }
+    protected MoveStrategy createMoveStrategy() {
+        return new TeleportationStrategy();
     }
 
     @Override
