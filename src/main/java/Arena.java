@@ -3,13 +3,18 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.System.exit;
 
 public class Arena {
     private final int width;
     private final int height;
+    private char direction;
     private List<Wall> walls;
     private List<Platform> platforms;
     private List<Ladder> ladders;
@@ -17,10 +22,12 @@ public class Arena {
     private Key key;
     private Door door;
     private Hero hero;
+    private int score;
 
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
+        direction = '0';
         walls = createWalls();
         platforms = createPlatforms();
         ladders = createLadders();
@@ -28,19 +35,20 @@ public class Arena {
         key = new Key(2, 3);
         door = new Door(58, 3);
         hero = new Hero(1, 18);
+        score = 0;
     }
 
-    private List<Wall> createWalls(){
+    private List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
 
-        for(int c=0; c < width; c++){
+        for (int c = 0; c < width; c++) {
             walls.add(new Wall(c, 0));
-            walls.add(new Wall(c, height-1));
+            walls.add(new Wall(c, height - 1));
         }
 
-        for(int r=0; r < height; r++){
+        for (int r = 0; r < height; r++) {
             walls.add(new Wall(0, r));
-            walls.add(new Wall(width-1, r));
+            walls.add(new Wall(width - 1, r));
         }
 
         return walls;
@@ -93,9 +101,9 @@ public class Arena {
 
     public void draw(TextGraphics screen) {
         screen.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
-        screen.fillRectangle(new TerminalPosition(0,0), new TerminalSize(width, height), ' ');
+        screen.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
 
-        for(Wall wall : walls)
+        for (Wall wall : walls)
             wall.draw(screen);
 
         for (Platform platform : platforms)
@@ -108,12 +116,13 @@ public class Arena {
 
         screen.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
 
-        for(Coin coin : coins)
+        for (Coin coin : coins)
             coin.draw(screen);
 
         key.draw(screen);
-        door.draw(screen);
         hero.draw(screen);
+        door.draw(screen);
+
     }
 
     public void processKey(KeyStroke key) {
@@ -122,6 +131,10 @@ public class Arena {
 
     public void moveHero(Position position) {
         // to do
+    }
+
+    public Hero getHero() {
+        return hero;
     }
 
     private boolean canHeroMove(Position pos) {
