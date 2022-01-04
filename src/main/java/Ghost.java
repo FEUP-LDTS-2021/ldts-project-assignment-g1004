@@ -5,6 +5,9 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.util.Random;
 
+/**
+ *
+ */
 public class Ghost extends Monster {
     public Ghost(int x, int y, Platform p) {
         super(x, y, p);
