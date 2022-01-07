@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 /**
- * Key class. When catched, allows hero to unlock door and end level.
+ * Key class. When caught, allows hero to unlock door and end level.
  */
 public class Key extends Element {
     /**
