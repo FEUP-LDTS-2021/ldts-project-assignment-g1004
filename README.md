@@ -10,6 +10,40 @@ This project was developed by *Diogo Silva* (*up202004288*@edu.fe.up.pt), *Maria
 
 ------
 
+### SYMBOLS
+
+```X``` : hero
+
+```$``` : coin
+
+```F``` : key
+
+```0``` : door
+
+```g``` : goblin
+
+```Z``` : zombie
+
+```h``` : ghost
+
+
+------
+
+### CONTROLS
+
+```ArrowUp``` : move up
+
+```ArrowDown``` : move down
+
+```ArrowLeft``` : move left
+
+```ArrowRight``` : move right
+
+```q``` : leave game
+
+
+------
+
 ### IMAGES
 
 ![img](https://cdn.discordapp.com/attachments/904020458922455050/928785239923380304/game.png)
