@@ -24,6 +24,10 @@ public abstract class Monster extends Element {
         return steps;
     }
 
+    public MoveStrategy getMovement() {
+        return movement;
+    }
+
     public void checkDirection() {
         if (position.getX() == platform.getLeft().getX())
             forward = true;
