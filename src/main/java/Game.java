@@ -26,7 +26,7 @@ public class Game {
             e.printStackTrace();
         }
 
-        arena = new Arena(60, 20);
+        arena = new Arena();
     }
 
     private void draw() throws IOException {

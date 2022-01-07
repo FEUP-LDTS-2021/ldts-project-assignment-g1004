@@ -3,9 +3,7 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 
-import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,11 +20,12 @@ public class Arena {
     private Key key;
     private Door door;
     private Hero hero;
+    private List<Monster> monsters;
     private int score;
 
-    public Arena(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public Arena() {
+        width = 60;
+        height = 20;
         direction = '0';
         walls = createWalls();
         platforms = createPlatforms();
@@ -35,6 +34,7 @@ public class Arena {
         key = new Key(2, 3);
         door = new Door(58, 3);
         hero = new Hero(1, 18);
+        monsters = createMonsters();
         score = 0;
     }
 
@@ -99,6 +99,24 @@ public class Arena {
         return coins;
     }
 
+    private List<Monster> createMonsters() {
+        List<Monster> monsters = new ArrayList<>();
+
+        int x, y;
+        for (Platform p : platforms) {
+            x = p.getLeft().getX();
+            y = p.getLeft().getY();
+            if (y == 13)
+                monsters.add(new Ghost(x, y - 1, p));
+            else if (y % 2 == 0)
+                monsters.add(new Goblin(x, y - 1, p));
+            else
+                monsters.add(new Zombie(x, y - 1, p));
+        }
+
+        return monsters;
+    }
+
     public void draw(TextGraphics screen) {
         screen.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
         screen.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
@@ -123,6 +141,8 @@ public class Arena {
         hero.draw(screen);
         door.draw(screen);
 
+        for (Monster monster : monsters)
+            monster.draw(screen);
     }
 
     public void processKey(KeyStroke key) {
@@ -142,7 +162,20 @@ public class Arena {
         return true;
     }
 
+    public void moveMonsters() {
+        // to do
+    }
+
+    public boolean verifyMonsterCollisions() {
+        // to do
+        return true;
+    }
+
     private void retrieveCoins() {
         // to do
+    }
+
+    public int getScore() {
+        return score;
     }
 }
