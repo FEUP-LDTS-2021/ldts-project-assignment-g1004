@@ -146,11 +146,36 @@ public class Arena {
     }
 
     public void processKey(KeyStroke key) {
-        // to do
+        System.out.println(key);
+        switch (key.getKeyType()) {
+            case EOF:
+                exit(0);
+            case ArrowUp:
+                direction = 'v';
+                moveHero(hero.moveUp());
+                break;
+            case ArrowDown:
+                direction = 'v';
+                moveHero(hero.moveDown());
+                break;
+            case ArrowLeft:
+                direction = 'h';
+                moveHero(hero.moveLeft());
+                break;
+            case ArrowRight:
+                direction = 'h';
+                moveHero(hero.moveRight());
+                break;
+            default:
+                direction = 'n';
+        }
     }
 
     public void moveHero(Position position) {
-        // to do
+        if (canHeroMove(position)) {
+            hero.setPosition(position);
+            retrieveCoins();
+        }
     }
 
     public Hero getHero() {
@@ -158,24 +183,56 @@ public class Arena {
     }
 
     private boolean canHeroMove(Position pos) {
-        // to do
-        return true;
+        for (Wall wall : walls)
+            if (wall.getPosition().equals(pos))
+                return false;
+
+        if (direction == 'v') {
+            for (Ladder ladder : ladders)
+                if (((ladder.getBottom().getX() == pos.getX()) && (pos.getY() <= ladder.getBottom().getY()) && (pos.getY() >= ladder.getTop().getY())) || ladder.getTop().getY() - 1 == pos.getY())
+                    return true;
+        }
+        else if (direction == 'h'){
+            for (Platform platform : platforms)
+                if ((pos.getX() <= platform.getRight().getX() && pos.getX() >= platform.getLeft().getX()) && pos.getY() == platform.getLeft().getY()-1)
+                    return true;
+
+            if (pos.getY() == height-2)
+                return true;
+        }
+
+        return false;
     }
 
     public void moveMonsters() {
-        // to do
+        for (Monster monster : monsters)
+            monster.move();
     }
 
     public boolean verifyMonsterCollisions() {
-        // to do
-        return true;
+        for (Monster monster : monsters) {
+            if (monster.getPosition().equals(hero.getPosition())) {
+                System.out.println("You died! Game Over...");
+                System.out.println("Score:");
+                System.out.println(score);
+                return true;
+            }
+        }
+        return false;
     }
 
     private void retrieveCoins() {
-        // to do
+        for (Coin coin : coins) {
+            if (hero.getPosition().equals(coin.getPosition())) {
+                coins.remove(coin);
+                score++;
+                break;
+            }
+        }
     }
 
     public int getScore() {
         return score;
     }
 }
+
