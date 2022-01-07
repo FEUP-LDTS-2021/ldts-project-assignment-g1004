@@ -18,20 +18,20 @@ This project was developed by *Diogo Silva* (*up202004288*@edu.fe.up.pt), *Maria
 
 ###### Walking:
 
-![img](https://cdn.discordapp.com/attachments/904020458922455050/928787767327076362/walking.png)
+![img](screenshots/walking.png)
 
 - **Climbing** - The hero can use stairs to move up or down to other platforms by pressing arrow up key or arrow down key.
 
 ###### Climbing:
 
-![img](https://cdn.discordapp.com/attachments/904020458922455050/928788568724344832/climbing.png)
+![img](screenshots/climbing.png)
 
 - **Getting coins** - When the hero gets a coin, he collects it and the correspondent level score increases.
 - **Different monsters** - Monsters only exist on platforms and have 3 types, goblins, zombies and ghosts. Each type possesses a different way of moving.
 
 ###### Different monsters:
 
-![img](https://cdn.discordapp.com/attachments/904020458922455050/928789230300303440/monster_types.png)
+![img](screenshots/monster types.png)
 
 - **Death** - The hero dies when a monster gets to his coordinates and collides with him or when he simply moves against one of them.
 - **Leave game** - For now, the user can leave the game by pressing 'q' or simply closing the console.
@@ -42,15 +42,52 @@ This project was developed by *Diogo Silva* (*up202004288*@edu.fe.up.pt), *Maria
 
 > This section is similar to the previous one but lists the features that are not yet implemented.
 - **Catching key** - The hero can collect the key that lets him open the door.
+
+###### Catching key:
+
+![img](mockups/catchingkey.png)
+
 - **Opening door** - The hero, having collected the key, may open the door and reach the next level.
+
+###### Opening door:
+
+![img](mockups/openingdoor.png)
+
 - **Health points** - The hero will have health points, dying when that number reaches 0.
+
+###### Health points:
+
+![img](mockups/healthpoints.png)
+
 - **Damage** - Each type of monster will take a different amount of health from the hero when colliding with him.
+
+###### Damage:
+
+![img](mockups/damage.png)
+
 - **Textures** - The game will have textures in order to look more pleasing.
+
+###### Textures:
+
+![img](mockups/textures.png)
+
 - **Different levels** - The game will have 10 levels, each one with its unique arena.
+
+###### Different levels:
+
+![img](mockups/differentlevels.png)
+
 - **Main menu** - The user is able to see his progress and play the level where he's currently at.
+
+###### Main menu:
+
+![img](mockups/mainmenu.png)
+
 - **Final level** - The last level will contain a "boss", a monster stronger than usual.
 
-(to do: include GUI mock-ups for the planned features)
+###### Final level:
+
+![img](mockups/finallevel.png)
 
 ------
 
@@ -77,7 +114,7 @@ We can choose a unique behaviour for each monster movement, having more flexibil
 
 The following figure shows how the pattern’s roles were mapped to the application classes.
 
-![img](https://cdn.discordapp.com/attachments/904020458922455050/928798158694256670/strategy.png)
+![img](screenshots/strategy.png)
 
 These classes can be found in the following files:
 
@@ -114,7 +151,7 @@ We can create different types of monsters this way, each one with its own instan
 
 The following figure shows how the pattern’s roles were mapped to the application classes.
 
-![img](https://cdn.discordapp.com/attachments/904020458922455050/928811880485646336/factorymethod.png)
+![img](screenshots/factorymethod.png)
 
 These classes can be found in the following files:
 

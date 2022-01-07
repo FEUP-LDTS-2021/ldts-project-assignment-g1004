@@ -46,6 +46,6 @@ This project was developed by *Diogo Silva* (*up202004288*@edu.fe.up.pt), *Maria
 
 ### IMAGES
 
-![img](https://cdn.discordapp.com/attachments/904020458922455050/928785239923380304/game.png)
+![img](docs/screenshots/game.png)
 
 ------
