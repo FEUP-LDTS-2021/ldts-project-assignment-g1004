@@ -3,7 +3,7 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 /**
- * Bar class. 
+ * Bar class. This class creates and draws each ladder bar.
  */
 public class Bar extends Element {
     /**
@@ -16,7 +16,7 @@ public class Bar extends Element {
     }
 
     /**
-     * Draws
+     * Draws bars.
      * @param screen
      */
     @Override
@@ -26,9 +26,9 @@ public class Bar extends Element {
     }
 
     /**
-     *
+     * Comparison between position of the bar with position of an object.
      * @param o
-     * @return
+     * @return true if the position of both objects is the same.
      */
     @Override
     public boolean equals(Object o) {
