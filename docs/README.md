@@ -31,7 +31,7 @@ This project was developed by *Diogo Silva* (*up202004288*@edu.fe.up.pt), *Maria
 
 ###### Different monsters:
 
-![img](screenshots/monster types.png)
+![img](screenshots/monstertypes.png)
 
 - **Death** - The hero dies when a monster gets to his coordinates and collides with him or when he simply moves against one of them.
 - **Leave game** - For now, the user can leave the game by pressing 'q' or simply closing the console.
