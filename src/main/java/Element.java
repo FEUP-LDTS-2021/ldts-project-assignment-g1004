@@ -28,7 +28,7 @@ public abstract class Element {
      * @param position that is meant to be attributed to element.
      */
     public void setPosition(Position position) {
-        this.position = position;
+        this.position.moveTo(position);
     }
 
     /**
