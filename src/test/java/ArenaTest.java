@@ -83,18 +83,17 @@ public class ArenaTest {
 
     @Test
     public void moveRightV2() {
-        Position position = Mockito.mock(Position.class);
-        Mockito.when(position.getX()).thenReturn(2);
-        Mockito.when(position.getY()).thenReturn(18);
-
         Arena arena = new Arena(); // hero spawns at coordinates (1, 18)
 
         arena.processKey(new KeyStroke(KeyType.ArrowLeft)); // just to set direction as 'h'
         // he'll stay in place because there's a wall to his left
-
-        // to prove he stayed in place
         Assertions.assertEquals(1, arena.getHero().getPosition().getX());
         Assertions.assertEquals(18, arena.getHero().getPosition().getY());
+        // to check if he stayed in place
+
+        Position position = Mockito.mock(Position.class);
+        Mockito.when(position.getX()).thenReturn(2);
+        Mockito.when(position.getY()).thenReturn(18);
 
         // direction is set as 'h' so the conditions work properly
         arena.moveHero(position); // move right (with position mock)
