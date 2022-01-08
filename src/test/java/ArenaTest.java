@@ -69,5 +69,66 @@ public class ArenaTest {
         Assertions.assertEquals(60, screen.getTerminalSize().getColumns());
         Assertions.assertEquals(20, screen.getTerminalSize().getRows());
     }
+
+    @Test
+    public void moveRight() {
+        KeyStroke key = Mockito.mock(KeyStroke.class);
+        Mockito.when(key.getKeyType()).thenReturn(KeyType.ArrowRight);
+
+        Arena arena = new Arena(); // hero spawns at coordinates (1, 18)
+        arena.processKey(key);
+
+        Assertions.assertEquals(2, arena.getHero().getPosition().getX());
+    }
+
+    @Test
+    public void moveRightV2() {
+        Position position = Mockito.mock(Position.class);
+        Mockito.when(position.getX()).thenReturn(2);
+        Mockito.when(position.getY()).thenReturn(18);
+
+        Arena arena = new Arena(); // hero spawns at coordinates (1, 18)
+
+        arena.processKey(new KeyStroke(KeyType.ArrowLeft)); // just to set direction as 'h'
+        // he'll stay in place because there's a wall to his left
+
+        // to prove he stayed in place
+        Assertions.assertEquals(1, arena.getHero().getPosition().getX());
+        Assertions.assertEquals(18, arena.getHero().getPosition().getY());
+
+        // direction is set as 'h' so the conditions work properly
+        arena.moveHero(position); // move right (with position mock)
+        // canHeroMove() has calls to position getters
+
+        Assertions.assertEquals(2, arena.getHero().getPosition().getX());
+        Assertions.assertEquals(18, arena.getHero().getPosition().getY());
+    }
+
+    @Test
+    public void jumpOffLadder() {
+        Arena arena = new Arena(); // hero spawns at coordinates (1, 18)
+
+        // to place hero in the middle of the first ladder in our arena
+        for (int i = 0; i < 19; i++)
+            arena.processKey(new KeyStroke(KeyType.ArrowRight));
+        arena.processKey(new KeyStroke(KeyType.ArrowUp));
+        arena.processKey(new KeyStroke(KeyType.ArrowLeft)); // just to set direction as 'h'
+
+        // just checking if hero is where we set him
+        Assertions.assertEquals(20, arena.getHero().getPosition().getX());
+        Assertions.assertEquals(17, arena.getHero().getPosition().getY());
+
+        Position position = Mockito.mock(Position.class);
+        Mockito.when(position.getX()).thenReturn(21);
+        Mockito.when(position.getY()).thenReturn(17);
+
+        // direction is set as 'h' so the conditions work properly
+        arena.moveHero(position); // move right (with position mock)
+        // canHeroMove() has calls to position getters
+
+        // he shouldn't be authorized to move right as he can't jump off ladders
+        Assertions.assertEquals(20, arena.getHero().getPosition().getX());
+        Assertions.assertEquals(17, arena.getHero().getPosition().getY());
+    }
 }
 
