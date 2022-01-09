@@ -198,8 +198,8 @@ Link to mutation testing report.)
 
 > This section describes how the work regarding the project was divided between the students.
 
-- Diogo Silva: ...%
-- Maria Luísa Salvador: ...%
-- Mariana Teixeira: ...%
+- Diogo Silva: 40%
+- Maria Luísa Salvador: 30%
+- Mariana Teixeira: 30%
 
 ------
