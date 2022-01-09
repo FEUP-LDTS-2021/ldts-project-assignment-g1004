@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 /**
- * Coin class. Can be catched by hero, incrementing score.
+ * Coin class. Can be caught by hero, incrementing score.
  */
 public class Coin extends Element {
     /**
