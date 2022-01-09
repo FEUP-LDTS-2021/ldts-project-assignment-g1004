@@ -4,7 +4,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
  * Abstract element class. Describes behavior of some components of the game.
  */
 public abstract class Element {
-    protected Position position;
+    protected Position position;     /** Location on the arena */
 
     /**
      * Constructor.
