@@ -9,20 +9,27 @@ import java.util.List;
 
 import static java.lang.System.exit;
 
+/**
+ * Arena class. This class creates an arena or level for the user to play.
+ */
 public class Arena {
-    private final int width;
-    private final int height;
-    private char direction;
-    private List<Wall> walls;
-    private List<Platform> platforms;
-    private List<Ladder> ladders;
-    private List<Coin> coins;
-    private Key key;
-    private Door door;
-    private Hero hero;
-    private List<Monster> monsters;
-    private int score;
+    private final int width;            /** horizontal extent of arena */
+    private final int height;           /** vertical extent of arena */
+    private char direction;             /** direction of user movement: horizontal or vertical */
+    private List<Wall> walls;           /** walls that surround arena */
+    private List<Platform> platforms;   /** horizontal platforms inside arena */
+    private List<Ladder> ladders;       /** vertical ladders inside arena */
+    private List<Coin> coins;           /** coins that can be caught by user */
+    private Key key;                    /** key that can be caught by user */
+    private Door door;                  /** door for the user to get out of arena */
+    private Hero hero;                  /** game character controlled by the user */
+    private List<Monster> monsters;     /** monsters that exist and move inside arena */
+    private int score;                  /** points got by the user due to caught of coins */
 
+    /**
+     * Constructor. It defines a size for the arena and adds all its components.
+     * It also initializes user score (zero points) and sets a default value for direction parameter ('0').
+     */
     public Arena() {
         width = 60;
         height = 20;
@@ -38,6 +45,10 @@ public class Arena {
         score = 0;
     }
 
+    /**
+     * Creates walls inside arena, delimiting the area for the user to move.
+     * @return walls surrounding all the hero movements area.
+     */
     private List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
 
@@ -54,6 +65,10 @@ public class Arena {
         return walls;
     }
 
+    /**
+     * Creates horizontal platforms inside arena.
+     * @return platforms that arena contains.
+     */
     private List<Platform> createPlatforms() {
         List<Platform> platforms = new ArrayList<>();
 
@@ -69,6 +84,10 @@ public class Arena {
         return platforms;
     }
 
+    /**
+     * Creates vertical ladders inside arena.
+     * @return ladders that arena contains.
+     */
     private List<Ladder> createLadders() {
         List<Ladder> ladders = new ArrayList<>();
 
@@ -84,6 +103,10 @@ public class Arena {
         return ladders;
     }
 
+    /**
+     * Creates coins inside arena.
+     * @return coins that arena contains.
+     */
     private List<Coin> createCoins() {
         List<Coin> coins = new ArrayList<>();
 
@@ -99,6 +122,10 @@ public class Arena {
         return coins;
     }
 
+    /**
+     * Creates monsters inside arena.
+     * @return monsters that arena contains.
+     */
     private List<Monster> createMonsters() {
         List<Monster> monsters = new ArrayList<>();
 
@@ -117,6 +144,10 @@ public class Arena {
         return monsters;
     }
 
+    /**
+     * Draws the arena on the screen, meaning it draws all arena's elements.
+     * @param screen
+     */
     public void draw(TextGraphics screen) {
         screen.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
         screen.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
@@ -145,8 +176,16 @@ public class Arena {
             monster.draw(screen);
     }
 
+    /**
+     * Given a user input from the keyboard, moves hero if it is possible, setting a direction for hero's movement.
+     * This makes it easier when it comes to dealing with the user's movement permissions:
+        * Vertical movement, 'v' -> arrows up and down.
+        * Horizontal movement, 'h' -> arrows left and right.
+        * In the case of other movements (keys) the hero will not move.
+     * @param key pressed by the user.
+     */
     public void processKey(KeyStroke key) {
-        System.out.println(key);
+        //System.out.println(key);
         switch (key.getKeyType()) {
             case EOF:
                 exit(0);
@@ -171,6 +210,10 @@ public class Arena {
         }
     }
 
+    /**
+     * Changes hero position, if hero has permission to make that move.
+     * @param position is the place to where the user wants the hero to move.
+     */
     public void moveHero(Position position) {
         if (canHeroMove(position)) {
             hero.setPosition(position);
@@ -178,10 +221,23 @@ public class Arena {
         }
     }
 
+    /**
+     * Obtain hero of arena.
+     * @return hero.
+     */
     public Hero getHero() {
         return hero;
     }
 
+    /**
+     * Determines if the hero's movement is possible according to the place where he is and the direction he wants to go:
+        * The hero must move inside area delimited with walls.
+        * On ladders, the movement can only be vertical, 'v'. Also, the hero can get down to one of them.
+        * On platforms or on the floor wall, the movement can only be horizontal, 'h'.
+        * In the case of other movements the hero will not move.
+     * @param pos to where hero wants to move to.
+     * @return true if hero can move or false if hero can´t move.
+     */
     private boolean canHeroMove(Position pos) {
         for (Wall wall : walls)
             if (wall.getPosition().equals(pos))
@@ -204,11 +260,18 @@ public class Arena {
         return false;
     }
 
+    /**
+     * Moves all the monsters in arena.
+     */
     public void moveMonsters() {
         for (Monster monster : monsters)
             monster.move();
     }
 
+    /**
+     * Checks if any of the monsters collided with hero, in which case he will die, showing user's score.
+     * @return true if hero died, otherwise false.
+     */
     public boolean verifyMonsterCollisions() {
         for (Monster monster : monsters) {
             if (monster.getPosition().equals(hero.getPosition())) {
@@ -221,6 +284,10 @@ public class Arena {
         return false;
     }
 
+    /**
+     * Each coin is removed if its position equals hero´s position.
+     * Also, provides the score of the hero .
+     */
     private void retrieveCoins() {
         for (Coin coin : coins) {
             if (hero.getPosition().equals(coin.getPosition())) {
@@ -231,6 +298,10 @@ public class Arena {
         }
     }
 
+    /**
+     * Obtain the game score.
+     * @return total score.
+     */
     public int getScore() {
         return score;
     }
