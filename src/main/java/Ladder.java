@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Ladder class. Allows the main character to move between platforms, through ladders.
+ * Ladder class. Allows the main character to move between platforms through ladders.
  */
 public class Ladder {
     private final Position top;    /**< position on the top of the ladder */
