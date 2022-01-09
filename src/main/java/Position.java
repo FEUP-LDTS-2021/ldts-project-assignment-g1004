@@ -5,8 +5,8 @@ import java.util.Objects;
  */
 public class Position {
 
-    private int x; /**< Abscissa */
-    private int y; /**< Ordinate */
+    private int x; /** Abscissa */
+    private int y; /** Ordinate */
 
     /**
      * Default constructor.

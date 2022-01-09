@@ -7,9 +7,9 @@ import java.util.List;
  * Ladder class. Allows the main character to move between platforms through ladders.
  */
 public class Ladder {
-    private final Position top;    /**< position on the top of the ladder */
-    private final Position bottom; /**< position on the bottom of the ladder */
-    private final List<Bar> bars;  /**< bars to the construction of the ladder */
+    private final Position top;    /** position on the top of the ladder */
+    private final Position bottom; /** position on the bottom of the ladder */
+    private final List<Bar> bars;  /** bars to the construction of the ladder */
 
     /**
      * Constructor.
