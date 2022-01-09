@@ -39,7 +39,7 @@ public class Zombie extends Monster {
     }
 
     /**
-     * Comparison between position of the monster and position of an object.
+     * Comparison between position of the zombie and position of an object.
      * @param o
      * @return true if the position of both objects is the same.
      */
