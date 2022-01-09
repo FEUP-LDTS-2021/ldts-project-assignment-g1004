@@ -1,4 +1,12 @@
+/**
+ * Confused Strategy class.
+ * Each monster takes two steps in the direction he is going and then one step back, and then restarts this process.
+ */
 public class ConfusedStrategy implements MoveStrategy {
+    /**
+     * Moves monster two steps forward and one step back, repeatedly.
+     * @param monster
+     */
     @Override
     public void moveMonster(Monster monster) {
         monster.checkDirection();
