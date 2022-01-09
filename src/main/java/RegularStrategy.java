@@ -1,5 +1,5 @@
 /**
- * Strategy in which monster moves to the left border and then to the right border of the platform.
+ * Regular Strategy class. Each monster moves to the left border and then to the right border of the platform.
  */
 public class RegularStrategy implements MoveStrategy {
     /**
