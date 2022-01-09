@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Game</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: Game (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Game</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/34)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;import com.googlecode.lanterna.TerminalSize;
+<i class="no-highlight">2</i>&nbsp;import com.googlecode.lanterna.input.KeyStroke;
+<i class="no-highlight">3</i>&nbsp;import com.googlecode.lanterna.input.KeyType;
+<i class="no-highlight">4</i>&nbsp;import com.googlecode.lanterna.screen.Screen;
+<i class="no-highlight">5</i>&nbsp;import com.googlecode.lanterna.screen.TerminalScreen;
+<i class="no-highlight">6</i>&nbsp;import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
+<i class="no-highlight">7</i>&nbsp;import com.googlecode.lanterna.terminal.Terminal;
+<i class="no-highlight">8</i>&nbsp;
+<i class="no-highlight">9</i>&nbsp;import java.io.IOException;
+<i class="no-highlight">10</i>&nbsp;
+<i class="no-highlight">11</i>&nbsp;/**
+<i class="no-highlight">12</i>&nbsp; * Game class. This class sets the screen and the arena or level.
+<i class="no-highlight">13</i>&nbsp; */
+<i class="no-highlight">14</i>&nbsp;public class Game {
+<i class="no-highlight">15</i>&nbsp;    private Screen screen;  /** screen where game will be shown */
+<i class="no-highlight">16</i>&nbsp;    private Arena arena;    /** the arena with game components */
+<i class="no-highlight">17</i>&nbsp;
+<i class="no-highlight">18</i>&nbsp;    /**
+<i class="no-highlight">19</i>&nbsp;     * Constructor.
+<i class="no-highlight">20</i>&nbsp;     * It initializes arena and implements Lanterna methods, adding the screen to the arena.
+<i class="no-highlight">21</i>&nbsp;     */
+<b class="nc"><i class="no-highlight">22</i>&nbsp;    public Game() {</b>
+<i class="no-highlight">23</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">24</i>&nbsp;            TerminalSize terminalSize = new TerminalSize(60, 20);</b>
+<b class="nc"><i class="no-highlight">25</i>&nbsp;            DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);</b>
+<b class="nc"><i class="no-highlight">26</i>&nbsp;            Terminal terminal = terminalFactory.createTerminal();</b>
+<b class="nc"><i class="no-highlight">27</i>&nbsp;            screen = new TerminalScreen(terminal);</b>
+<b class="nc"><i class="no-highlight">28</i>&nbsp;            screen.setCursorPosition(null);</b>
+<b class="nc"><i class="no-highlight">29</i>&nbsp;            screen.startScreen();</b>
+<b class="nc"><i class="no-highlight">30</i>&nbsp;            screen.doResizeIfNecessary();</b>
+<i class="no-highlight">31</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">32</i>&nbsp;        catch (IOException e) {</b>
+<b class="nc"><i class="no-highlight">33</i>&nbsp;            e.printStackTrace();</b>
+<b class="nc"><i class="no-highlight">34</i>&nbsp;        }</b>
+<i class="no-highlight">35</i>&nbsp;
+<b class="nc"><i class="no-highlight">36</i>&nbsp;        arena = new Arena();</b>
+<i class="no-highlight">37</i>&nbsp;    }
+<i class="no-highlight">38</i>&nbsp;
+<i class="no-highlight">39</i>&nbsp;    /**
+<i class="no-highlight">40</i>&nbsp;     * Draws the executable screen,
+<i class="no-highlight">41</i>&nbsp;     * @throws IOException
+<i class="no-highlight">42</i>&nbsp;     */
+<i class="no-highlight">43</i>&nbsp;    private void draw() throws IOException {
+<b class="nc"><i class="no-highlight">44</i>&nbsp;        screen.clear();</b>
+<b class="nc"><i class="no-highlight">45</i>&nbsp;        arena.draw(screen.newTextGraphics());</b>
+<b class="nc"><i class="no-highlight">46</i>&nbsp;        screen.refresh();</b>
+<i class="no-highlight">47</i>&nbsp;    }
+<i class="no-highlight">48</i>&nbsp;
+<i class="no-highlight">49</i>&nbsp;    /**
+<i class="no-highlight">50</i>&nbsp;     * When user input is obtained (key), the game handles a response from the game.
+<i class="no-highlight">51</i>&nbsp;     * @param key is the user input.
+<i class="no-highlight">52</i>&nbsp;     */
+<i class="no-highlight">53</i>&nbsp;    private void processKey(KeyStroke key) {
+<b class="nc"><i class="no-highlight">54</i>&nbsp;        arena.processKey(key);</b>
+<i class="no-highlight">55</i>&nbsp;    }
+<i class="no-highlight">56</i>&nbsp;
+<i class="no-highlight">57</i>&nbsp;    /**
+<i class="no-highlight">58</i>&nbsp;     * This method shows the main loop of the game.
+<i class="no-highlight">59</i>&nbsp;     * When we run the game, the terminal is drawn and user input is processed.
+<i class="no-highlight">60</i>&nbsp;     * It also checks if hero collided with monsters or, after moving them, if any monster collided with hero.
+<i class="no-highlight">61</i>&nbsp;     */
+<i class="no-highlight">62</i>&nbsp;    public void run() {
+<i class="no-highlight">63</i>&nbsp;        try {
+<i class="no-highlight">64</i>&nbsp;            while (true) {
+<b class="nc"><i class="no-highlight">65</i>&nbsp;                draw();</b>
+<b class="nc"><i class="no-highlight">66</i>&nbsp;                KeyStroke key = screen.readInput();</b>
+<b class="nc"><i class="no-highlight">67</i>&nbsp;                if (key.getKeyType() == KeyType.Character &amp;&amp; key.getCharacter() == &#39;q&#39;)</b>
+<b class="nc"><i class="no-highlight">68</i>&nbsp;                    screen.close();</b>
+<b class="nc"><i class="no-highlight">69</i>&nbsp;                if (key.getKeyType() == KeyType.EOF)</b>
+<b class="nc"><i class="no-highlight">70</i>&nbsp;                    break;</b>
+<b class="nc"><i class="no-highlight">71</i>&nbsp;                processKey(key);</b>
+<i class="no-highlight">72</i>&nbsp;
+<b class="nc"><i class="no-highlight">73</i>&nbsp;                if (arena.verifyMonsterCollisions()) {</b>
+<b class="nc"><i class="no-highlight">74</i>&nbsp;                    screen.close();</b>
+<b class="nc"><i class="no-highlight">75</i>&nbsp;                    break;</b>
+<i class="no-highlight">76</i>&nbsp;                }
+<i class="no-highlight">77</i>&nbsp;
+<b class="nc"><i class="no-highlight">78</i>&nbsp;                arena.moveMonsters();</b>
+<i class="no-highlight">79</i>&nbsp;
+<b class="nc"><i class="no-highlight">80</i>&nbsp;                if (arena.verifyMonsterCollisions()) {</b>
+<b class="nc"><i class="no-highlight">81</i>&nbsp;                    screen.close();</b>
+<b class="nc"><i class="no-highlight">82</i>&nbsp;                    break;</b>
+<i class="no-highlight">83</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">84</i>&nbsp;            }</b>
+<i class="no-highlight">85</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">86</i>&nbsp;        catch (IOException e) {</b>
+<b class="nc"><i class="no-highlight">87</i>&nbsp;            e.printStackTrace();</b>
+<b class="nc"><i class="no-highlight">88</i>&nbsp;        }</b>
+<i class="no-highlight">89</i>&nbsp;    }
+<i class="no-highlight">90</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-01-09 11:32</div>
+</div>
+</body>
+</html>

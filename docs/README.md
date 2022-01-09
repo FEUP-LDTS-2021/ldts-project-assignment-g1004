@@ -188,9 +188,13 @@ The use of the Factory Method Pattern in the current design allows the following
 
 ### TESTING
 
-(to do:
-Screenshot of coverage report.
-Link to mutation testing report.)
+Test coverage:
+
+![img](screenshots/testcoverage.png)
+
+Coverage report:
+
+![img](screenshots/coveragereport.png)
 
 ------
 
