@@ -206,7 +206,7 @@ public class Arena {
                 moveHero(hero.moveRight());
                 break;
             default:
-                direction = 'n';
+                direction = '0';
         }
     }
 
