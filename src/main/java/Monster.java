@@ -86,7 +86,7 @@ public abstract class Monster extends Element {
 
     /**
      * Defines the monster movement according to its special features.
-     * @return monster movement.
+     * @return monster movement type.
      */
     protected abstract MoveStrategy createMoveStrategy();
 }
