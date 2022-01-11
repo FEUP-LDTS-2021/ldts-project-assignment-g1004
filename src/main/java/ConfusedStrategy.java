@@ -14,7 +14,10 @@ public class ConfusedStrategy implements MoveStrategy {
         int x = monster.getPosition().getX(), y = monster.getPosition().getY();
         if (monster.movingForward()) {
             if (monster.getSteps() == 2) {
-                monster.setPosition(new Position(x - 1, y));
+                if (x == monster.getPlatform().getLeft().getX()) // so it doesn't move off the platform
+                    monster.setPosition(new Position(x + 1, y));
+                else
+                    monster.setPosition(new Position(x - 1, y));
                 monster.reset();
             }
             else {
@@ -24,7 +27,10 @@ public class ConfusedStrategy implements MoveStrategy {
         }
         else {
             if (monster.getSteps() == 2) {
-                monster.setPosition(new Position(x + 1, y));
+                if (x == monster.getPlatform().getRight().getX()) // so it doesn't move off the platform
+                    monster.setPosition(new Position(x - 1, y));
+                else
+                    monster.setPosition(new Position(x + 1, y));
                 monster.reset();
             }
             else {
