@@ -23,6 +23,7 @@ public class MonsterTest {
         goblin.move();
         goblin.move();
         Assertions.assertFalse(goblin.movingForward());
+        Assertions.assertEquals(2, goblin.attack());
     }
 
     @Test
@@ -42,6 +43,7 @@ public class MonsterTest {
         Position p = new Position(4, 4);
         Assertions.assertEquals(p, zombie.getPosition());
         Assertions.assertTrue(zombie.movingForward());
+        Assertions.assertEquals(3, zombie.attack());
     }
 
     @Test
@@ -57,5 +59,6 @@ public class MonsterTest {
         ghost.move();
         ghost.move();
         Assertions.assertEquals(0, ghost.getSteps());
+        Assertions.assertEquals(4, ghost.attack());
     }
 }

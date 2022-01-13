@@ -19,4 +19,17 @@ public class HeroTest {
         Assertions.assertEquals(p4, h.moveRight());
 
     }
+    @Test
+    public void hurt() {
+        Hero hero = new Hero(10, 10);
+
+        Assertions.assertEquals(11, hero.getHP());
+        hero.hurt(4);
+        Assertions.assertEquals(7, hero.getHP());
+        hero.hurt(3);
+        hero.hurt(2);
+        Assertions.assertFalse(hero.isDead());
+        hero.hurt(4);
+        Assertions.assertTrue(hero.isDead());
+    }
 }
