@@ -51,17 +51,15 @@ public class Hero extends Element {
     }
 
     public int getHP() {
-        // to do
-        return 0;
+        return healthPoints;
     }
 
     public void hurt(int damage) {
-        // to do
+        healthPoints -= damage;
     }
 
     public boolean isDead() {
-        // to do
-        return true;
+        return healthPoints <= 0;
     }
 
     /**

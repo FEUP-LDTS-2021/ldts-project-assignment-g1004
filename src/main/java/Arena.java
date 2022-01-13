@@ -275,10 +275,16 @@ public class Arena {
     public boolean verifyMonsterCollisions() {
         for (Monster monster : monsters) {
             if (monster.getPosition().equals(hero.getPosition())) {
-                System.out.println("You died! Game Over...");
-                System.out.println("Score:");
-                System.out.println(score);
-                return true;
+                hero.hurt(monster.attack());
+                if (hero.isDead()) {
+                    System.out.println("You died... Game over!");
+                    System.out.printf("Score: %d", score);
+                    return true;
+                }
+                else {
+                    System.out.printf("HP: %d", hero.getHP());
+                    System.out.println();
+                }
             }
         }
         return false;

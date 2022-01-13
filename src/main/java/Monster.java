@@ -93,7 +93,6 @@ public abstract class Monster extends Element {
     protected abstract MoveStrategy createMoveStrategy();
 
     public int attack() {
-        // to do
-        return 0;
+        return damage;
     }
 }
