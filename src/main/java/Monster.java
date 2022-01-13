@@ -6,6 +6,7 @@ public abstract class Monster extends Element {
     private boolean forward;            /** boolean that checks if the monster moves forward */
     private int steps;                  /** declares the monster steps */
     private MoveStrategy movement;      /** type of strategy that describes monster movement */
+    private final int damage;
 
     /**
      * Constructor.
@@ -13,8 +14,9 @@ public abstract class Monster extends Element {
      * @param y coordinate.
      * @param p platform.
      */
-    public Monster(int x, int y, Platform p) {
+    public Monster(int x, int y, int damage, Platform p) {
         super(x, y);
+        this.damage = damage;
         platform = p;
         forward = true;
         steps = 0;
@@ -89,4 +91,9 @@ public abstract class Monster extends Element {
      * @return monster movement type.
      */
     protected abstract MoveStrategy createMoveStrategy();
+
+    public int attack() {
+        // to do
+        return 0;
+    }
 }

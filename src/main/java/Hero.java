@@ -7,6 +7,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
  * Hero class. The main character, which is controlled by the player, can die if he loses all health due to hitting monsters.
  */
 public class Hero extends Element {
+    private int healthPoints;
     /**
      * Constructor.
      * @param x coordinate.
@@ -14,6 +15,7 @@ public class Hero extends Element {
      */
     public Hero(int x, int y) {
         super(x, y);
+        healthPoints = 11;
     }
 
     /**
@@ -46,6 +48,20 @@ public class Hero extends Element {
      */
     public Position moveRight() {
         return new Position(position.getX() + 1, position.getY());
+    }
+
+    public int getHP() {
+        // to do
+        return 0;
+    }
+
+    public void hurt(int damage) {
+        // to do
+    }
+
+    public boolean isDead() {
+        // to do
+        return true;
     }
 
     /**

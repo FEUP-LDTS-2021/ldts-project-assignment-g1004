@@ -17,7 +17,7 @@ public class Ghost extends Monster {
      * @param p platform.
      */
     public Ghost(int x, int y, Platform p) {
-        super(x, y, p);
+        super(x, y,4, p);
     }
 
     /**

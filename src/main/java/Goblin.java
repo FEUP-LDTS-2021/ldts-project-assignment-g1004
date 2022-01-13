@@ -15,7 +15,7 @@ public class Goblin extends Monster {
      * @param p platform.
      */
     public Goblin(int x, int y, Platform p) {
-        super(x, y, p);
+        super(x, y, 2, p);
     }
 
     /**

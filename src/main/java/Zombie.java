@@ -15,7 +15,7 @@ public class Zombie extends Monster {
      * @param p platform.
      */
     public Zombie(int x, int y, Platform p) {
-        super(x, y, p);
+        super(x, y,3, p);
     }
 
     /**
