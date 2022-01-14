@@ -181,9 +181,10 @@ public class Arena {
         for (int c = 1; c <= 11; c++)
             screen.putString(new TerminalPosition(c, height - 2), " ");
 
-        for (int c = 1; c <= hero.getHP(); c++) {
-            screen.setForegroundColor(TextColor.Factory.fromString("#00a814"));
-            screen.putString(new TerminalPosition(c, height - 2), "O");
+        for (int c = 1; c <= hero.getHP(); c++) { //
+            screen.setBackgroundColor(TextColor.Factory.fromString("#00a814"));
+            screen.enableModifiers(SGR.BOLD);
+            screen.putString(new TerminalPosition(c, height - 2), " ");
         }
 
     }
