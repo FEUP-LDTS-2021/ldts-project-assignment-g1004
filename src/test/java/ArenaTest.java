@@ -129,5 +129,19 @@ public class ArenaTest {
         Assertions.assertEquals(20, arena.getHero().getPosition().getX());
         Assertions.assertEquals(17, arena.getHero().getPosition().getY());
     }
+
+    @Test
+    public void leave(){
+        Arena arena = new Arena();
+
+        Assertions.assertFalse(arena.leave());
+        arena.processKey(new KeyStroke(KeyType.ArrowRight));
+        arena.moveHero(new Position(58,3)); // door coordinates
+        Assertions.assertFalse(arena.leave());
+
+        arena.moveHero(new Position(2,3)); // key coordinates
+        arena.moveHero(new Position(58,3));
+        Assertions.assertTrue(arena.leave());
+    }
 }
 
