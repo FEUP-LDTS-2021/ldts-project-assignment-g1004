@@ -8,6 +8,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
  */
 public class Hero extends Element {
     private int healthPoints;
+    private boolean key;
     /**
      * Constructor.
      * @param x coordinate.
@@ -16,6 +17,7 @@ public class Hero extends Element {
     public Hero(int x, int y) {
         super(x, y);
         healthPoints = 11;
+        key = false;
     }
 
     /**
@@ -62,6 +64,11 @@ public class Hero extends Element {
         return healthPoints <= 0;
     }
 
+    public void catchKey(){key = true;}
+
+    public boolean hasKey(){
+        return key;
+    }
     /**
      * Draws hero on the screen.
      * @param screen

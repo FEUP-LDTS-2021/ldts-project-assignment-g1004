@@ -19,6 +19,7 @@ public class HeroTest {
         Assertions.assertEquals(p4, h.moveRight());
 
     }
+
     @Test
     public void hurt() {
         Hero hero = new Hero(10, 10);
@@ -32,4 +33,14 @@ public class HeroTest {
         hero.hurt(4);
         Assertions.assertTrue(hero.isDead());
     }
+
+    @Test
+    public void key(){
+        Hero hero = new Hero(10,10);
+
+        Assertions.assertFalse(hero.hasKey());
+        hero.catchKey();
+        Assertions.assertTrue(hero.hasKey());
+    }
+
 }

@@ -192,9 +192,9 @@ public class Arena {
     /**
      * Given a user input from the keyboard, moves hero if it is possible, setting a direction for hero's movement.
      * This makes it easier when it comes to dealing with the user's movement permissions:
-        * Vertical movement, 'v' -> arrows up and down.
-        * Horizontal movement, 'h' -> arrows left and right.
-        * In the case of other movements (keys) the hero will not move.
+     * Vertical movement, 'v' -> arrows up and down.
+     * Horizontal movement, 'h' -> arrows left and right.
+     * In the case of other movements (keys) the hero will not move.
      * @param key pressed by the user.
      */
     public void processKey(KeyStroke key) {
@@ -231,6 +231,7 @@ public class Arena {
         if (canHeroMove(position)) {
             hero.setPosition(position);
             retrieveCoins();
+            retrieveKey();
         }
     }
 
@@ -244,10 +245,10 @@ public class Arena {
 
     /**
      * Determines if the hero's movement is possible according to the place where he is and the direction he wants to go:
-        * The hero must move inside area delimited with walls.
-        * On ladders, the movement can only be vertical, 'v'. Also, the hero can get down to one of them.
-        * On platforms or on the floor wall, the movement can only be horizontal, 'h'.
-        * In the case of other movements the hero will not move.
+     * The hero must move inside area delimited with walls.
+     * On ladders, the movement can only be vertical, 'v'. Also, the hero can get down to one of them.
+     * On platforms or on the floor wall, the movement can only be horizontal, 'h'.
+     * In the case of other movements the hero will not move.
      * @param pos to where hero wants to move to.
      * @return true if hero can move or false if hero can´t move.
      */
@@ -323,6 +324,20 @@ public class Arena {
      */
     public int getScore() {
         return score;
+    }
+
+    private void retrieveKey(){
+        if (hero.getPosition().equals(key.getPosition())){
+            hero.catchKey();
+        }
+    }
+
+    public boolean leave(){
+        if (hero.hasKey() && hero.getPosition().equals(door.getPosition())){
+            System.out.println("Congrats !");
+            return true;
+        }
+        return false;
     }
 }
 
