@@ -311,5 +311,14 @@ public class Arena {
     public int getScore() {
         return score;
     }
+
+    private void retrieveKey(){
+        //to do
+    }
+
+    public boolean leave(){
+        //to do
+        return true;
+    }
 }
 
