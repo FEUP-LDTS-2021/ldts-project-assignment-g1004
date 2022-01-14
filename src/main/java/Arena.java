@@ -1,3 +1,4 @@
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -176,6 +177,15 @@ public class Arena {
 
         for (Monster monster : monsters)
             monster.draw(screen);
+
+        for (int c = 1; c <= 11; c++)
+            screen.putString(new TerminalPosition(c, height - 2), " ");
+
+        for (int c = 1; c <= hero.getHP(); c++) {
+            screen.setForegroundColor(TextColor.Factory.fromString("#00a814"));
+            screen.putString(new TerminalPosition(c, height - 2), "O");
+        }
+
     }
 
     /**
