@@ -64,15 +64,11 @@ public class Hero extends Element {
         return healthPoints <= 0;
     }
 
-    public void catchKey(){
-        //to do
-    }
+    public void catchKey(){key = true;}
 
     public boolean hasKey(){
-        //to do
-        return true;
+        return key;
     }
-
     /**
      * Draws hero on the screen.
      * @param screen

@@ -70,7 +70,7 @@ public class Game {
                     break;
                 processKey(key);
 
-                if (arena.verifyMonsterCollisions()) {
+                if (arena.verifyMonsterCollisions() || arena.leave()) {
                     screen.close();
                     break;
                 }
