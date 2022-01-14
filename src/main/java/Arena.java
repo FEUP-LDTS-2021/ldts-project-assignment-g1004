@@ -255,7 +255,7 @@ public class Arena {
                 if ((pos.getX() <= platform.getRight().getX() && pos.getX() >= platform.getLeft().getX()) && pos.getY() == platform.getLeft().getY()-1)
                     return true;
 
-            if (pos.getY() == height-2)
+            if (pos.getY() == height-4)
                 return true;
         }
 
