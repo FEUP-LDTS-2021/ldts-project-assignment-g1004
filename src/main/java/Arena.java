@@ -32,7 +32,7 @@ public class Arena {
      */
     public Arena() {
         width = 60;
-        height = 20;
+        height = 22;
         direction = '0';
         walls = createWalls();
         platforms = createPlatforms();
@@ -55,6 +55,8 @@ public class Arena {
         for (int c = 0; c < width; c++) {
             walls.add(new Wall(c, 0));
             walls.add(new Wall(c, height - 1));
+            walls.add(new Wall(c, height - 2));
+            walls.add(new Wall(c, height - 3));
         }
 
         for (int r = 0; r < height; r++) {
