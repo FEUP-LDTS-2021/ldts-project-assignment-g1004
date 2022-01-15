@@ -38,6 +38,13 @@ public class Game {
         arena = new Arena();
     }
 
+    public static Game getInstance() {
+        if (singleton == null)
+            singleton = new Game();
+
+        return singleton;
+    }
+
     /**
      * Draws the executable screen,
      * @throws IOException
