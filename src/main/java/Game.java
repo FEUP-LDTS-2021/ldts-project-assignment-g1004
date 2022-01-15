@@ -15,11 +15,13 @@ public class Game {
     private Screen screen;  /** screen where game will be shown */
     private Arena arena;    /** the arena with game components */
 
+    private static Game singleton = null;
+
     /**
      * Constructor.
      * It initializes arena and implements Lanterna methods, adding the screen to the arena.
      */
-    public Game() {
+    private Game() {
         try {
             TerminalSize terminalSize = new TerminalSize(60, 22);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
