@@ -1,3 +1,4 @@
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -32,7 +33,7 @@ public class Arena {
      */
     public Arena() {
         width = 60;
-        height = 20;
+        height = 22;
         direction = '0';
         walls = createWalls();
         platforms = createPlatforms();
@@ -55,6 +56,8 @@ public class Arena {
         for (int c = 0; c < width; c++) {
             walls.add(new Wall(c, 0));
             walls.add(new Wall(c, height - 1));
+            walls.add(new Wall(c, height - 2));
+            walls.add(new Wall(c, height - 3));
         }
 
         for (int r = 0; r < height; r++) {
@@ -174,6 +177,16 @@ public class Arena {
 
         for (Monster monster : monsters)
             monster.draw(screen);
+
+        for (int c = 1; c <= 11; c++)
+            screen.putString(new TerminalPosition(c, height - 2), " ");
+
+        for (int c = 1; c <= hero.getHP(); c++) { //
+            screen.setBackgroundColor(TextColor.Factory.fromString("#00a814"));
+            screen.enableModifiers(SGR.BOLD);
+            screen.putString(new TerminalPosition(c, height - 2), " ");
+        }
+
     }
 
     /**
@@ -254,7 +267,7 @@ public class Arena {
                 if ((pos.getX() <= platform.getRight().getX() && pos.getX() >= platform.getLeft().getX()) && pos.getY() == platform.getLeft().getY()-1)
                     return true;
 
-            if (pos.getY() == height-2)
+            if (pos.getY() == height-4)
                 return true;
         }
 
