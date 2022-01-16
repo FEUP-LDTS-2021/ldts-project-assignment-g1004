@@ -14,6 +14,7 @@ import java.io.IOException;
 public class Game {
     private Screen screen;  /** screen where game will be shown */
     private Arena arena;    /** the arena with game components */
+    private final int fps;
 
     private static Game singleton = null;
 
@@ -36,6 +37,7 @@ public class Game {
         }
 
         arena = new Arena();
+        fps = 100;
     }
 
     public static Game getInstance() {
@@ -69,27 +71,51 @@ public class Game {
      * It also checks if hero collided with monsters or, after moving them, if any monster collided with hero.
      */
     public void run() {
+        int frameTime = 1000 / fps;
+        int friction = 10;
+
         try {
             while (true) {
+                if (friction == 0)
+                    friction = 10;
+
+                long startTime = System.currentTimeMillis();
+
                 draw();
-                KeyStroke key = screen.readInput();
-                if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')
-                    screen.close();
-                if (key.getKeyType() == KeyType.EOF)
-                    break;
-                processKey(key);
 
-                if (arena.verifyMonsterCollisions() || arena.leave()) {
-                    screen.close();
-                    break;
+                KeyStroke key = screen.pollInput();
+                if (key != null) {
+                    if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')
+                        screen.close();
+                    if (key.getKeyType() == KeyType.EOF)
+                        break;
+                    processKey(key);
+
+                    if (arena.verifyMonsterCollisions() || arena.leave()) {
+                        screen.close();
+                        break;
+                    }
                 }
 
-                arena.moveMonsters();
-
-                if (arena.verifyMonsterCollisions()) {
-                    screen.close();
-                    break;
+                if (friction == 10) {
+                    arena.moveMonsters();
+                    if (arena.verifyMonsterCollisions()) {
+                        screen.close();
+                        break;
+                    }
                 }
+
+                long elapsedTime = System.currentTimeMillis() - startTime;
+                long sleepTime = frameTime - elapsedTime;
+
+                if (sleepTime > 0) {
+                    try {
+                        Thread.sleep(sleepTime);
+                    } catch (InterruptedException e) {
+                    }
+                }
+
+                friction--;
             }
         }
         catch (IOException e) {
