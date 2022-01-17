@@ -63,5 +63,5 @@ public class Ladder {
     public boolean hasElement(Position position) {
         return ((bottom.getX() == position.getX()) && (position.getY() <= bottom.getY()) && (position.getY() >= top.getY()));
     }
-    
+
 }
