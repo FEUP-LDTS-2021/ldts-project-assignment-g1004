@@ -1,8 +1,3 @@
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.util.ArrayList;
@@ -14,8 +9,9 @@ import static java.lang.System.exit;
  * Arena class. This class creates an arena or level for the user to play.
  */
 public class Arena {
-    private final int width;            /** horizontal extent of arena */
-    private final int height;           /** vertical extent of arena */
+    private final GUI gui;
+    private final int width;
+    private final int height;
     private char direction;             /** direction of user movement: horizontal or vertical */
     private List<Wall> walls;           /** walls that surround arena */
     private List<Platform> platforms;   /** horizontal platforms inside arena */
@@ -31,9 +27,10 @@ public class Arena {
      * Constructor. It defines a size for the arena and adds all its components.
      * It also initializes user score (zero points) and sets a default value for direction parameter ('0').
      */
-    public Arena() {
-        width = 60;
-        height = 22;
+    public Arena(GUI gui) {
+        this.gui = gui;
+        width = gui.getWidth();
+        height = gui.getHeight();
         direction = '0';
         walls = createWalls();
         platforms = createPlatforms();
@@ -55,14 +52,14 @@ public class Arena {
 
         for (int c = 0; c < width; c++) {
             walls.add(new Wall(c, 0));
-            walls.add(new Wall(c, height - 1));
-            walls.add(new Wall(c, height - 2));
-            walls.add(new Wall(c, height - 3));
+            walls.add(new Wall(c, 22 - 1));
+            walls.add(new Wall(c, 22 - 2));
+            walls.add(new Wall(c, 22 - 3));
         }
 
         for (int r = 0; r < height; r++) {
             walls.add(new Wall(0, r));
-            walls.add(new Wall(width - 1, r));
+            walls.add(new Wall(60 - 1, r));
         }
 
         return walls;
@@ -147,48 +144,8 @@ public class Arena {
         return monsters;
     }
 
-    /**
-     * Draws the arena on the screen, meaning it draws all arena's elements.
-     * @param screen
-     */
-    public void draw(TextGraphics screen) {
-
-        /*
-        screen.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
-        screen.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
-
-        for (Wall wall : walls)
-            wall.draw(screen);
-
-        for (Platform platform : platforms)
-            platform.draw(screen);
-
-        screen.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
-
-        for (Ladder ladder : ladders)
-            ladder.draw(screen);
-
-        screen.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
-
-        for (Coin coin : coins)
-            coin.draw(screen);
-
-        key.draw(screen);
-        hero.draw(screen);
-        door.draw(screen);
-
-        for (Monster monster : monsters)
-            monster.draw(screen);
-
-        for (int c = 1; c <= 11; c++)
-            screen.putString(new TerminalPosition(c, height - 2), " ");
-
-        for (int c = 1; c <= hero.getHP(); c++) { //
-            screen.setBackgroundColor(TextColor.Factory.fromString("#00a814"));
-            screen.enableModifiers(SGR.BOLD);
-            screen.putString(new TerminalPosition(c, height - 2), " ");
-        }
-        */
+    public void draw() {
+        // to do
     }
 
     /**
@@ -334,9 +291,9 @@ public class Arena {
         }
     }
 
-    public boolean leave(){
+    public boolean leave() {
         if (hero.hasKey() && hero.getPosition().equals(door.getPosition())){
-            System.out.println("Congrats !");
+            System.out.println("Congrats!");
             return true;
         }
         return false;
