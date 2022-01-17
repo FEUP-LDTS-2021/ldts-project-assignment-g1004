@@ -1,10 +1,3 @@
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-
-import java.util.Random;
-
 /**
  * Ghost monster class.
  * This monster is like a ghost, adopts a strategy in which he disappears and changes its position in the platform to a random one.
@@ -17,7 +10,7 @@ public class Ghost extends Monster {
      * @param p platform.
      */
     public Ghost(int x, int y, Platform p) {
-        super(x, y,4, p);
+        super(x, y, "h", "#A9A9A9", 4, p);
     }
 
     /**
@@ -27,17 +20,6 @@ public class Ghost extends Monster {
     @Override
     protected MoveStrategy createMoveStrategy() {
         return new TeleportationStrategy();
-    }
-
-    /**
-     * Draws ghost on the screen.
-     * @param screen
-     */
-    @Override
-    public void draw(TextGraphics screen) {
-        screen.setForegroundColor(TextColor.Factory.fromString("#A9A9A9"));
-        screen.enableModifiers(SGR.BOLD);
-        screen.putString(new TerminalPosition(getPosition().getX(), getPosition().getY()), "h");
     }
 
     /**

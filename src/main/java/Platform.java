@@ -64,12 +64,4 @@ public class Platform {
         return (position.getX() <= right.getX() && position.getX() >= left.getX()) && position.getY() == left.getY() - 1;
     }
 
-    /**
-     * Draws a platform on the screen.
-     * @param screen
-     */
-    public void draw(TextGraphics screen) {
-        for (Wall w : walls)
-            w.draw(screen);
-    }
 }

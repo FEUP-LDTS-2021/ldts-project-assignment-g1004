@@ -152,6 +152,8 @@ public class Arena {
      * @param screen
      */
     public void draw(TextGraphics screen) {
+
+        /*
         screen.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
         screen.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
 
@@ -186,7 +188,7 @@ public class Arena {
             screen.enableModifiers(SGR.BOLD);
             screen.putString(new TerminalPosition(c, height - 2), " ");
         }
-
+        */
     }
 
     /**

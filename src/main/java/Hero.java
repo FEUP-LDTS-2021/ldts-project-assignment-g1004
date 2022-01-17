@@ -1,8 +1,3 @@
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-
 /**
  * Hero class. The main character, which is controlled by the player, can die if he loses all health due to hitting monsters.
  */
@@ -15,8 +10,8 @@ public class Hero extends Element {
      * @param y coordinate.
      */
     public Hero(int x, int y) {
-        super(x, y);
-        healthPoints = 11;
+        super(x, y, "X", "#FF0000");
+        healthPoints = 20;
         key = false;
     }
 
@@ -68,15 +63,5 @@ public class Hero extends Element {
 
     public boolean hasKey(){
         return key;
-    }
-    /**
-     * Draws hero on the screen.
-     * @param screen
-     */
-    @Override
-    public void draw(TextGraphics screen) {
-        screen.setForegroundColor(TextColor.Factory.fromString("#FF0000"));
-        screen.enableModifiers(SGR.BOLD);
-        screen.putString(new TerminalPosition(getPosition().getX(), getPosition().getY()), "X");
     }
 }

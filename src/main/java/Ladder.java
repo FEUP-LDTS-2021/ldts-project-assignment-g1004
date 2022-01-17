@@ -9,7 +9,7 @@ import java.util.List;
 public class Ladder {
     private final Position top;    /** position on the top of the ladder */
     private final Position bottom; /** position on the bottom of the ladder */
-    private final List<Bar> bars;  /** bars to the construction of the ladder */
+    private final List<Bar> bars;
 
     /**
      * Constructor.
@@ -63,13 +63,5 @@ public class Ladder {
     public boolean hasElement(Position position) {
         return ((bottom.getX() == position.getX()) && (position.getY() <= bottom.getY()) && (position.getY() >= top.getY()));
     }
-
-    /**
-     * Draws the ladder on the screen.
-     * @param screen
-     */
-    public void draw(TextGraphics screen) {
-        for (Bar b : bars)
-            b.draw(screen);
-    }
+    
 }
