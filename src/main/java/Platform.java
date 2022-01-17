@@ -64,7 +64,7 @@ public class Platform {
         // to do
         return true;
     }
-    
+
     /**
      * Draws a platform on the screen.
      * @param screen
