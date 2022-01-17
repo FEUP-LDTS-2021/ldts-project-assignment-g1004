@@ -1,24 +1,79 @@
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
-import com.googlecode.lanterna.screen.Screen;
-import com.googlecode.lanterna.screen.TerminalScreen;
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-import com.googlecode.lanterna.terminal.Terminal;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 
 public class ArenaTest {
-    /*
+    private GUI gui;
+
+    @BeforeEach
+    public void setup() throws IOException {
+        gui = new LanternaGUI(60, 22);
+    }
+
+    @Test
+    public void draw() {
+        GUI g = Mockito.spy(GUI.class);
+        Arena arena = new Arena(g);
+
+        arena.draw();
+
+        Mockito.verify(g, Mockito.times(1)).drawBackground();
+        Mockito.verify(g, Mockito.times(1)).drawWalls(Mockito.anyList());
+        Mockito.verify(g, Mockito.atLeastOnce()).drawPlatform(Mockito.any(Platform.class));
+        Mockito.verify(g, Mockito.atLeastOnce()).drawLadder(Mockito.any(Ladder.class));
+        Mockito.verify(g, Mockito.atLeastOnce()).resetBGColour();
+        Mockito.verify(g, Mockito.atMostOnce()).drawKey(Mockito.any(Key.class));
+        Mockito.verify(g, Mockito.times(1)).drawDoor(Mockito.any(Door.class));
+        Mockito.verify(g, Mockito.atLeastOnce()).drawCoin(Mockito.any(Coin.class));
+        Mockito.verify(g, Mockito.times(1)).drawHero(Mockito.any(Hero.class), Mockito.anyBoolean());
+        Mockito.verify(g, Mockito.atLeastOnce()).drawMonster(Mockito.any(Monster.class), Mockito.anyBoolean());
+        Mockito.verify(g, Mockito.times(1)).drawHealthBar(Mockito.any(Hero.class));
+        Mockito.verify(g, Mockito.times(1)).drawScore(Mockito.anyInt());
+    }
+
+    @Test
+    public void processKey() {
+        KeyStroke key = Mockito.mock(KeyStroke.class);
+        Mockito.when(key.getKeyType()).thenReturn(KeyType.ArrowRight);
+
+        Arena arena = new Arena(gui); // hero spawns at coordinates (1, 18)
+        arena.processKey(key);
+
+        Assertions.assertEquals(2, arena.getHero().getPosition().getX());
+    }
+
+    @Test
+    public void moveHero() {
+        Arena arena = new Arena(gui); // hero spawns at coordinates (1, 18)
+
+        arena.processKey(new KeyStroke(KeyType.ArrowLeft)); // just to set direction as 'h'
+        // he'll stay in place because there's a wall to his left
+        Assertions.assertEquals(1, arena.getHero().getPosition().getX());
+        Assertions.assertEquals(18, arena.getHero().getPosition().getY());
+        // to check if he stayed in place
+
+        Position position = Mockito.mock(Position.class);
+        Mockito.when(position.getX()).thenReturn(2);
+        Mockito.when(position.getY()).thenReturn(18);
+
+        // direction is set as 'h' so the conditions work properly
+        arena.moveHero(position); // move right (with position mock)
+        // canHeroMove() has calls to position getters
+
+        Assertions.assertEquals(2, arena.getHero().getPosition().getX());
+        Assertions.assertEquals(18, arena.getHero().getPosition().getY());
+    }
+
     @Test
     public void heroCall() {
-        Arena arena = Mockito.spy(Arena.class);
+        Arena a = new Arena(gui);
+        Arena arena = Mockito.spy(a);
         // hero starts at position (1, 18)
 
         KeyStroke key1 = new KeyStroke(KeyType.ArrowRight);
@@ -45,68 +100,8 @@ public class ArenaTest {
     }
 
     @Test
-    public void drawing() {
-        Arena arena = new Arena();
-        TextGraphics graphics = Mockito.spy(TextGraphics.class);
-
-        arena.draw(graphics);
-        Mockito.verify(graphics, Mockito.times(3)).setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
-
-        Screen screen = null;
-        try {
-            TerminalSize terminalSize = new TerminalSize(60, 20);
-            DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-            Terminal terminal = terminalFactory.createTerminal();
-            screen = new TerminalScreen(terminal);
-            screen.setCursorPosition(null);
-            screen.startScreen();
-            screen.doResizeIfNecessary();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        assert screen != null;
-
-        Assertions.assertEquals(60, screen.getTerminalSize().getColumns());
-        Assertions.assertEquals(20, screen.getTerminalSize().getRows());
-    }
-
-    @Test
-    public void moveRight() {
-        KeyStroke key = Mockito.mock(KeyStroke.class);
-        Mockito.when(key.getKeyType()).thenReturn(KeyType.ArrowRight);
-
-        Arena arena = new Arena(); // hero spawns at coordinates (1, 18)
-        arena.processKey(key);
-
-        Assertions.assertEquals(2, arena.getHero().getPosition().getX());
-    }
-
-    @Test
-    public void moveRightV2() {
-        Arena arena = new Arena(); // hero spawns at coordinates (1, 18)
-
-        arena.processKey(new KeyStroke(KeyType.ArrowLeft)); // just to set direction as 'h'
-        // he'll stay in place because there's a wall to his left
-        Assertions.assertEquals(1, arena.getHero().getPosition().getX());
-        Assertions.assertEquals(18, arena.getHero().getPosition().getY());
-        // to check if he stayed in place
-
-        Position position = Mockito.mock(Position.class);
-        Mockito.when(position.getX()).thenReturn(2);
-        Mockito.when(position.getY()).thenReturn(18);
-
-        // direction is set as 'h' so the conditions work properly
-        arena.moveHero(position); // move right (with position mock)
-        // canHeroMove() has calls to position getters
-
-        Assertions.assertEquals(2, arena.getHero().getPosition().getX());
-        Assertions.assertEquals(18, arena.getHero().getPosition().getY());
-    }
-
-    @Test
     public void jumpOffLadder() {
-        Arena arena = new Arena(); // hero spawns at coordinates (1, 18)
+        Arena arena = new Arena(gui); // hero spawns at coordinates (1, 18)
 
         // to place hero in the middle of the first ladder in our arena
         for (int i = 0; i < 19; i++)
@@ -132,8 +127,41 @@ public class ArenaTest {
     }
 
     @Test
-    public void leave(){
-        Arena arena = new Arena();
+    public void verifyMonsterCollisions() {
+        Arena arena = new Arena(gui);
+
+        arena.processKey(new KeyStroke(KeyType.ArrowRight));
+        arena.moveMonsters();
+
+        Position position = Mockito.mock(Position.class);
+        Mockito.when(position.getX()).thenReturn(19);
+        Mockito.when(position.getY()).thenReturn(15);
+
+        arena.moveHero(position);
+        Assertions.assertFalse(arena.verifyMonsterCollisions()); // only returns true if our hero dies in the process
+        Assertions.assertEquals(18, arena.getHero().getHP()); // hero gets hurt
+    }
+
+    @Test
+    public void score() {
+        Arena arena = new Arena(gui);
+
+        Assertions.assertEquals(0, arena.getScore());
+
+        arena.processKey(new KeyStroke(KeyType.ArrowRight));
+
+        Position position = Mockito.mock(Position.class);
+        Mockito.when(position.getX()).thenReturn(40);
+        Mockito.when(position.getY()).thenReturn(18);
+        // coordinates of a coin
+
+        arena.moveHero(position);
+        Assertions.assertEquals(1, arena.getScore());
+    }
+
+    @Test
+    public void leave() {
+        Arena arena = new Arena(gui);
 
         Assertions.assertFalse(arena.leave());
         arena.processKey(new KeyStroke(KeyType.ArrowRight));
@@ -144,7 +172,4 @@ public class ArenaTest {
         arena.moveHero(new Position(58,3));
         Assertions.assertTrue(arena.leave());
     }
-
-     */
 }
-
