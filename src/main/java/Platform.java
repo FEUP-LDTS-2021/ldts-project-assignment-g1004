@@ -60,6 +60,11 @@ public class Platform {
         return walls;
     }
 
+    public boolean hasElement(Position position) {
+        // to do
+        return true;
+    }
+    
     /**
      * Draws a platform on the screen.
      * @param screen

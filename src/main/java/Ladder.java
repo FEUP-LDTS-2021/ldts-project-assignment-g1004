@@ -60,6 +60,11 @@ public class Ladder {
         return bars;
     }
 
+    public boolean hasElement(Position position) {
+        // to do
+        return true;
+    }
+
     /**
      * Draws the ladder on the screen.
      * @param screen
