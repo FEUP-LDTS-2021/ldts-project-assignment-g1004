@@ -145,7 +145,47 @@ public class Arena {
     }
 
     public void draw() {
-        // to do
+        gui.drawBackground();
+        gui.drawWalls(walls);
+
+        for (Platform platform : platforms)
+            gui.drawPlatform(platform);
+
+        boolean h = false;
+        for (Ladder ladder : ladders) {
+            gui.drawLadder(ladder);
+
+            if (ladder.hasElement(hero.getPosition()))
+                h = true;
+        }
+
+        gui.resetBGColour();
+
+        if (!hero.hasKey())
+            gui.drawKey(key);
+        gui.drawDoor(door);
+
+        for (Coin coin : coins)
+            gui.drawCoin(coin);
+
+        gui.drawHero(hero, h);
+        gui.resetBGColour();
+
+        for (Monster monster : monsters) {
+            boolean m = false;
+            for (Ladder l : ladders) {
+                if (l.hasElement(monster.getPosition())) {
+                    m = true;
+                    break;
+                }
+            }
+
+            gui.drawMonster(monster, m);
+            gui.resetBGColour();
+        }
+
+        gui.drawHealthBar(hero);
+        gui.drawScore(score);
     }
 
     /**
