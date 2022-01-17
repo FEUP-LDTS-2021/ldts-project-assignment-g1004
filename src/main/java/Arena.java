@@ -259,15 +259,15 @@ public class Arena {
 
         if (direction == 'v') {
             for (Ladder ladder : ladders)
-                if (((ladder.getBottom().getX() == pos.getX()) && (pos.getY() <= ladder.getBottom().getY()) && (pos.getY() >= ladder.getTop().getY())) || ladder.getTop().getY() - 1 == pos.getY())
+                if (ladder.hasElement(pos) || ladder.getTop().getY() - 1 == pos.getY())
                     return true;
         }
         else if (direction == 'h'){
             for (Platform platform : platforms)
-                if ((pos.getX() <= platform.getRight().getX() && pos.getX() >= platform.getLeft().getX()) && pos.getY() == platform.getLeft().getY()-1)
+                if (platform.hasElement(pos))
                     return true;
 
-            if (pos.getY() == height-4)
+            if (pos.getY() == height - 4)
                 return true;
         }
 

@@ -61,8 +61,7 @@ public class Platform {
     }
 
     public boolean hasElement(Position position) {
-        // to do
-        return true;
+        return (position.getX() <= right.getX() && position.getX() >= left.getX()) && position.getY() == left.getY() - 1;
     }
 
     /**
