@@ -57,15 +57,6 @@ public class Position {
     }
 
     /**
-     * Generates a hash code for the coordinates.
-     * @return a hash value of the coordinates of position.
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(x, y);
-    }
-
-    /**
      * Calculates the distance between positions.
      * @param position
      * @return returns the distance.
