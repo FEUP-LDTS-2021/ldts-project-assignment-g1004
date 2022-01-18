@@ -1,8 +1,3 @@
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-
 /**
  * Coin class. Can be caught by hero, incrementing score.
  */
@@ -13,18 +8,7 @@ public class Coin extends Element {
      * @param y coordinate.
      */
     public Coin(int x, int y) {
-        super(x, y);
-    }
-
-    /**
-     * Draws coin on the screen.
-     * @param screen
-     */
-    @Override
-    public void draw(TextGraphics screen) {
-        screen.setForegroundColor(TextColor.Factory.fromString("#CCCC00"));
-        screen.enableModifiers(SGR.BOLD);
-        screen.putString(new TerminalPosition(getPosition().getX(), getPosition().getY()), "$");
+        super(x, y, "$", "#CCCC00");
     }
 
     /**

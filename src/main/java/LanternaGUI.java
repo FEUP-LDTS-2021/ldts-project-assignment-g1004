@@ -51,14 +51,12 @@ public class LanternaGUI implements GUI {
 
     @Override
     public int getWidth() {
-        // to do
-        return 0;
+        return width;
     }
 
     @Override
     public int getHeight() {
-        // to do
-        return 0;
+        return height;
     }
 
     @Override
@@ -78,62 +76,104 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawBackground() {
-        // to do
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
+        graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
     }
 
     @Override
     public void drawWalls(List<Wall> walls) {
-        // to do
+        for (Wall wall : walls) {
+            graphics.setBackgroundColor(TextColor.Factory.fromString(wall.getColour()));
+            graphics.putString(new TerminalPosition(wall.getPosition().getX(), wall.getPosition().getY()), wall.getSymbol());
+        }
     }
 
     @Override
     public void drawPlatform(Platform platform) {
-        // to do
+        for (Wall wall : platform.getWalls()) {
+            graphics.setBackgroundColor(TextColor.Factory.fromString(wall.getColour()));
+            graphics.putString(new TerminalPosition(wall.getPosition().getX(), wall.getPosition().getY()), wall.getSymbol());
+        }
     }
 
     @Override
     public void drawLadder(Ladder ladder) {
-        // to do
+        for (Bar bar : ladder.getBars()) {
+            graphics.setBackgroundColor(TextColor.Factory.fromString(bar.getColour()));
+            graphics.putString(new TerminalPosition(bar.getPosition().getX(), bar.getPosition().getY()), bar.getSymbol());
+        }
     }
 
     @Override
     public void drawCoin(Coin coin) {
-        // to do
+        graphics.setForegroundColor(TextColor.Factory.fromString(coin.getColour()));
+        graphics.enableModifiers(SGR.BOLD);
+        graphics.putString(new TerminalPosition(coin.getPosition().getX(), coin.getPosition().getY()), coin.getSymbol());
     }
 
     @Override
     public void drawKey(Key key) {
-        // to do
+        graphics.setForegroundColor(TextColor.Factory.fromString(key.getColour()));
+        graphics.enableModifiers(SGR.BOLD);
+        graphics.putString(new TerminalPosition(key.getPosition().getX(), key.getPosition().getY()), key.getSymbol());
     }
 
     @Override
     public void drawDoor(Door door) {
-        // to do
+        graphics.setForegroundColor(TextColor.Factory.fromString(door.getColour()));
+        graphics.enableModifiers(SGR.BOLD);
+        graphics.putString(new TerminalPosition(door.getPosition().getX(), door.getPosition().getY()), door.getSymbol());
     }
 
     @Override
     public void drawHero(Hero hero, boolean ladder) {
-        // to do
+        if (ladder)
+            graphics.setBackgroundColor(TextColor.Factory.fromString("#FFA500"));
+
+        graphics.setForegroundColor(TextColor.Factory.fromString(hero.getColour()));
+        graphics.enableModifiers(SGR.BOLD);
+        graphics.putString(new TerminalPosition(hero.getPosition().getX(), hero.getPosition().getY()), hero.getSymbol());
     }
 
     @Override
     public void drawMonster(Monster monster, boolean ladder) {
-        // to do
+        if (ladder)
+            graphics.setBackgroundColor(TextColor.Factory.fromString("#FFA500"));
+
+        graphics.setForegroundColor(TextColor.Factory.fromString(monster.getColour()));
+        graphics.enableModifiers(SGR.BOLD);
+        graphics.putString(new TerminalPosition(monster.getPosition().getX(), monster.getPosition().getY()), monster.getSymbol());
     }
 
     @Override
     public void drawHealthBar(Hero hero) {
-        // to do
+        String HP = "HP[" + Integer.toString(hero.getHP()) + "]";
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#964B00"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
+        graphics.putString(new TerminalPosition(1, height - 2), HP);
+
+        resetBGColour();
+        for (int c = 8; c <= 28; c++)
+            graphics.putString(new TerminalPosition(c, height - 2), " ");
+
+        for (int c = 8; c <= 8 + hero.getHP(); c++) {
+            graphics.setBackgroundColor(TextColor.Factory.fromString("#00A814"));
+            graphics.enableModifiers(SGR.BOLD);
+            graphics.putString(new TerminalPosition(c, height - 2), " ");
+        }
     }
 
     @Override
     public void drawScore(int score) {
-        // to do
+        String s = "Score: " + Integer.toString(score);
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#964B00"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
+        graphics.putString(new TerminalPosition(48, height - 2), s);
     }
 
     @Override
     public void resetBGColour() {
-        // to do
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
     }
 
     @Override

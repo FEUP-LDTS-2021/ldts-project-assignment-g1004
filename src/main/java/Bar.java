@@ -1,7 +1,3 @@
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-
 /**
  * Bar class. This class creates and draws each ladder bar.
  */
@@ -12,17 +8,7 @@ public class Bar extends Element {
      * @param y coordinate.
      */
     public Bar(int x, int y) {
-        super(x, y);
-    }
-
-    /**
-     * Draws bars.
-     * @param screen
-     */
-    @Override
-    public void draw(TextGraphics screen) {
-        screen.setBackgroundColor(TextColor.Factory.fromString("#FFA500"));
-        screen.putString(new TerminalPosition(position.getX(), position.getY()), " ");
+        super(x, y, " ", "#FFA500");
     }
 
     /**

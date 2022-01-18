@@ -14,15 +14,14 @@ public abstract class Monster extends Element {
      * @param y coordinate.
      * @param p platform.
      */
-    public Monster(int x, int y, int damage, Platform p) {
-        super(x, y);
+    public Monster(int x, int y, String symbol, String colour, int damage, Platform p) {
+        super(x, y, symbol, colour);
         this.damage = damage;
         platform = p;
         forward = true;
         steps = 0;
         movement = createMoveStrategy();
     }
-
     /**
      * Obtain platform where monster is.
      * @return platform.

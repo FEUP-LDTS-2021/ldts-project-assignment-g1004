@@ -1,7 +1,3 @@
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-
 /**
  * Wall class. Delimits area where game happens.
  */
@@ -12,17 +8,7 @@ public class Wall extends Element {
      * @param y coordinate.
      */
     public Wall(int x, int y) {
-        super(x, y);
-    }
-
-    /**
-     * Draws wall on the screen.
-     * @param screen
-     */
-    @Override
-    public void draw(TextGraphics screen) {
-        screen.setBackgroundColor(TextColor.Factory.fromString("#964B00"));
-        screen.putString(new TerminalPosition(position.getX(), position.getY()), " ");
+        super(x, y, " ", "#964B00");
     }
 
     /**

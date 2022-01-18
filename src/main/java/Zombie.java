@@ -1,8 +1,3 @@
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-
 /**
  * Zombie monster class.
  * This monster adopts a strategy in which he seems confused in the direction he is going, so he takes steps forward and back.
@@ -15,7 +10,7 @@ public class Zombie extends Monster {
      * @param p platform.
      */
     public Zombie(int x, int y, Platform p) {
-        super(x, y,3, p);
+        super(x, y,"Z", "#964B00", 3, p);
     }
 
     /**
@@ -25,17 +20,6 @@ public class Zombie extends Monster {
     @Override
     protected MoveStrategy createMoveStrategy() {
         return new ConfusedStrategy();
-    }
-
-    /**
-     * Draws zombie on the screen.
-     * @param screen
-     */
-    @Override
-    public void draw(TextGraphics screen) {
-        screen.setForegroundColor(TextColor.Factory.fromString("#964B00"));
-        screen.enableModifiers(SGR.BOLD);
-        screen.putString(new TerminalPosition(getPosition().getX(), getPosition().getY()), "Z");
     }
 
     /**

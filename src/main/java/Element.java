@@ -1,18 +1,20 @@
-import com.googlecode.lanterna.graphics.TextGraphics;
-
 /**
  * Abstract element class. Describes behavior of some components of the game.
  */
 public abstract class Element {
     protected Position position;     /** Location on the arena */
+    protected final String symbol;
+    protected final String colour;
 
     /**
      * Constructor.
      * @param x coordinate.
      * @param y coordinate.
      */
-    public Element(int x, int y){
+    public Element(int x, int y, String symbol, String colour) {
         position = new Position(x, y);
+        this.symbol = symbol;
+        this.colour = colour;
     }
 
     /**
@@ -31,9 +33,11 @@ public abstract class Element {
         this.position.moveTo(position);
     }
 
-    /**
-     * Draws element on the screen.
-     * @param screen
-     */
-    public abstract void draw(TextGraphics screen);
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public String getColour() {
+        return colour;
+    }
 }

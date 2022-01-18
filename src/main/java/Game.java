@@ -1,10 +1,5 @@
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
-import com.googlecode.lanterna.screen.Screen;
-import com.googlecode.lanterna.screen.TerminalScreen;
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
 
@@ -12,7 +7,9 @@ import java.io.IOException;
  * Game class. This class sets the screen and the arena or level.
  */
 public class Game {
-    private Screen screen;  /** screen where game will be shown */
+    private final int width;
+    private final int height;
+    private GUI gui;
     private Arena arena;    /** the arena with game components */
     private final int fps;
 
@@ -22,39 +19,30 @@ public class Game {
      * Constructor.
      * It initializes arena and implements Lanterna methods, adding the screen to the arena.
      */
-    private Game() {
-        try {
-            TerminalSize terminalSize = new TerminalSize(60, 22);
-            DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-            Terminal terminal = terminalFactory.createTerminal();
-            screen = new TerminalScreen(terminal);
-            screen.setCursorPosition(null);
-            screen.startScreen();
-            screen.doResizeIfNecessary();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        arena = new Arena();
+    private Game() throws IOException {
+        width = 60;
+        height = 22;
+        gui = new LanternaGUI(width, height);
+        arena = new Arena(gui);
         fps = 100;
     }
 
-    public static Game getInstance() {
+    public static Game getInstance() throws IOException {
         if (singleton == null)
             singleton = new Game();
 
         return singleton;
     }
 
+
     /**
      * Draws the executable screen,
      * @throws IOException
      */
     private void draw() throws IOException {
-        screen.clear();
-        arena.draw(screen.newTextGraphics());
-        screen.refresh();
+        gui.clear();
+        arena.draw();
+        gui.refresh();
     }
 
     /**
@@ -83,16 +71,16 @@ public class Game {
 
                 draw();
 
-                KeyStroke key = screen.pollInput();
+                KeyStroke key = gui.keyPress();
                 if (key != null) {
                     if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')
-                        screen.close();
+                        gui.close();
                     if (key.getKeyType() == KeyType.EOF)
                         break;
                     processKey(key);
 
                     if (arena.verifyMonsterCollisions() || arena.leave()) {
-                        screen.close();
+                        gui.close();
                         break;
                     }
                 }
@@ -100,7 +88,7 @@ public class Game {
                 if (friction == 10) {
                     arena.moveMonsters();
                     if (arena.verifyMonsterCollisions()) {
-                        screen.close();
+                        gui.close();
                         break;
                     }
                 }
