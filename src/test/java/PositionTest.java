@@ -11,6 +11,18 @@ public class PositionTest {
     }
 
     @Test
+    public void attributes() {
+        Assertions.assertEquals(1, position.getX());
+        Assertions.assertEquals(2, position.getY());
+    }
+
+    @Test
+    public void equals() {
+        Position p2 = new Position(1, 2);
+        Assertions.assertEquals(position, p2);
+    }
+
+    @Test
     public void distanceTo() {
         Position p2 = new Position(3, 5);
 
