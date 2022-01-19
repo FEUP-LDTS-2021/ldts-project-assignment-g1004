@@ -8,7 +8,7 @@ public class Coin extends Element {
      * @param y coordinate.
      */
     public Coin(int x, int y) {
-        super(x, y, "$", "#CCCC00");
+        super(x, y, "$", "#B5A710");
     }
 
     /**

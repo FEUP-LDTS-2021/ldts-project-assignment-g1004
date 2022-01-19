@@ -10,7 +10,7 @@ public class Goblin extends Monster {
      * @param p platform.
      */
     public Goblin(int x, int y, Platform p) {
-        super(x, y, "g", "#00FF00", 2, p);
+        super(x, y, "g", "#0E630D", 2, p);
     }
 
     /**

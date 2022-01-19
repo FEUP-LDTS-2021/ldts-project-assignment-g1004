@@ -418,11 +418,11 @@ public class Arena {
     }
 
     private void win() {
-        // to do
+        gui.drawVictory();
     }
 
     private void loss() {
-        // to do
+        gui.drawDefeat();
     }
 }
 

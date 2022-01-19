@@ -8,7 +8,7 @@ public class Key extends Element {
      * @param y coordinate.
      */
     public Key(int x, int y) {
-        super(x, y, "F", "#CCCC00");
+        super(x, y, "F", "#B57B0E");
     }
 
     /**

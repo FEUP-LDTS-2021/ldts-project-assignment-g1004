@@ -61,17 +61,101 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawMenu() {
-        // to do
+        drawBackground("#58181F");
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF00"));
+        graphics.enableModifiers(SGR.BOLD);
+        graphics.putString(new TerminalPosition(width/2 - 4, 6), "GET OUT!");
+        graphics.putString(new TerminalPosition(width/2 - 4, 13), "[1] Play");
+        graphics.putString(new TerminalPosition(width/2 - 8, 16), "[2] Instructions");
+        graphics.putString(new TerminalPosition(width/2 - 4, 19), "[0] Exit");
     }
 
     @Override
     public void drawLevels(int n, List<Integer> scores) {
-        // to do
+        drawBackground("#301934");
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#FFA500"));
+        graphics.enableModifiers(SGR.BOLD);
+        graphics.putString(new TerminalPosition(width/2 - 3, 3), "Levels");
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#F5F5DC"));
+        graphics.putString(new TerminalPosition(width/2 - 22, 5), "[ Highlighted level is where you currently are ]");
+
+        for (int i = 0; i < 10; i++) {
+            String x = "< " + (i + 1) + " > ";
+            String s = "[" + scores.get(i) + "/10]";
+
+            if (i + 1 <= n)
+                graphics.setForegroundColor(TextColor.Factory.fromString("#FFA500"));
+
+            switch (i) {
+                case 0:
+                    graphics.putString(new TerminalPosition(5, 9), x + " Goblin lair " + s);
+                    break;
+                case 1:
+                    graphics.putString(new TerminalPosition(5, 11), x + " The undead " + s);
+                    break;
+                case 2:
+                    graphics.putString(new TerminalPosition(5, 13), x + " Lost ruins " + s);
+                    break;
+                case 3:
+                    graphics.putString(new TerminalPosition(5, 15), x + " Haunted mansion " + s);
+                    break;
+                case 4:
+                    graphics.putString(new TerminalPosition(5, 17), x + " Necropolis " + s);
+                    break;
+                case 5:
+                    graphics.putString(new TerminalPosition(42, 9), x + " Dark forest " + s);
+                    break;
+                case 6:
+                    graphics.putString(new TerminalPosition(42, 11), x + " Dystopia " + s);
+                    break;
+                case 7:
+                    graphics.putString(new TerminalPosition(42, 13), x + " The shimmer " + s);
+                    break;
+                case 8:
+                    graphics.putString(new TerminalPosition(42, 15), x + " Apocalypse " + s);
+                    break;
+                case 9:
+                    graphics.putString(new TerminalPosition(42, 17), x + " Last chance " + s);
+            }
+
+            graphics.setForegroundColor(TextColor.Factory.fromString("#F5F5DC"));
+        }
+
+        graphics.putString(new TerminalPosition(5, 20), "> [ENTER]: Play current level");
+        graphics.putString(new TerminalPosition(5, 22), "> [digit]: Play a completed level again (type its number)");
+        graphics.putString(new TerminalPosition(5, 24), "> [q]: Return to the main menu");
+
     }
 
     @Override
     public void drawInstructions() {
-        // to do
+        drawBackground("#ADD8E6");
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
+        graphics.putString(new TerminalPosition(width/2 - 6, 2), "Instructions");
+
+        graphics.setForegroundColor(TextColor.Factory.fromString("#654321"));
+
+        graphics.putString(new TerminalPosition(2, 5), "> Welcome to GET OUT:");
+        graphics.putString(new TerminalPosition(2, 6), "  Our superhero Nick Heya and the planet devourer Black Holer");
+        graphics.putString(new TerminalPosition(2, 7), "  were both trapped in another dimension while fighting.");
+        graphics.putString(new TerminalPosition(2, 8), "  Nick has no guns and needs your help to escape without");
+        graphics.putString(new TerminalPosition(2, 9), "  being killed by any of the dangerous monsters that roam this");
+        graphics.putString(new TerminalPosition(2, 10), "  place. Catch all the keys to open the doors that lead to his");
+        graphics.putString(new TerminalPosition(2, 11), "  final battle with Holer and don't forget to collect some");
+        graphics.putString(new TerminalPosition(2, 12), "  coins so Nick can buy an interdimensional trip back to Earth.");
+
+        graphics.putString(new TerminalPosition(2, 14), "> Controls:");
+        graphics.putString(new TerminalPosition(2, 15), "  [ArrowLeft]: move left");
+        graphics.putString(new TerminalPosition(2, 16), "  [ArrowRight]: move right");
+        graphics.putString(new TerminalPosition(2, 17), "  [ArrowUp]: move up");
+        graphics.putString(new TerminalPosition(2, 18), "  [ArrowDown]: move down");
+        graphics.putString(new TerminalPosition(2, 19), "  [q]: quit level");
+
+        graphics.putString(new TerminalPosition(width/2 - 15, 22), "Press q to return to the main menu");
     }
 
     @Override
@@ -173,12 +257,34 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawVictory() {
-        // to do
+        clear();
+
+        drawBackground("#C7C72A");
+        graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
+        graphics.putString(new TerminalPosition(width/2 - 20, height/2), "You just escaped this level, congrats!!");
+
+        try {
+            refresh();
+            Thread.sleep(3000);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void drawDefeat() {
-        // to do
+        clear();
+
+        drawBackground("#0D455E");
+        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
+        graphics.putString(new TerminalPosition(width/2 - 9, height/2), "You died! Game over...");
+
+        try {
+            refresh();
+            Thread.sleep(3000);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

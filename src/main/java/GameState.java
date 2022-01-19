@@ -11,7 +11,7 @@ public abstract class GameState {
         this.gui = gui;
     }
 
-    public abstract void display();
+    public abstract void display() throws IOException;
     public abstract void readKey(KeyStroke key);
-    public abstract void process(int delay);
+    public abstract void process(int delay) throws IOException;
 }

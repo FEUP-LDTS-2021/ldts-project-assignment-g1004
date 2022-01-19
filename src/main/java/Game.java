@@ -40,33 +40,32 @@ public class Game {
     }
 
     public void changeState(GameState state) {
-        // to do
+        this.state = state;
     }
 
     public void passLevel() {
-        // to do
+        if (progress < 10)
+            progress++;
     }
 
     public boolean finalLevel() {
-        // to do
-        return true;
+        return progress == 10;
     }
 
     public int getProgress() {
-        // to do
-        return 0;
+        return progress;
     }
 
     public List<Integer> getScores() {
-        // to do
-        return new ArrayList<>();
+        return scores;
     }
 
     public void setScore(int level, Integer score) {
-        // to do
+        if (score > scores.get(level))
+            scores.set(level, score);
     }
 
-    public void run() {
+    public void run() throws IOException {
         int frameTime = 1000 / fps;
         int delay = fps; // will allow us to control animations speed
 
