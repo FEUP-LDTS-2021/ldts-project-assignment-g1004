@@ -1,7 +1,6 @@
-import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
-
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Game class. This class sets the screen and the arena or level.
@@ -10,8 +9,10 @@ public class Game {
     private final int width;
     private final int height;
     private GUI gui;
-    private Arena arena;    /** the arena with game components */
+    private GameState state;
     private final int fps;
+    private int progress;
+    private List<Integer> scores;
 
     private static Game singleton = null;
 
@@ -20,11 +21,15 @@ public class Game {
      * It initializes arena and implements Lanterna methods, adding the screen to the arena.
      */
     private Game() throws IOException {
-        width = 60;
-        height = 22;
+        width = 75;
+        height = 27;
         gui = new LanternaGUI(width, height);
-        arena = new Arena(gui);
+        state = new MenuState(this, gui);
         fps = 100;
+        progress = 1;
+        scores = new ArrayList<>();
+        for (int i = 0; i < 10; i++)
+            scores.add(0);
     }
 
     public static Game getInstance() throws IOException {
@@ -34,80 +39,57 @@ public class Game {
         return singleton;
     }
 
-
-    /**
-     * Draws the executable screen,
-     * @throws IOException
-     */
-    private void draw() throws IOException {
-        gui.clear();
-        arena.draw();
-        gui.refresh();
+    public void changeState(GameState state) {
+        // to do
     }
 
-    /**
-     * When user input is obtained (key), the game handles a response from the game.
-     * @param key is the user input.
-     */
-    private void processKey(KeyStroke key) {
-        arena.processKey(key);
+    public void passLevel() {
+        // to do
     }
 
-    /**
-     * This method shows the main loop of the game.
-     * When we run the game, the terminal is drawn and user input is processed.
-     * It also checks if hero collided with monsters or, after moving them, if any monster collided with hero.
-     */
+    public boolean finalLevel() {
+        // to do
+        return true;
+    }
+
+    public int getProgress() {
+        // to do
+        return 0;
+    }
+
+    public List<Integer> getScores() {
+        // to do
+        return new ArrayList<>();
+    }
+
+    public void setScore(int level, Integer score) {
+        // to do
+    }
+
     public void run() {
         int frameTime = 1000 / fps;
-        int friction = 10;
+        int delay = fps; // will allow us to control animations speed
 
-        try {
-            while (true) {
-                if (friction == 0)
-                    friction = 10;
+        while (true) {
+            if (delay == 0)
+                delay = fps;
 
-                long startTime = System.currentTimeMillis();
+            long startTime = System.currentTimeMillis();
 
-                draw();
+            state.process(delay);
 
-                KeyStroke key = gui.keyPress();
-                if (key != null) {
-                    if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')
-                        gui.close();
-                    if (key.getKeyType() == KeyType.EOF)
-                        break;
-                    processKey(key);
+            long elapsedTime = System.currentTimeMillis() - startTime;
+            long sleepTime = frameTime - elapsedTime;
 
-                    if (arena.verifyMonsterCollisions() || arena.leave()) {
-                        gui.close();
-                        break;
-                    }
+            if (sleepTime > 0) {
+                try {
+                    Thread.sleep(sleepTime);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-
-                if (friction == 10) {
-                    arena.moveMonsters();
-                    if (arena.verifyMonsterCollisions()) {
-                        gui.close();
-                        break;
-                    }
-                }
-
-                long elapsedTime = System.currentTimeMillis() - startTime;
-                long sleepTime = frameTime - elapsedTime;
-
-                if (sleepTime > 0) {
-                    try {
-                        Thread.sleep(sleepTime);
-                    } catch (InterruptedException e) {
-                    }
-                }
-
-                friction--;
             }
-        }
-        catch (IOException e) {
-            e.printStackTrace();
+
+            delay--;
         }
     }
 }

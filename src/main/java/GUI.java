@@ -10,10 +10,10 @@ public interface GUI {
     int getHeight();
 
     void drawMenu();
-    void drawLevels();
+    void drawLevels(int n, List<Integer> scores);
     void drawInstructions();
 
-    void drawBackground();
+    void drawBackground(String colourCode);
     void drawWalls(List<Wall> walls);
     void drawPlatform(Platform platform);
     void drawLadder(Ladder ladder);
@@ -25,7 +25,10 @@ public interface GUI {
     void drawHealthBar(Hero hero);
     void drawScore(int score);
 
-    void resetBGColour();
+    void drawVictory();
+    void drawDefeat();
+
+    void setBGColour(String colour);
     void clear();
     void refresh() throws IOException;
     void close() throws IOException;

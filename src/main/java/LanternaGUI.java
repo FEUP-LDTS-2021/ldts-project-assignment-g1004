@@ -65,7 +65,7 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawLevels() {
+    public void drawLevels(int n, List<Integer> scores) {
         // to do
     }
 
@@ -75,8 +75,8 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawBackground() {
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
+    public void drawBackground(String colourCode) {
+        graphics.setBackgroundColor(TextColor.Factory.fromString(colourCode));
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
     }
 
@@ -150,13 +150,13 @@ public class LanternaGUI implements GUI {
         String HP = "HP[" + Integer.toString(hero.getHP()) + "]";
         graphics.setBackgroundColor(TextColor.Factory.fromString("#964B00"));
         graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
-        graphics.putString(new TerminalPosition(1, height - 2), HP);
+        graphics.putString(new TerminalPosition(2, height - 2), HP);
 
-        resetBGColour();
-        for (int c = 8; c <= 28; c++)
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
+        for (int c = 9; c <= 29; c++)
             graphics.putString(new TerminalPosition(c, height - 2), " ");
 
-        for (int c = 8; c <= 8 + hero.getHP(); c++) {
+        for (int c = 9; c <= 9 + hero.getHP(); c++) {
             graphics.setBackgroundColor(TextColor.Factory.fromString("#00A814"));
             graphics.enableModifiers(SGR.BOLD);
             graphics.putString(new TerminalPosition(c, height - 2), " ");
@@ -168,12 +168,22 @@ public class LanternaGUI implements GUI {
         String s = "Score: " + Integer.toString(score);
         graphics.setBackgroundColor(TextColor.Factory.fromString("#964B00"));
         graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
-        graphics.putString(new TerminalPosition(48, height - 2), s);
+        graphics.putString(new TerminalPosition(64, height - 2), s);
     }
 
     @Override
-    public void resetBGColour() {
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#F5F5DC"));
+    public void drawVictory() {
+        // to do
+    }
+
+    @Override
+    public void drawDefeat() {
+        // to do
+    }
+
+    @Override
+    public void setBGColour(String colour) {
+        graphics.setBackgroundColor(TextColor.Factory.fromString(colour));
     }
 
     @Override
