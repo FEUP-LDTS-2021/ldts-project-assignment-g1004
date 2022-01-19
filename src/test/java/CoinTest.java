@@ -7,7 +7,7 @@ public class CoinTest {
         Coin c = new Coin(10, 10);
 
         Assertions.assertEquals("$", c.getSymbol());
-        Assertions.assertEquals("#CCCC00", c.getColour());
+        Assertions.assertEquals("#B5A710", c.getColour());
     }
 
     @Test

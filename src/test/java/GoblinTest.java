@@ -13,7 +13,7 @@ public class GoblinTest {
     @Test
     public void attributes() {
         Assertions.assertEquals("g", goblin.getSymbol());
-        Assertions.assertEquals("#00FF00", goblin.getColour());
+        Assertions.assertEquals("#0E630D", goblin.getColour());
         Assertions.assertEquals(2, goblin.attack());
         Assertions.assertEquals(5, goblin.getPlatform().getLeft().getY());
     }

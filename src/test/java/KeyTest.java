@@ -7,7 +7,7 @@ public class KeyTest {
         Key k = new Key(10, 10);
 
         Assertions.assertEquals("F", k.getSymbol());
-        Assertions.assertEquals("#CCCC00", k.getColour());
+        Assertions.assertEquals("#B57B0E", k.getColour());
     }
 
     @Test
