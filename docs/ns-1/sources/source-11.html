@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > RegularStrategy</title>
+  <title>Coverage Report > com.g1004.getout.strategy.RegularStrategy</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -20,7 +20,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">&lt;empty package name&gt;</a>
 </div>
 
-<h1>Coverage Summary for Class: RegularStrategy (&lt;empty package name&gt;)</h1>
+<h1>Coverage Summary for Class: com.g1004.getout.strategy.RegularStrategy (&lt;empty package name&gt;)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -39,7 +39,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">RegularStrategy</td>
+  <td class="name">com.g1004.getout.strategy.RegularStrategy</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -76,20 +76,20 @@ Current scope:     <a href="../../index.html">all classes</a>
 <div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;/**
 <i class="no-highlight">2</i>&nbsp; * Regular Strategy class. Each monster moves to the left border and then to the right border of the platform.
 <i class="no-highlight">3</i>&nbsp; */
-<b class="fc"><i class="no-highlight">4</i>&nbsp;public class RegularStrategy implements MoveStrategy {</b>
+<b class="fc"><i class="no-highlight">4</i>&nbsp;public class com.g1004.getout.strategy.RegularStrategy implements com.g1004.getout.strategy.MoveStrategy {</b>
 <i class="no-highlight">5</i>&nbsp;    /**
 <i class="no-highlight">6</i>&nbsp;     * Moves monster to a corner of its platform and then reverses direction so that he moves towards the other corner.
 <i class="no-highlight">7</i>&nbsp;     * @param monster
 <i class="no-highlight">8</i>&nbsp;     */
 <i class="no-highlight">9</i>&nbsp;    @Override
-<i class="no-highlight">10</i>&nbsp;    public void moveMonster(Monster monster) {
+<i class="no-highlight">10</i>&nbsp;    public void moveMonster(com.g1004.getout.element.monster.Monster monster) {
 <b class="fc"><i class="no-highlight">11</i>&nbsp;        monster.checkDirection();</b>
 <i class="no-highlight">12</i>&nbsp;
 <b class="fc"><i class="no-highlight">13</i>&nbsp;        int x = monster.getPosition().getX(), y = monster.getPosition().getY();</b>
 <b class="fc"><i class="no-highlight">14</i>&nbsp;        if (monster.movingForward())</b>
-<b class="fc"><i class="no-highlight">15</i>&nbsp;            monster.setPosition(new Position(x + 1, y));</b>
+<b class="fc"><i class="no-highlight">15</i>&nbsp;            monster.setPosition(new com.g1004.getout.Position(x + 1, y));</b>
 <i class="no-highlight">16</i>&nbsp;        else
-<b class="fc"><i class="no-highlight">17</i>&nbsp;            monster.setPosition(new Position(x - 1, y));</b>
+<b class="fc"><i class="no-highlight">17</i>&nbsp;            monster.setPosition(new com.g1004.getout.Position(x - 1, y));</b>
 <i class="no-highlight">18</i>&nbsp;    }
 <i class="no-highlight">19</i>&nbsp;}
 </div>

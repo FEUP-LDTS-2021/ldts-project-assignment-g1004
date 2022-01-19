@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > Ladder</title>
+  <title>Coverage Report > com.g1004.getout.Ladder</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -20,7 +20,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">&lt;empty package name&gt;</a>
 </div>
 
-<h1>Coverage Summary for Class: Ladder (&lt;empty package name&gt;)</h1>
+<h1>Coverage Summary for Class: com.g1004.getout.Ladder (&lt;empty package name&gt;)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -39,7 +39,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">Ladder</td>
+  <td class="name">com.g1004.getout.Ladder</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -79,19 +79,19 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">4</i>&nbsp;import java.util.List;
 <i class="no-highlight">5</i>&nbsp;
 <i class="no-highlight">6</i>&nbsp;/**
-<i class="no-highlight">7</i>&nbsp; * Ladder class. Allows the main character to move between platforms through ladders.
+<i class="no-highlight">7</i>&nbsp; * com.g1004.getout.Ladder class. Allows the main character to move between platforms through ladders.
 <i class="no-highlight">8</i>&nbsp; */
-<i class="no-highlight">9</i>&nbsp;public class Ladder {
-<i class="no-highlight">10</i>&nbsp;    private final Position top;    /**&lt; position on the top of the ladder */
-<i class="no-highlight">11</i>&nbsp;    private final Position bottom; /**&lt; position on the bottom of the ladder */
-<i class="no-highlight">12</i>&nbsp;    private final List&lt;Bar&gt; bars;  /**&lt; bars to the construction of the ladder */
+<i class="no-highlight">9</i>&nbsp;public class com.g1004.getout.Ladder {
+<i class="no-highlight">10</i>&nbsp;    private final com.g1004.getout.Position top;    /**&lt; position on the top of the ladder */
+<i class="no-highlight">11</i>&nbsp;    private final com.g1004.getout.Position bottom; /**&lt; position on the bottom of the ladder */
+<i class="no-highlight">12</i>&nbsp;    private final List&lt;com.g1004.getout.element.Bar&gt; bars;  /**&lt; bars to the construction of the ladder */
 <i class="no-highlight">13</i>&nbsp;
 <i class="no-highlight">14</i>&nbsp;    /**
 <i class="no-highlight">15</i>&nbsp;     * Constructor.
 <i class="no-highlight">16</i>&nbsp;     * @param top position.
 <i class="no-highlight">17</i>&nbsp;     * @param bottom position.
 <i class="no-highlight">18</i>&nbsp;     */
-<b class="fc"><i class="no-highlight">19</i>&nbsp;    public Ladder(Position top, Position bottom) {</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;    public com.g1004.getout.Ladder(com.g1004.getout.Position top, com.g1004.getout.Position bottom) {</b>
 <b class="fc"><i class="no-highlight">20</i>&nbsp;        this.top = top;</b>
 <b class="fc"><i class="no-highlight">21</i>&nbsp;        this.bottom = bottom;</b>
 <b class="fc"><i class="no-highlight">22</i>&nbsp;        bars = createBars();</b>
@@ -101,12 +101,12 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">26</i>&nbsp;     * Creates the list of bars of the ladder that integrate the constructor.
 <i class="no-highlight">27</i>&nbsp;     * @return list of bars.
 <i class="no-highlight">28</i>&nbsp;     */
-<i class="no-highlight">29</i>&nbsp;    private List&lt;Bar&gt; createBars() {
-<b class="fc"><i class="no-highlight">30</i>&nbsp;        List&lt;Bar&gt; bars = new ArrayList&lt;&gt;();</b>
+<i class="no-highlight">29</i>&nbsp;    private List&lt;com.g1004.getout.element.Bar&gt; createBars() {
+<b class="fc"><i class="no-highlight">30</i>&nbsp;        List&lt;com.g1004.getout.element.Bar&gt; bars = new ArrayList&lt;&gt;();</b>
 <i class="no-highlight">31</i>&nbsp;
 <b class="fc"><i class="no-highlight">32</i>&nbsp;        int n = bottom.getY() - top.getY() + 1;</b>
 <b class="fc"><i class="no-highlight">33</i>&nbsp;        for (int i = 0; i &lt; n; i++)</b>
-<b class="fc"><i class="no-highlight">34</i>&nbsp;            bars.add(new Bar(top.getX(), top.getY() + i));</b>
+<b class="fc"><i class="no-highlight">34</i>&nbsp;            bars.add(new com.g1004.getout.element.Bar(top.getX(), top.getY() + i));</b>
 <i class="no-highlight">35</i>&nbsp;
 <b class="fc"><i class="no-highlight">36</i>&nbsp;        return bars;</b>
 <i class="no-highlight">37</i>&nbsp;    }
@@ -115,7 +115,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">40</i>&nbsp;     * Obtain position on the top of the ladder.
 <i class="no-highlight">41</i>&nbsp;     * @return position on the top of the ladder.
 <i class="no-highlight">42</i>&nbsp;     */
-<i class="no-highlight">43</i>&nbsp;    public Position getTop() {
+<i class="no-highlight">43</i>&nbsp;    public com.g1004.getout.Position getTop() {
 <b class="fc"><i class="no-highlight">44</i>&nbsp;        return top;</b>
 <i class="no-highlight">45</i>&nbsp;    }
 <i class="no-highlight">46</i>&nbsp;
@@ -123,7 +123,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">48</i>&nbsp;     * Obtain position on the bottom of the ladder.
 <i class="no-highlight">49</i>&nbsp;     * @return position on the bottom of the ladder.
 <i class="no-highlight">50</i>&nbsp;     */
-<i class="no-highlight">51</i>&nbsp;    public Position getBottom() {
+<i class="no-highlight">51</i>&nbsp;    public com.g1004.getout.Position getBottom() {
 <b class="fc"><i class="no-highlight">52</i>&nbsp;        return bottom;</b>
 <i class="no-highlight">53</i>&nbsp;    }
 <i class="no-highlight">54</i>&nbsp;
@@ -131,7 +131,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">56</i>&nbsp;     * Obtain the list of bars of the ladder.
 <i class="no-highlight">57</i>&nbsp;     * @return list of bars.
 <i class="no-highlight">58</i>&nbsp;     */
-<i class="no-highlight">59</i>&nbsp;    public List&lt;Bar&gt; getBars() {
+<i class="no-highlight">59</i>&nbsp;    public List&lt;com.g1004.getout.element.Bar&gt; getBars() {
 <b class="fc"><i class="no-highlight">60</i>&nbsp;        return bars;</b>
 <i class="no-highlight">61</i>&nbsp;    }
 <i class="no-highlight">62</i>&nbsp;
@@ -140,7 +140,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">65</i>&nbsp;     * @param screen
 <i class="no-highlight">66</i>&nbsp;     */
 <i class="no-highlight">67</i>&nbsp;    public void draw(TextGraphics screen) {
-<b class="fc"><i class="no-highlight">68</i>&nbsp;        for (Bar b : bars)</b>
+<b class="fc"><i class="no-highlight">68</i>&nbsp;        for (com.g1004.getout.element.Bar b : bars)</b>
 <b class="fc"><i class="no-highlight">69</i>&nbsp;            b.draw(screen);</b>
 <i class="no-highlight">70</i>&nbsp;    }
 <i class="no-highlight">71</i>&nbsp;}

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > Monster</title>
+  <title>Coverage Report > com.g1004.getout.element.monster.Monster</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -20,7 +20,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">&lt;empty package name&gt;</a>
 </div>
 
-<h1>Coverage Summary for Class: Monster (&lt;empty package name&gt;)</h1>
+<h1>Coverage Summary for Class: com.g1004.getout.element.monster.Monster (&lt;empty package name&gt;)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -39,7 +39,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">Monster</td>
+  <td class="name">com.g1004.getout.element.monster.Monster</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -74,13 +74,13 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <pre>
 <div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;/**
-<i class="no-highlight">2</i>&nbsp; * Monster class. Manages and controls the monsters&#39; movement on each platform.
+<i class="no-highlight">2</i>&nbsp; * com.g1004.getout.element.monster.Monster class. Manages and controls the monsters&#39; movement on each platform.
 <i class="no-highlight">3</i>&nbsp; */
-<i class="no-highlight">4</i>&nbsp;public abstract class Monster extends Element {
-<i class="no-highlight">5</i>&nbsp;    private final Platform platform;    /** platform of the monster */
+<i class="no-highlight">4</i>&nbsp;public abstract class com.g1004.getout.element.monster.Monster extends com.g1004.getout.element.Element {
+<i class="no-highlight">5</i>&nbsp;    private final com.g1004.getout.Platform platform;    /** platform of the monster */
 <i class="no-highlight">6</i>&nbsp;    private boolean forward;            /** boolean that checks if the monster moves forward */
 <i class="no-highlight">7</i>&nbsp;    private int steps;                  /** declares the monster steps */
-<i class="no-highlight">8</i>&nbsp;    private MoveStrategy movement;      /** type of strategy that describes monster movement */
+<i class="no-highlight">8</i>&nbsp;    private com.g1004.getout.strategy.MoveStrategy movement;      /** type of strategy that describes monster movement */
 <i class="no-highlight">9</i>&nbsp;
 <i class="no-highlight">10</i>&nbsp;    /**
 <i class="no-highlight">11</i>&nbsp;     * Constructor.
@@ -88,7 +88,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">13</i>&nbsp;     * @param y coordinate.
 <i class="no-highlight">14</i>&nbsp;     * @param p platform.
 <i class="no-highlight">15</i>&nbsp;     */
-<i class="no-highlight">16</i>&nbsp;    public Monster(int x, int y, Platform p) {
+<i class="no-highlight">16</i>&nbsp;    public com.g1004.getout.element.monster.Monster(int x, int y, com.g1004.getout.Platform p) {
 <b class="fc"><i class="no-highlight">17</i>&nbsp;        super(x, y);</b>
 <b class="fc"><i class="no-highlight">18</i>&nbsp;        platform = p;</b>
 <b class="fc"><i class="no-highlight">19</i>&nbsp;        forward = true;</b>
@@ -100,7 +100,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">25</i>&nbsp;     * Obtain platform where monster is.
 <i class="no-highlight">26</i>&nbsp;     * @return platform.
 <i class="no-highlight">27</i>&nbsp;     */
-<i class="no-highlight">28</i>&nbsp;    public Platform getPlatform() {
+<i class="no-highlight">28</i>&nbsp;    public com.g1004.getout.Platform getPlatform() {
 <b class="fc"><i class="no-highlight">29</i>&nbsp;        return platform;</b>
 <i class="no-highlight">30</i>&nbsp;    }
 <i class="no-highlight">31</i>&nbsp;
@@ -124,7 +124,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">49</i>&nbsp;     * Obtain strategy adopted by the monster to move.
 <i class="no-highlight">50</i>&nbsp;     * @return
 <i class="no-highlight">51</i>&nbsp;     */
-<i class="no-highlight">52</i>&nbsp;    public MoveStrategy getMovement() {
+<i class="no-highlight">52</i>&nbsp;    public com.g1004.getout.strategy.MoveStrategy getMovement() {
 <b class="fc"><i class="no-highlight">53</i>&nbsp;        return movement;</b>
 <i class="no-highlight">54</i>&nbsp;    }
 <i class="no-highlight">55</i>&nbsp;
@@ -163,7 +163,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">88</i>&nbsp;     * Defines the monster movement according to its special features.
 <i class="no-highlight">89</i>&nbsp;     * @return monster movement type.
 <i class="no-highlight">90</i>&nbsp;     */
-<i class="no-highlight">91</i>&nbsp;    protected abstract MoveStrategy createMoveStrategy();
+<i class="no-highlight">91</i>&nbsp;    protected abstract com.g1004.getout.strategy.MoveStrategy createMoveStrategy();
 <i class="no-highlight">92</i>&nbsp;}
 </div>
 </pre>

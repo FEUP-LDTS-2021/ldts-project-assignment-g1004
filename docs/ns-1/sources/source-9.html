@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > Ghost</title>
+  <title>Coverage Report > com.g1004.getout.element.monster.Ghost</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -20,7 +20,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">&lt;empty package name&gt;</a>
 </div>
 
-<h1>Coverage Summary for Class: Ghost (&lt;empty package name&gt;)</h1>
+<h1>Coverage Summary for Class: com.g1004.getout.element.monster.Ghost (&lt;empty package name&gt;)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -39,7 +39,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">Ghost</td>
+  <td class="name">com.g1004.getout.element.monster.Ghost</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -81,17 +81,17 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">6</i>&nbsp;import java.util.Random;
 <i class="no-highlight">7</i>&nbsp;
 <i class="no-highlight">8</i>&nbsp;/**
-<i class="no-highlight">9</i>&nbsp; * Ghost monster class.
+<i class="no-highlight">9</i>&nbsp; * com.g1004.getout.element.monster.Ghost monster class.
 <i class="no-highlight">10</i>&nbsp; * This monster is like a ghost, adopts a strategy in which he disappears and changes its position in the platform to a random one.
 <i class="no-highlight">11</i>&nbsp; */
-<i class="no-highlight">12</i>&nbsp;public class Ghost extends Monster {
+<i class="no-highlight">12</i>&nbsp;public class com.g1004.getout.element.monster.Ghost extends com.g1004.getout.element.monster.Monster {
 <i class="no-highlight">13</i>&nbsp;    /**
 <i class="no-highlight">14</i>&nbsp;     * Constructor.
 <i class="no-highlight">15</i>&nbsp;     * @param x coordinate.
 <i class="no-highlight">16</i>&nbsp;     * @param y coordinate.
 <i class="no-highlight">17</i>&nbsp;     * @param p platform.
 <i class="no-highlight">18</i>&nbsp;     */
-<i class="no-highlight">19</i>&nbsp;    public Ghost(int x, int y, Platform p) {
+<i class="no-highlight">19</i>&nbsp;    public com.g1004.getout.element.monster.Ghost(int x, int y, com.g1004.getout.Platform p) {
 <b class="fc"><i class="no-highlight">20</i>&nbsp;        super(x, y, p);</b>
 <i class="no-highlight">21</i>&nbsp;    }
 <i class="no-highlight">22</i>&nbsp;
@@ -100,8 +100,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">25</i>&nbsp;     * @return ghost strategy.
 <i class="no-highlight">26</i>&nbsp;     */
 <i class="no-highlight">27</i>&nbsp;    @Override
-<i class="no-highlight">28</i>&nbsp;    protected MoveStrategy createMoveStrategy() {
-<b class="fc"><i class="no-highlight">29</i>&nbsp;        return new TeleportationStrategy();</b>
+<i class="no-highlight">28</i>&nbsp;    protected com.g1004.getout.strategy.MoveStrategy createMoveStrategy() {
+<b class="fc"><i class="no-highlight">29</i>&nbsp;        return new com.g1004.getout.strategy.TeleportationStrategy();</b>
 <i class="no-highlight">30</i>&nbsp;    }
 <i class="no-highlight">31</i>&nbsp;
 <i class="no-highlight">32</i>&nbsp;    /**
@@ -125,7 +125,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="nc"><i class="no-highlight">50</i>&nbsp;        if (o == null || this.getClass() != o.getClass())</b>
 <b class="nc"><i class="no-highlight">51</i>&nbsp;            return false;</b>
 <i class="no-highlight">52</i>&nbsp;
-<b class="nc"><i class="no-highlight">53</i>&nbsp;        return (this == o || this.getPosition().equals(((Ghost) o).getPosition()));</b>
+<b class="nc"><i class="no-highlight">53</i>&nbsp;        return (this == o || this.getPosition().equals(((com.g1004.getout.element.monster.Ghost) o).getPosition()));</b>
 <i class="no-highlight">54</i>&nbsp;    }
 <i class="no-highlight">55</i>&nbsp;}
 </div>

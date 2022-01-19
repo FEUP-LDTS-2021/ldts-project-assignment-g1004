@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > Element</title>
+  <title>Coverage Report > com.g1004.getout.element.Element</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -20,7 +20,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">&lt;empty package name&gt;</a>
 </div>
 
-<h1>Coverage Summary for Class: Element (&lt;empty package name&gt;)</h1>
+<h1>Coverage Summary for Class: com.g1004.getout.element.Element (&lt;empty package name&gt;)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -39,7 +39,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">Element</td>
+  <td class="name">com.g1004.getout.element.Element</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -78,23 +78,23 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">3</i>&nbsp;/**
 <i class="no-highlight">4</i>&nbsp; * Abstract element class. Describes behavior of some components of the game.
 <i class="no-highlight">5</i>&nbsp; */
-<i class="no-highlight">6</i>&nbsp;public abstract class Element {
-<i class="no-highlight">7</i>&nbsp;    protected Position position;     /** Location on the arena */
+<i class="no-highlight">6</i>&nbsp;public abstract class com.g1004.getout.element.Element {
+<i class="no-highlight">7</i>&nbsp;    protected com.g1004.getout.Position position;     /** Location on the arena */
 <i class="no-highlight">8</i>&nbsp;
 <i class="no-highlight">9</i>&nbsp;    /**
 <i class="no-highlight">10</i>&nbsp;     * Constructor.
 <i class="no-highlight">11</i>&nbsp;     * @param x coordinate.
 <i class="no-highlight">12</i>&nbsp;     * @param y coordinate.
 <i class="no-highlight">13</i>&nbsp;     */
-<b class="fc"><i class="no-highlight">14</i>&nbsp;    public Element(int x, int y){</b>
-<b class="fc"><i class="no-highlight">15</i>&nbsp;        position = new Position(x, y);</b>
+<b class="fc"><i class="no-highlight">14</i>&nbsp;    public com.g1004.getout.element.Element(int x, int y){</b>
+<b class="fc"><i class="no-highlight">15</i>&nbsp;        position = new com.g1004.getout.Position(x, y);</b>
 <i class="no-highlight">16</i>&nbsp;    }
 <i class="no-highlight">17</i>&nbsp;
 <i class="no-highlight">18</i>&nbsp;    /**
 <i class="no-highlight">19</i>&nbsp;     * Obtain location of the element.
 <i class="no-highlight">20</i>&nbsp;     * @return position where element is.
 <i class="no-highlight">21</i>&nbsp;     */
-<i class="no-highlight">22</i>&nbsp;    public Position getPosition() {
+<i class="no-highlight">22</i>&nbsp;    public com.g1004.getout.Position getPosition() {
 <b class="fc"><i class="no-highlight">23</i>&nbsp;        return position;</b>
 <i class="no-highlight">24</i>&nbsp;    }
 <i class="no-highlight">25</i>&nbsp;
@@ -102,7 +102,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">27</i>&nbsp;     * Change position of the element.
 <i class="no-highlight">28</i>&nbsp;     * @param position that is meant to be attributed to element.
 <i class="no-highlight">29</i>&nbsp;     */
-<i class="no-highlight">30</i>&nbsp;    public void setPosition(Position position) {
+<i class="no-highlight">30</i>&nbsp;    public void setPosition(com.g1004.getout.Position position) {
 <b class="fc"><i class="no-highlight">31</i>&nbsp;        this.position.moveTo(position);</b>
 <i class="no-highlight">32</i>&nbsp;    }
 <i class="no-highlight">33</i>&nbsp;

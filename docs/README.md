@@ -13,7 +13,7 @@ This project was developed by *Diogo Silva* (*up202004288*@edu.fe.up.pt), *Maria
 ### IMPLEMENTED FEATURES
 
 > This section contains a list of implemented features and their descriptions.
-- **Arena space** - A level has an arena, the player's environment, made of platforms and ladders.
+- **com.g1004.getout.Arena space** - A level has an arena, the player's environment, made of platforms and ladders.
 - **Walking** - The hero can walk on the arena's floor or on platforms by pressing arrow left key or arrow right key. However, he is not allowed to walk beyond the tips.
 
 ###### Walking:
@@ -118,11 +118,11 @@ The following figure shows how the pattern’s roles were mapped to the applicat
 
 These classes can be found in the following files:
 
-- [Monster]()
-- [MoveStrategy]()
-- [RegularStrategy]()
-- [ConfusedStrategy]()
-- [TeleportationStrategy]()
+- [com.g1004.getout.element.monster.Monster]()
+- [com.g1004.getout.strategy.MoveStrategy]()
+- [com.g1004.getout.strategy.RegularStrategy]()
+- [com.g1004.getout.strategy.ConfusedStrategy]()
+- [com.g1004.getout.strategy.TeleportationStrategy]()
 
 **Consequences**
 
@@ -155,14 +155,14 @@ The following figure shows how the pattern’s roles were mapped to the applicat
 
 These classes can be found in the following files:
 
-- [Monster]()
-- [Goblin]()
-- [RegularStrategy]()
-- [Zombie]()
-- [ConfusedStrategy]()
-- [Ghost]()
-- [TeleportationStrategy]()
-- [MoveStrategy]()
+- [com.g1004.getout.element.monster.Monster]()
+- [com.g1004.getout.element.monster.Goblin]()
+- [com.g1004.getout.strategy.RegularStrategy]()
+- [com.g1004.getout.element.monster.Zombie]()
+- [com.g1004.getout.strategy.ConfusedStrategy]()
+- [com.g1004.getout.element.monster.Ghost]()
+- [com.g1004.getout.strategy.TeleportationStrategy]()
+- [com.g1004.getout.strategy.MoveStrategy]()
 
 **Consequences**
 

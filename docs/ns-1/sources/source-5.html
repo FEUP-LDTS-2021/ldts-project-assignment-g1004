@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > ConfusedStrategy</title>
+  <title>Coverage Report > com.g1004.getout.strategy.ConfusedStrategy</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -20,7 +20,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">&lt;empty package name&gt;</a>
 </div>
 
-<h1>Coverage Summary for Class: ConfusedStrategy (&lt;empty package name&gt;)</h1>
+<h1>Coverage Summary for Class: com.g1004.getout.strategy.ConfusedStrategy (&lt;empty package name&gt;)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -39,7 +39,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">ConfusedStrategy</td>
+  <td class="name">com.g1004.getout.strategy.ConfusedStrategy</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -77,33 +77,33 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">2</i>&nbsp; * Confused Strategy class.
 <i class="no-highlight">3</i>&nbsp; * Each monster takes two steps in the direction he is going and then one step back, and then restarts this process.
 <i class="no-highlight">4</i>&nbsp; */
-<b class="fc"><i class="no-highlight">5</i>&nbsp;public class ConfusedStrategy implements MoveStrategy {</b>
+<b class="fc"><i class="no-highlight">5</i>&nbsp;public class com.g1004.getout.strategy.ConfusedStrategy implements com.g1004.getout.strategy.MoveStrategy {</b>
 <i class="no-highlight">6</i>&nbsp;    /**
 <i class="no-highlight">7</i>&nbsp;     * Moves monster two steps forward and one step back, repeatedly.
 <i class="no-highlight">8</i>&nbsp;     * @param monster
 <i class="no-highlight">9</i>&nbsp;     */
 <i class="no-highlight">10</i>&nbsp;    @Override
-<i class="no-highlight">11</i>&nbsp;    public void moveMonster(Monster monster) {
+<i class="no-highlight">11</i>&nbsp;    public void moveMonster(com.g1004.getout.element.monster.Monster monster) {
 <b class="fc"><i class="no-highlight">12</i>&nbsp;        monster.checkDirection();</b>
 <i class="no-highlight">13</i>&nbsp;
 <b class="fc"><i class="no-highlight">14</i>&nbsp;        int x = monster.getPosition().getX(), y = monster.getPosition().getY();</b>
 <b class="fc"><i class="no-highlight">15</i>&nbsp;        if (monster.movingForward()) {</b>
 <b class="fc"><i class="no-highlight">16</i>&nbsp;            if (monster.getSteps() == 2) {</b>
-<b class="fc"><i class="no-highlight">17</i>&nbsp;                monster.setPosition(new Position(x - 1, y));</b>
+<b class="fc"><i class="no-highlight">17</i>&nbsp;                monster.setPosition(new com.g1004.getout.Position(x - 1, y));</b>
 <b class="fc"><i class="no-highlight">18</i>&nbsp;                monster.reset();</b>
 <i class="no-highlight">19</i>&nbsp;            }
 <i class="no-highlight">20</i>&nbsp;            else {
-<b class="fc"><i class="no-highlight">21</i>&nbsp;                monster.setPosition(new Position(x + 1, y));</b>
+<b class="fc"><i class="no-highlight">21</i>&nbsp;                monster.setPosition(new com.g1004.getout.Position(x + 1, y));</b>
 <b class="fc"><i class="no-highlight">22</i>&nbsp;                monster.step();</b>
 <i class="no-highlight">23</i>&nbsp;            }
 <i class="no-highlight">24</i>&nbsp;        }
 <i class="no-highlight">25</i>&nbsp;        else {
 <b class="nc"><i class="no-highlight">26</i>&nbsp;            if (monster.getSteps() == 2) {</b>
-<b class="nc"><i class="no-highlight">27</i>&nbsp;                monster.setPosition(new Position(x + 1, y));</b>
+<b class="nc"><i class="no-highlight">27</i>&nbsp;                monster.setPosition(new com.g1004.getout.Position(x + 1, y));</b>
 <b class="nc"><i class="no-highlight">28</i>&nbsp;                monster.reset();</b>
 <i class="no-highlight">29</i>&nbsp;            }
 <i class="no-highlight">30</i>&nbsp;            else {
-<b class="nc"><i class="no-highlight">31</i>&nbsp;                monster.setPosition(new Position(x - 1, y));</b>
+<b class="nc"><i class="no-highlight">31</i>&nbsp;                monster.setPosition(new com.g1004.getout.Position(x - 1, y));</b>
 <b class="nc"><i class="no-highlight">32</i>&nbsp;                monster.step();</b>
 <i class="no-highlight">33</i>&nbsp;            }
 <i class="no-highlight">34</i>&nbsp;        }
