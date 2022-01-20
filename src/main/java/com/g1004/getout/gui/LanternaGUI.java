@@ -235,6 +235,11 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
+    public void drawMonster(Monster monster, boolean ladder, int index) {
+        // to do
+    }
+
+    @Override
     public void drawHealthBar(Hero hero) {
         String HP = "HP[" + Integer.toString(hero.getHP()) + "]";
         graphics.setBackgroundColor(TextColor.Factory.fromString("#964B00"));

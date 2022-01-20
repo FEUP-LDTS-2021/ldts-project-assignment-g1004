@@ -1,6 +1,7 @@
 package com.g1004.getout;
 
 import com.g1004.getout.element.*;
+import com.g1004.getout.element.monster.Boss;
 import com.g1004.getout.element.monster.Goblin;
 import com.g1004.getout.element.monster.Monster;
 import com.g1004.getout.gui.GUI;
@@ -98,7 +99,15 @@ public class Arena {
         else if (numLevel == 7) {}
         else if (numLevel == 8) {}
         else if (numLevel == 9) {}
-        else if (numLevel == 10) {}
+        else if (numLevel == 10) {
+            platforms.add(new Platform(new Position(20, 16), new Position(52, 16)));
+            platforms.add(new Platform(new Position(15, 13), new Position(55, 13)));
+            platforms.add(new Platform(new Position(20, 10), new Position(39, 10)));
+            platforms.add(new Platform(new Position(27, 7), new Position(50, 7)));
+            platforms.add(new Platform(new Position(30, 20), new Position(40, 20)));
+            platforms.add(new Platform(new Position(48, 21), new Position(73, 21)));
+            platforms.add(new Platform(new Position(4, 4), new Position(22, 4)));
+        }
 
         return platforms;
     }
@@ -121,32 +130,22 @@ public class Arena {
             ladders.add(new Ladder(new Position(29, 8), new Position(29, 11)));
             ladders.add(new Ladder(new Position(60, 8), new Position(60, 11)));
         }
-        else if (numLevel == 2) {
-            ladders.add(new Ladder(new Position(35, 20), new Position(35, 23)));
-        }
-        else if (numLevel == 3) {
-            ladders.add(new Ladder(new Position(35, 20), new Position(35, 23)));
-        }
-        else if (numLevel == 4) {
-            ladders.add(new Ladder(new Position(35, 20), new Position(35, 23)));
-        }
-        else if (numLevel == 5) {
-            ladders.add(new Ladder(new Position(35, 20), new Position(35, 23)));
-        }
-        else if (numLevel == 6) {
-            ladders.add(new Ladder(new Position(35, 20), new Position(35, 23)));
-        }
-        else if (numLevel == 7) {
-            ladders.add(new Ladder(new Position(35, 20), new Position(35, 23)));
-        }
-        else if (numLevel == 8) {
-            ladders.add(new Ladder(new Position(35, 20), new Position(35, 23)));
-        }
-        else if (numLevel == 9) {
-            ladders.add(new Ladder(new Position(35, 20), new Position(35, 23)));
-        }
+        else if (numLevel == 2) {}
+        else if (numLevel == 3) {}
+        else if (numLevel == 4) {}
+        else if (numLevel == 5) {}
+        else if (numLevel == 6) {}
+        else if (numLevel == 7) {}
+        else if (numLevel == 8) {}
+        else if (numLevel == 9) {}
         else if (numLevel == 10) {
-            ladders.add(new Ladder(new Position(35, 20), new Position(35, 23)));
+            ladders.add(new Ladder(new Position(33, 20), new Position(33, 23)));
+            ladders.add(new Ladder(new Position(37, 16), new Position(37, 19)));
+            ladders.add(new Ladder(new Position(49, 16), new Position(49, 20)));
+            ladders.add(new Ladder(new Position(24, 13), new Position(24, 15)));
+            ladders.add(new Ladder(new Position(48, 7), new Position(48, 12)));
+            ladders.add(new Ladder(new Position(21, 4), new Position(21, 9)));
+            ladders.add(new Ladder(new Position(34, 7), new Position(34, 9)));
         }
 
         return ladders;
@@ -185,10 +184,16 @@ public class Arena {
     }
 
     private Key createKey() {
+        if (numLevel == 10)
+            return new Key(7, 3);
+
         return new Key(2, 7);
     }
 
     private Door createDoor() {
+        if (numLevel == 10)
+            return new Door(73, 20);
+
         return new Door(73, 7);
     }
 
@@ -215,7 +220,9 @@ public class Arena {
         else if (numLevel == 7) {}
         else if (numLevel == 8) {}
         else if (numLevel == 9) {}
-        else if (numLevel == 10) {}
+        else if (numLevel == 10) {
+            monsters.add(new Boss(platforms.get(0).getLeft().getX(), platforms.get(0).getLeft().getY() - 1, platforms.get(0)));
+        }
 
         return monsters;
     }
@@ -234,7 +241,9 @@ public class Arena {
         else if (numLevel == 7) {}
         else if (numLevel == 8) {}
         else if (numLevel == 9) {}
-        else if (numLevel == 10) {}
+        else if (numLevel == 10) {
+            colour = "#C99C99";
+        }
 
         gui.drawBackground(colour);
         gui.drawWalls(walls);
@@ -264,14 +273,35 @@ public class Arena {
 
         for (Monster monster : monsters) {
             boolean m = false;
-            for (Ladder l : ladders) {
-                if (l.hasElement(monster.getPosition())) {
-                    m = true;
-                    break;
+
+            if (monster.getSymbol().length() > 1) {
+                int n = 0;
+                for (Ladder l : ladders) {
+                    for (int i = 0; i < monster.getSymbol().length(); i++) {
+                        if (l.hasElement(new Position(monster.getPosition().getX() + i, monster.getPosition().getY()))) {
+                            m = true;
+                            n = i;
+                            break;
+                        }
+                    }
+
+                    if (m)
+                        break;
                 }
+
+                gui.drawMonster(monster, m, n);
+            }
+            else {
+                for (Ladder l : ladders) {
+                    if (l.hasElement(monster.getPosition())) {
+                        m = true;
+                        break;
+                    }
+                }
+
+                gui.drawMonster(monster, m);
             }
 
-            gui.drawMonster(monster, m);
             gui.setBGColour(colour);
         }
 
@@ -371,17 +401,35 @@ public class Arena {
             monster.move();
     }
 
+    public void changeBossSpot() {
+        // to do
+    }
+
     /**
      * Checks if any of the monsters collided with hero, in which case he will die, showing user's score.
      * @return true if hero died, otherwise false.
      */
     public boolean verifyMonsterCollisions() {
-        for (Monster monster : monsters) {
-            if (monster.getPosition().equals(hero.getPosition())) {
-                hero.hurt(monster.attack());
-                if (hero.isDead()) {
-                    loss();
-                    return true;
+        if (monsters.get(0) instanceof Boss) {
+            for (int i = 0; i < 13; i++) {
+                Position p = new Position(monsters.get(0).getPosition().getX() + i, monsters.get(0).getPosition().getY());
+                if (p.equals(hero.getPosition())) {
+                    hero.hurt(monsters.get(0).attack());
+                    if (hero.isDead()) {
+                        loss();
+                        return true;
+                    }
+                }
+            }
+        }
+        else {
+            for (Monster monster : monsters) {
+                if (monster.getPosition().equals(hero.getPosition())) {
+                    hero.hurt(monster.attack());
+                    if (hero.isDead()) {
+                        loss();
+                        return true;
+                    }
                 }
             }
         }

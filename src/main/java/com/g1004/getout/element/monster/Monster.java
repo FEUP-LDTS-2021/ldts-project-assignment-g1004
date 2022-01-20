@@ -100,4 +100,8 @@ public abstract class Monster extends Element {
     public int attack() {
         return damage;
     }
+
+    public void switchPlatform(Platform p) {
+        // to do
+    }
 }
