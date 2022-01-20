@@ -1,6 +1,6 @@
 package com.g1004.getout.builder;
 
-import com.g1004.getout.Arena;
+import com.g1004.getout.MVC.Arena;
 import com.g1004.getout.Platform;
 import com.g1004.getout.Position;
 import com.g1004.getout.element.Door;

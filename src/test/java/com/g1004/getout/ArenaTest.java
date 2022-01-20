@@ -1,5 +1,6 @@
 package com.g1004.getout;
 
+import com.g1004.getout.MVC.Arena;
 import com.g1004.getout.element.*;
 import com.g1004.getout.element.monster.Goblin;
 import com.g1004.getout.element.monster.Monster;

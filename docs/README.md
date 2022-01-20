@@ -13,7 +13,7 @@ This project was developed by *Diogo Silva* (*up202004288*@edu.fe.up.pt), *Maria
 ### IMPLEMENTED FEATURES
 
 > This section contains a list of implemented features and their descriptions.
-- **com.g1004.getout.Arena space** - A level has an arena, the player's environment, made of platforms and ladders.
+- **com.g1004.getout.MVC.Arena space** - A level has an arena, the player's environment, made of platforms and ladders.
 - **Walking** - The hero can walk on the arena's floor or on platforms by pressing arrow left key or arrow right key. However, he is not allowed to walk beyond the tips.
 
 ###### Walking:
