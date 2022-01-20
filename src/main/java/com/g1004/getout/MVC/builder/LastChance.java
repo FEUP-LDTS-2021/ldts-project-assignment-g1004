@@ -52,7 +52,16 @@ public class LastChance implements ArenaBuilder {
     public List<Coin> createCoins() {
         List<Coin> coins = new ArrayList<>();
 
-        // to do
+        coins.add(new Coin(9, 3));
+        coins.add(new Coin(11, 3));
+        coins.add(new Coin(13, 3));
+        coins.add(new Coin(15, 3));
+        coins.add(new Coin(17, 3));
+        coins.add(new Coin(55, 20));
+        coins.add(new Coin(57, 20));
+        coins.add(new Coin(59, 20));
+        coins.add(new Coin(61, 20));
+        coins.add(new Coin(63, 20));
 
         return coins;
     }
