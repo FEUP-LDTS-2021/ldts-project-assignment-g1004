@@ -325,8 +325,7 @@ public class Arena {
     }
 
     public List<Wall> walls() {
-        // to do
-        return new ArrayList<>();
+        return walls;
     }
 
     /**
@@ -338,23 +337,19 @@ public class Arena {
     }
 
     public String background() {
-        // to do
-        return "";
+        return background;
     }
 
     public List<Platform> platforms() {
-        // to do
-        return new ArrayList<>();
+        return platforms;
     }
 
     public List<Ladder> ladders() {
-        // to do
-        return new ArrayList<>();
+        return ladders;
     }
 
     public List<Coin> coins() {
-        // to do
-        return new ArrayList<>();
+        return coins;
     }
 
     public Key key() {
@@ -366,8 +361,7 @@ public class Arena {
     }
 
     public List<Monster> monsters() {
-        // to do
-        return new ArrayList<>();
+        return monsters;
     }
 }
 
