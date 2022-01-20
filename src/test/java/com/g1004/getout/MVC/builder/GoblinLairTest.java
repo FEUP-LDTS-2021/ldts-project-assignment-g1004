@@ -1,8 +1,8 @@
-package com.g1004.getout.builder;
+package com.g1004.getout.MVC.builder;
 
 import com.g1004.getout.MVC.Arena;
-import com.g1004.getout.Platform;
-import com.g1004.getout.Position;
+import com.g1004.getout.structures.Platform;
+import com.g1004.getout.position.Position;
 import com.g1004.getout.element.Coin;
 import com.g1004.getout.element.Door;
 import com.g1004.getout.element.Key;

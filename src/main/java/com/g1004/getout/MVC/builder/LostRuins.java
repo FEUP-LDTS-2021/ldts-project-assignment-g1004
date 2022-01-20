@@ -1,8 +1,7 @@
-package com.g1004.getout.builder;
+package com.g1004.getout.MVC.builder;
 
-import com.g1004.getout.Ladder;
-import com.g1004.getout.Platform;
-import com.g1004.getout.builder.ArenaBuilder;
+import com.g1004.getout.structures.Ladder;
+import com.g1004.getout.structures.Platform;
 import com.g1004.getout.element.Coin;
 import com.g1004.getout.element.Door;
 import com.g1004.getout.element.Key;
@@ -11,7 +10,7 @@ import com.g1004.getout.element.monster.Monster;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HauntedMansion implements ArenaBuilder {
+public class LostRuins implements ArenaBuilder {
     @Override
     public String createBackground() {
         // to do

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > com.g1004.getout.Platform</title>
+  <title>Coverage Report > com.g1004.getout.structures.Platform</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -20,7 +20,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">&lt;empty package name&gt;</a>
 </div>
 
-<h1>Coverage Summary for Class: com.g1004.getout.Platform (&lt;empty package name&gt;)</h1>
+<h1>Coverage Summary for Class: com.g1004.getout.structures.Platform (&lt;empty package name&gt;)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -39,7 +39,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">com.g1004.getout.Platform</td>
+  <td class="name">com.g1004.getout.structures.Platform</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -79,11 +79,11 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">4</i>&nbsp;import java.util.List;
 <i class="no-highlight">5</i>&nbsp;
 <i class="no-highlight">6</i>&nbsp;/**
-<i class="no-highlight">7</i>&nbsp; * com.g1004.getout.Platform class. This class creates and draws the platforms where the hero can move horizontally.
+<i class="no-highlight">7</i>&nbsp; * com.g1004.getout.structures.Platform class. This class creates and draws the platforms where the hero can move horizontally.
 <i class="no-highlight">8</i>&nbsp; */
-<i class="no-highlight">9</i>&nbsp;public class com.g1004.getout.Platform {
-<i class="no-highlight">10</i>&nbsp;    private final com.g1004.getout.Position left;        /** left corner of the platform */
-<i class="no-highlight">11</i>&nbsp;    private final com.g1004.getout.Position right;       /** right corner of the platform */
+<i class="no-highlight">9</i>&nbsp;public class com.g1004.getout.structures.Platform {
+<i class="no-highlight">10</i>&nbsp;    private final com.g1004.getout.position.Position left;        /** left corner of the platform */
+<i class="no-highlight">11</i>&nbsp;    private final com.g1004.getout.position.Position right;       /** right corner of the platform */
 <i class="no-highlight">12</i>&nbsp;    private final List&lt;com.g1004.getout.element.Wall&gt; walls;     /** list of walls that compose the platform */
 <i class="no-highlight">13</i>&nbsp;
 <i class="no-highlight">14</i>&nbsp;    /**
@@ -91,7 +91,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">16</i>&nbsp;     * @param left is the position where the left corner of the platform is.
 <i class="no-highlight">17</i>&nbsp;     * @param right is the position where the right corner of the platform is.
 <i class="no-highlight">18</i>&nbsp;     */
-<b class="fc"><i class="no-highlight">19</i>&nbsp;    public com.g1004.getout.Platform(com.g1004.getout.Position left, com.g1004.getout.Position right) {</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;    public com.g1004.getout.structures.Platform(com.g1004.getout.position.Position left, com.g1004.getout.position.Position right) {</b>
 <b class="fc"><i class="no-highlight">20</i>&nbsp;        this.left = left;</b>
 <b class="fc"><i class="no-highlight">21</i>&nbsp;        this.right = right;</b>
 <b class="fc"><i class="no-highlight">22</i>&nbsp;        walls = createWalls();</b>
@@ -115,7 +115,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">40</i>&nbsp;     * Obtain left corner of the platform.
 <i class="no-highlight">41</i>&nbsp;     * @return left edge.
 <i class="no-highlight">42</i>&nbsp;     */
-<i class="no-highlight">43</i>&nbsp;    public com.g1004.getout.Position getLeft() {
+<i class="no-highlight">43</i>&nbsp;    public com.g1004.getout.position.Position getLeft() {
 <b class="fc"><i class="no-highlight">44</i>&nbsp;        return left;</b>
 <i class="no-highlight">45</i>&nbsp;    }
 <i class="no-highlight">46</i>&nbsp;
@@ -123,7 +123,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">48</i>&nbsp;     * Obtain right corner on the platform.
 <i class="no-highlight">49</i>&nbsp;     * @return right edge.
 <i class="no-highlight">50</i>&nbsp;     */
-<i class="no-highlight">51</i>&nbsp;    public com.g1004.getout.Position getRight() {
+<i class="no-highlight">51</i>&nbsp;    public com.g1004.getout.position.Position getRight() {
 <b class="fc"><i class="no-highlight">52</i>&nbsp;        return right;</b>
 <i class="no-highlight">53</i>&nbsp;    }
 <i class="no-highlight">54</i>&nbsp;

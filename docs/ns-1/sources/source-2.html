@@ -148,8 +148,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">17</i>&nbsp;    private final int height;           /** vertical extent of arena */
 <i class="no-highlight">18</i>&nbsp;    private char direction;             /** direction of user movement: horizontal or vertical */
 <i class="no-highlight">19</i>&nbsp;    private List&lt;com.g1004.getout.element.Wall&gt; walls;           /** walls that surround arena */
-<i class="no-highlight">20</i>&nbsp;    private List&lt;com.g1004.getout.Platform&gt; platforms;   /** horizontal platforms inside arena */
-<i class="no-highlight">21</i>&nbsp;    private List&lt;com.g1004.getout.Ladder&gt; ladders;       /** vertical ladders inside arena */
+<i class="no-highlight">20</i>&nbsp;    private List&lt;com.g1004.getout.structures.Platform&gt; platforms;   /** horizontal platforms inside arena */
+<i class="no-highlight">21</i>&nbsp;    private List&lt;com.g1004.getout.structures.Ladder&gt; ladders;       /** vertical ladders inside arena */
 <i class="no-highlight">22</i>&nbsp;    private List&lt;com.g1004.getout.element.Coin&gt; coins;           /** coins that can be caught by user */
 <i class="no-highlight">23</i>&nbsp;    private com.g1004.getout.element.Key key;                    /** key that can be caught by user */
 <i class="no-highlight">24</i>&nbsp;    private com.g1004.getout.element.Door door;                  /** door for the user to get out of arena */
@@ -200,17 +200,17 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">69</i>&nbsp;     * Creates horizontal platforms inside arena.
 <i class="no-highlight">70</i>&nbsp;     * @return platforms that arena contains.
 <i class="no-highlight">71</i>&nbsp;     */
-<i class="no-highlight">72</i>&nbsp;    private List&lt;com.g1004.getout.Platform&gt; createPlatforms() {
-<b class="fc"><i class="no-highlight">73</i>&nbsp;        List&lt;com.g1004.getout.Platform&gt; platforms = new ArrayList&lt;&gt;();</b>
+<i class="no-highlight">72</i>&nbsp;    private List&lt;com.g1004.getout.structures.Platform&gt; createPlatforms() {
+<b class="fc"><i class="no-highlight">73</i>&nbsp;        List&lt;com.g1004.getout.structures.Platform&gt; platforms = new ArrayList&lt;&gt;();</b>
 <i class="no-highlight">74</i>&nbsp;
-<b class="fc"><i class="no-highlight">75</i>&nbsp;        platforms.add(new com.g1004.getout.Platform(new com.g1004.getout.Position(18, 16), new com.g1004.getout.Position(34, 16)));</b>
-<b class="fc"><i class="no-highlight">76</i>&nbsp;        platforms.add(new com.g1004.getout.Platform(new com.g1004.getout.Position(6, 13), new com.g1004.getout.Position(48, 13)));</b>
-<b class="fc"><i class="no-highlight">77</i>&nbsp;        platforms.add(new com.g1004.getout.Platform(new com.g1004.getout.Position(4, 10), new com.g1004.getout.Position(17, 10)));</b>
-<b class="fc"><i class="no-highlight">78</i>&nbsp;        platforms.add(new com.g1004.getout.Platform(new com.g1004.getout.Position(26, 10), new com.g1004.getout.Position(50, 10)));</b>
-<b class="fc"><i class="no-highlight">79</i>&nbsp;        platforms.add(new com.g1004.getout.Platform(new com.g1004.getout.Position(10, 7), new com.g1004.getout.Position(30, 7)));</b>
-<b class="fc"><i class="no-highlight">80</i>&nbsp;        platforms.add(new com.g1004.getout.Platform(new com.g1004.getout.Position(40, 7), new com.g1004.getout.Position(52, 7)));</b>
-<b class="fc"><i class="no-highlight">81</i>&nbsp;        platforms.add(new com.g1004.getout.Platform(new com.g1004.getout.Position(1, 4), new com.g1004.getout.Position(25, 4)));</b>
-<b class="fc"><i class="no-highlight">82</i>&nbsp;        platforms.add(new com.g1004.getout.Platform(new com.g1004.getout.Position(48, 4), new com.g1004.getout.Position(58, 4)));</b>
+<b class="fc"><i class="no-highlight">75</i>&nbsp;        platforms.add(new com.g1004.getout.structures.Platform(new com.g1004.getout.position.Position(18, 16), new com.g1004.getout.position.Position(34, 16)));</b>
+<b class="fc"><i class="no-highlight">76</i>&nbsp;        platforms.add(new com.g1004.getout.structures.Platform(new com.g1004.getout.position.Position(6, 13), new com.g1004.getout.position.Position(48, 13)));</b>
+<b class="fc"><i class="no-highlight">77</i>&nbsp;        platforms.add(new com.g1004.getout.structures.Platform(new com.g1004.getout.position.Position(4, 10), new com.g1004.getout.position.Position(17, 10)));</b>
+<b class="fc"><i class="no-highlight">78</i>&nbsp;        platforms.add(new com.g1004.getout.structures.Platform(new com.g1004.getout.position.Position(26, 10), new com.g1004.getout.position.Position(50, 10)));</b>
+<b class="fc"><i class="no-highlight">79</i>&nbsp;        platforms.add(new com.g1004.getout.structures.Platform(new com.g1004.getout.position.Position(10, 7), new com.g1004.getout.position.Position(30, 7)));</b>
+<b class="fc"><i class="no-highlight">80</i>&nbsp;        platforms.add(new com.g1004.getout.structures.Platform(new com.g1004.getout.position.Position(40, 7), new com.g1004.getout.position.Position(52, 7)));</b>
+<b class="fc"><i class="no-highlight">81</i>&nbsp;        platforms.add(new com.g1004.getout.structures.Platform(new com.g1004.getout.position.Position(1, 4), new com.g1004.getout.position.Position(25, 4)));</b>
+<b class="fc"><i class="no-highlight">82</i>&nbsp;        platforms.add(new com.g1004.getout.structures.Platform(new com.g1004.getout.position.Position(48, 4), new com.g1004.getout.position.Position(58, 4)));</b>
 <i class="no-highlight">83</i>&nbsp;
 <b class="fc"><i class="no-highlight">84</i>&nbsp;        return platforms;</b>
 <i class="no-highlight">85</i>&nbsp;    }
@@ -219,17 +219,17 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">88</i>&nbsp;     * Creates vertical ladders inside arena.
 <i class="no-highlight">89</i>&nbsp;     * @return ladders that arena contains.
 <i class="no-highlight">90</i>&nbsp;     */
-<i class="no-highlight">91</i>&nbsp;    private List&lt;com.g1004.getout.Ladder&gt; createLadders() {
-<b class="fc"><i class="no-highlight">92</i>&nbsp;        List&lt;com.g1004.getout.Ladder&gt; ladders = new ArrayList&lt;&gt;();</b>
+<i class="no-highlight">91</i>&nbsp;    private List&lt;com.g1004.getout.structures.Ladder&gt; createLadders() {
+<b class="fc"><i class="no-highlight">92</i>&nbsp;        List&lt;com.g1004.getout.structures.Ladder&gt; ladders = new ArrayList&lt;&gt;();</b>
 <i class="no-highlight">93</i>&nbsp;
-<b class="fc"><i class="no-highlight">94</i>&nbsp;        ladders.add(new com.g1004.getout.Ladder(new com.g1004.getout.Position(20, 16), new com.g1004.getout.Position(20, 18)));</b>
-<b class="fc"><i class="no-highlight">95</i>&nbsp;        ladders.add(new com.g1004.getout.Ladder(new com.g1004.getout.Position(30, 13), new com.g1004.getout.Position(30, 15)));</b>
-<b class="fc"><i class="no-highlight">96</i>&nbsp;        ladders.add(new com.g1004.getout.Ladder(new com.g1004.getout.Position(16, 10), new com.g1004.getout.Position(16, 12)));</b>
-<b class="fc"><i class="no-highlight">97</i>&nbsp;        ladders.add(new com.g1004.getout.Ladder(new com.g1004.getout.Position(11, 7), new com.g1004.getout.Position(11, 9)));</b>
-<b class="fc"><i class="no-highlight">98</i>&nbsp;        ladders.add(new com.g1004.getout.Ladder(new com.g1004.getout.Position(28, 7), new com.g1004.getout.Position(28, 9)));</b>
-<b class="fc"><i class="no-highlight">99</i>&nbsp;        ladders.add(new com.g1004.getout.Ladder(new com.g1004.getout.Position(41, 7), new com.g1004.getout.Position(41, 9)));</b>
-<b class="fc"><i class="no-highlight">100</i>&nbsp;        ladders.add(new com.g1004.getout.Ladder(new com.g1004.getout.Position(23, 4), new com.g1004.getout.Position(23, 6)));</b>
-<b class="fc"><i class="no-highlight">101</i>&nbsp;        ladders.add(new com.g1004.getout.Ladder(new com.g1004.getout.Position(50, 4), new com.g1004.getout.Position(50, 6)));</b>
+<b class="fc"><i class="no-highlight">94</i>&nbsp;        ladders.add(new com.g1004.getout.structures.Ladder(new com.g1004.getout.position.Position(20, 16), new com.g1004.getout.position.Position(20, 18)));</b>
+<b class="fc"><i class="no-highlight">95</i>&nbsp;        ladders.add(new com.g1004.getout.structures.Ladder(new com.g1004.getout.position.Position(30, 13), new com.g1004.getout.position.Position(30, 15)));</b>
+<b class="fc"><i class="no-highlight">96</i>&nbsp;        ladders.add(new com.g1004.getout.structures.Ladder(new com.g1004.getout.position.Position(16, 10), new com.g1004.getout.position.Position(16, 12)));</b>
+<b class="fc"><i class="no-highlight">97</i>&nbsp;        ladders.add(new com.g1004.getout.structures.Ladder(new com.g1004.getout.position.Position(11, 7), new com.g1004.getout.position.Position(11, 9)));</b>
+<b class="fc"><i class="no-highlight">98</i>&nbsp;        ladders.add(new com.g1004.getout.structures.Ladder(new com.g1004.getout.position.Position(28, 7), new com.g1004.getout.position.Position(28, 9)));</b>
+<b class="fc"><i class="no-highlight">99</i>&nbsp;        ladders.add(new com.g1004.getout.structures.Ladder(new com.g1004.getout.position.Position(41, 7), new com.g1004.getout.position.Position(41, 9)));</b>
+<b class="fc"><i class="no-highlight">100</i>&nbsp;        ladders.add(new com.g1004.getout.structures.Ladder(new com.g1004.getout.position.Position(23, 4), new com.g1004.getout.position.Position(23, 6)));</b>
+<b class="fc"><i class="no-highlight">101</i>&nbsp;        ladders.add(new com.g1004.getout.structures.Ladder(new com.g1004.getout.position.Position(50, 4), new com.g1004.getout.position.Position(50, 6)));</b>
 <i class="no-highlight">102</i>&nbsp;
 <b class="fc"><i class="no-highlight">103</i>&nbsp;        return ladders;</b>
 <i class="no-highlight">104</i>&nbsp;    }
@@ -261,7 +261,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc"><i class="no-highlight">130</i>&nbsp;        List&lt;com.g1004.getout.element.monster.Monster&gt; monsters = new ArrayList&lt;&gt;();</b>
 <i class="no-highlight">131</i>&nbsp;
 <i class="no-highlight">132</i>&nbsp;        int x, y;
-<b class="fc"><i class="no-highlight">133</i>&nbsp;        for (com.g1004.getout.Platform p : platforms) {</b>
+<b class="fc"><i class="no-highlight">133</i>&nbsp;        for (com.g1004.getout.structures.Platform p : platforms) {</b>
 <b class="fc"><i class="no-highlight">134</i>&nbsp;            x = p.getLeft().getX();</b>
 <b class="fc"><i class="no-highlight">135</i>&nbsp;            y = p.getLeft().getY();</b>
 <b class="fc"><i class="no-highlight">136</i>&nbsp;            if (y == 13)</b>
@@ -286,12 +286,12 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc"><i class="no-highlight">155</i>&nbsp;        for (com.g1004.getout.element.Wall wall : walls)</b>
 <b class="fc"><i class="no-highlight">156</i>&nbsp;            wall.draw(screen);</b>
 <i class="no-highlight">157</i>&nbsp;
-<b class="fc"><i class="no-highlight">158</i>&nbsp;        for (com.g1004.getout.Platform platform : platforms)</b>
+<b class="fc"><i class="no-highlight">158</i>&nbsp;        for (com.g1004.getout.structures.Platform platform : platforms)</b>
 <b class="fc"><i class="no-highlight">159</i>&nbsp;            platform.draw(screen);</b>
 <i class="no-highlight">160</i>&nbsp;
 <b class="fc"><i class="no-highlight">161</i>&nbsp;        screen.setBackgroundColor(TextColor.Factory.fromString(&quot;#F5F5DC&quot;));</b>
 <i class="no-highlight">162</i>&nbsp;
-<b class="fc"><i class="no-highlight">163</i>&nbsp;        for (com.g1004.getout.Ladder ladder : ladders)</b>
+<b class="fc"><i class="no-highlight">163</i>&nbsp;        for (com.g1004.getout.structures.Ladder ladder : ladders)</b>
 <b class="fc"><i class="no-highlight">164</i>&nbsp;            ladder.draw(screen);</b>
 <i class="no-highlight">165</i>&nbsp;
 <b class="fc"><i class="no-highlight">166</i>&nbsp;        screen.setBackgroundColor(TextColor.Factory.fromString(&quot;#F5F5DC&quot;));</b>
@@ -345,7 +345,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">214</i>&nbsp;     * Changes hero position, if hero has permission to make that move.
 <i class="no-highlight">215</i>&nbsp;     * @param position is the place to where the user wants the hero to move.
 <i class="no-highlight">216</i>&nbsp;     */
-<i class="no-highlight">217</i>&nbsp;    public void moveHero(com.g1004.getout.Position position) {
+<i class="no-highlight">217</i>&nbsp;    public void moveHero(com.g1004.getout.position.Position position) {
 <b class="fc"><i class="no-highlight">218</i>&nbsp;        if (canHeroMove(position)) {</b>
 <b class="fc"><i class="no-highlight">219</i>&nbsp;            hero.setPosition(position);</b>
 <b class="fc"><i class="no-highlight">220</i>&nbsp;            retrieveCoins();</b>
@@ -369,18 +369,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">238</i>&nbsp;     * @param pos to where hero wants to move to.
 <i class="no-highlight">239</i>&nbsp;     * @return true if hero can move or false if hero can�t move.
 <i class="no-highlight">240</i>&nbsp;     */
-<i class="no-highlight">241</i>&nbsp;    private boolean canHeroMove(com.g1004.getout.Position pos) {
+<i class="no-highlight">241</i>&nbsp;    private boolean canHeroMove(com.g1004.getout.position.Position pos) {
 <b class="fc"><i class="no-highlight">242</i>&nbsp;        for (com.g1004.getout.element.Wall wall : walls)</b>
 <b class="fc"><i class="no-highlight">243</i>&nbsp;            if (wall.getPosition().equals(pos))</b>
 <b class="fc"><i class="no-highlight">244</i>&nbsp;                return false;</b>
 <i class="no-highlight">245</i>&nbsp;
 <b class="fc"><i class="no-highlight">246</i>&nbsp;        if (direction == &#39;v&#39;) {</b>
-<b class="fc"><i class="no-highlight">247</i>&nbsp;            for (com.g1004.getout.Ladder ladder : ladders)</b>
+<b class="fc"><i class="no-highlight">247</i>&nbsp;            for (com.g1004.getout.structures.Ladder ladder : ladders)</b>
 <b class="fc"><i class="no-highlight">248</i>&nbsp;                if (((ladder.getBottom().getX() == pos.getX()) &amp;&amp; (pos.getY() &lt;= ladder.getBottom().getY()) &amp;&amp; (pos.getY() &gt;= ladder.getTop().getY())) || ladder.getTop().getY() - 1 == pos.getY())</b>
 <b class="fc"><i class="no-highlight">249</i>&nbsp;                    return true;</b>
 <i class="no-highlight">250</i>&nbsp;        }
 <b class="fc"><i class="no-highlight">251</i>&nbsp;        else if (direction == &#39;h&#39;){</b>
-<b class="fc"><i class="no-highlight">252</i>&nbsp;            for (com.g1004.getout.Platform platform : platforms)</b>
+<b class="fc"><i class="no-highlight">252</i>&nbsp;            for (com.g1004.getout.structures.Platform platform : platforms)</b>
 <b class="fc"><i class="no-highlight">253</i>&nbsp;                if ((pos.getX() &lt;= platform.getRight().getX() &amp;&amp; pos.getX() &gt;= platform.getLeft().getX()) &amp;&amp; pos.getY() == platform.getLeft().getY()-1)</b>
 <b class="nc"><i class="no-highlight">254</i>&nbsp;                    return true;</b>
 <i class="no-highlight">255</i>&nbsp;

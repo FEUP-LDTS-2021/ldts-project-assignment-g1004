@@ -1,6 +1,6 @@
 package com.g1004.getout.element.monster;
 
-import com.g1004.getout.Platform;
+import com.g1004.getout.structures.Platform;
 import com.g1004.getout.strategy.MoveStrategy;
 import com.g1004.getout.strategy.SpecialStrategy;
 

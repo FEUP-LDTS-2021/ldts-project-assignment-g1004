@@ -1,8 +1,7 @@
 package com.g1004.getout.strategy;
 
-import com.g1004.getout.Position;
+import com.g1004.getout.position.Position;
 import com.g1004.getout.element.monster.Monster;
-import com.g1004.getout.strategy.MoveStrategy;
 
 /**
  * Confused Strategy class.

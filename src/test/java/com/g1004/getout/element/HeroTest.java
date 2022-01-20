@@ -1,6 +1,6 @@
 package com.g1004.getout.element;
 
-import com.g1004.getout.Position;
+import com.g1004.getout.position.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

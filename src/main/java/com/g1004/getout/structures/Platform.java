@@ -1,12 +1,13 @@
-package com.g1004.getout;
+package com.g1004.getout.structures;
 
+import com.g1004.getout.position.Position;
 import com.g1004.getout.element.Wall;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * com.g1004.getout.Platform class. This class creates and draws the platforms where the hero can move horizontally.
+ * com.g1004.getout.structures.Platform class. This class creates and draws the platforms where the hero can move horizontally.
  */
 public class Platform {
     private final Position left;        /** left corner of the platform */

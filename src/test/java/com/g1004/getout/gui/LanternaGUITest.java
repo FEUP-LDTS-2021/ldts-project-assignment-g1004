@@ -1,8 +1,8 @@
 package com.g1004.getout.gui;
 
-import com.g1004.getout.Ladder;
-import com.g1004.getout.Platform;
-import com.g1004.getout.Position;
+import com.g1004.getout.structures.Ladder;
+import com.g1004.getout.structures.Platform;
+import com.g1004.getout.position.Position;
 import com.g1004.getout.element.*;
 import com.g1004.getout.element.monster.Boss;
 import com.g1004.getout.element.monster.Goblin;

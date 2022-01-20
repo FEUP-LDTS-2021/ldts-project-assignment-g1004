@@ -1,8 +1,9 @@
 package com.g1004.getout.gui;
 
-import com.g1004.getout.*;
 import com.g1004.getout.element.*;
 import com.g1004.getout.element.monster.Monster;
+import com.g1004.getout.structures.Ladder;
+import com.g1004.getout.structures.Platform;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;

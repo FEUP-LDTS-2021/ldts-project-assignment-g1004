@@ -1,12 +1,13 @@
-package com.g1004.getout;
+package com.g1004.getout.structures;
 
+import com.g1004.getout.position.Position;
 import com.g1004.getout.element.Bar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * com.g1004.getout.Ladder class. Allows the main character to move between platforms through ladders.
+ * com.g1004.getout.structures.Ladder class. Allows the main character to move between platforms through ladders.
  */
 public class Ladder {
     private final Position top;    /** position on the top of the ladder */

@@ -1,7 +1,7 @@
 package com.g1004.getout.MVC;
 
-import com.g1004.getout.Ladder;
-import com.g1004.getout.Platform;
+import com.g1004.getout.structures.Ladder;
+import com.g1004.getout.structures.Platform;
 import com.g1004.getout.element.Coin;
 import com.g1004.getout.element.Door;
 import com.g1004.getout.element.Hero;

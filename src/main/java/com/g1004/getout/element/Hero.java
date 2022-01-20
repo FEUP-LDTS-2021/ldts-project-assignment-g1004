@@ -1,7 +1,6 @@
 package com.g1004.getout.element;
 
-import com.g1004.getout.Position;
-import com.g1004.getout.element.Element;
+import com.g1004.getout.position.Position;
 
 /**
  * com.g1004.getout.element.Hero class. The main character, which is controlled by the player, can die if he loses all health due to hitting monsters.

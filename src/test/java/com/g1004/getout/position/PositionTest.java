@@ -1,4 +1,4 @@
-package com.g1004.getout;
+package com.g1004.getout.position;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

@@ -77,7 +77,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">2</i>&nbsp; * com.g1004.getout.element.monster.Monster class. Manages and controls the monsters&#39; movement on each platform.
 <i class="no-highlight">3</i>&nbsp; */
 <i class="no-highlight">4</i>&nbsp;public abstract class com.g1004.getout.element.monster.Monster extends com.g1004.getout.element.Element {
-<i class="no-highlight">5</i>&nbsp;    private final com.g1004.getout.Platform platform;    /** platform of the monster */
+<i class="no-highlight">5</i>&nbsp;    private final com.g1004.getout.structures.Platform platform;    /** platform of the monster */
 <i class="no-highlight">6</i>&nbsp;    private boolean forward;            /** boolean that checks if the monster moves forward */
 <i class="no-highlight">7</i>&nbsp;    private int steps;                  /** declares the monster steps */
 <i class="no-highlight">8</i>&nbsp;    private com.g1004.getout.strategy.MoveStrategy movement;      /** type of strategy that describes monster movement */
@@ -88,7 +88,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">13</i>&nbsp;     * @param y coordinate.
 <i class="no-highlight">14</i>&nbsp;     * @param p platform.
 <i class="no-highlight">15</i>&nbsp;     */
-<i class="no-highlight">16</i>&nbsp;    public com.g1004.getout.element.monster.Monster(int x, int y, com.g1004.getout.Platform p) {
+<i class="no-highlight">16</i>&nbsp;    public com.g1004.getout.element.monster.Monster(int x, int y, com.g1004.getout.structures.Platform p) {
 <b class="fc"><i class="no-highlight">17</i>&nbsp;        super(x, y);</b>
 <b class="fc"><i class="no-highlight">18</i>&nbsp;        platform = p;</b>
 <b class="fc"><i class="no-highlight">19</i>&nbsp;        forward = true;</b>
@@ -100,7 +100,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">25</i>&nbsp;     * Obtain platform where monster is.
 <i class="no-highlight">26</i>&nbsp;     * @return platform.
 <i class="no-highlight">27</i>&nbsp;     */
-<i class="no-highlight">28</i>&nbsp;    public com.g1004.getout.Platform getPlatform() {
+<i class="no-highlight">28</i>&nbsp;    public com.g1004.getout.structures.Platform getPlatform() {
 <b class="fc"><i class="no-highlight">29</i>&nbsp;        return platform;</b>
 <i class="no-highlight">30</i>&nbsp;    }
 <i class="no-highlight">31</i>&nbsp;

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > com.g1004.getout.Ladder</title>
+  <title>Coverage Report > com.g1004.getout.structures.Ladder</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -20,7 +20,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">&lt;empty package name&gt;</a>
 </div>
 
-<h1>Coverage Summary for Class: com.g1004.getout.Ladder (&lt;empty package name&gt;)</h1>
+<h1>Coverage Summary for Class: com.g1004.getout.structures.Ladder (&lt;empty package name&gt;)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -39,7 +39,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">com.g1004.getout.Ladder</td>
+  <td class="name">com.g1004.getout.structures.Ladder</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -79,11 +79,11 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">4</i>&nbsp;import java.util.List;
 <i class="no-highlight">5</i>&nbsp;
 <i class="no-highlight">6</i>&nbsp;/**
-<i class="no-highlight">7</i>&nbsp; * com.g1004.getout.Ladder class. Allows the main character to move between platforms through ladders.
+<i class="no-highlight">7</i>&nbsp; * com.g1004.getout.structures.Ladder class. Allows the main character to move between platforms through ladders.
 <i class="no-highlight">8</i>&nbsp; */
-<i class="no-highlight">9</i>&nbsp;public class com.g1004.getout.Ladder {
-<i class="no-highlight">10</i>&nbsp;    private final com.g1004.getout.Position top;    /**&lt; position on the top of the ladder */
-<i class="no-highlight">11</i>&nbsp;    private final com.g1004.getout.Position bottom; /**&lt; position on the bottom of the ladder */
+<i class="no-highlight">9</i>&nbsp;public class com.g1004.getout.structures.Ladder {
+<i class="no-highlight">10</i>&nbsp;    private final com.g1004.getout.position.Position top;    /**&lt; position on the top of the ladder */
+<i class="no-highlight">11</i>&nbsp;    private final com.g1004.getout.position.Position bottom; /**&lt; position on the bottom of the ladder */
 <i class="no-highlight">12</i>&nbsp;    private final List&lt;com.g1004.getout.element.Bar&gt; bars;  /**&lt; bars to the construction of the ladder */
 <i class="no-highlight">13</i>&nbsp;
 <i class="no-highlight">14</i>&nbsp;    /**
@@ -91,7 +91,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">16</i>&nbsp;     * @param top position.
 <i class="no-highlight">17</i>&nbsp;     * @param bottom position.
 <i class="no-highlight">18</i>&nbsp;     */
-<b class="fc"><i class="no-highlight">19</i>&nbsp;    public com.g1004.getout.Ladder(com.g1004.getout.Position top, com.g1004.getout.Position bottom) {</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;    public com.g1004.getout.structures.Ladder(com.g1004.getout.position.Position top, com.g1004.getout.position.Position bottom) {</b>
 <b class="fc"><i class="no-highlight">20</i>&nbsp;        this.top = top;</b>
 <b class="fc"><i class="no-highlight">21</i>&nbsp;        this.bottom = bottom;</b>
 <b class="fc"><i class="no-highlight">22</i>&nbsp;        bars = createBars();</b>
@@ -115,7 +115,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">40</i>&nbsp;     * Obtain position on the top of the ladder.
 <i class="no-highlight">41</i>&nbsp;     * @return position on the top of the ladder.
 <i class="no-highlight">42</i>&nbsp;     */
-<i class="no-highlight">43</i>&nbsp;    public com.g1004.getout.Position getTop() {
+<i class="no-highlight">43</i>&nbsp;    public com.g1004.getout.position.Position getTop() {
 <b class="fc"><i class="no-highlight">44</i>&nbsp;        return top;</b>
 <i class="no-highlight">45</i>&nbsp;    }
 <i class="no-highlight">46</i>&nbsp;
@@ -123,7 +123,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">48</i>&nbsp;     * Obtain position on the bottom of the ladder.
 <i class="no-highlight">49</i>&nbsp;     * @return position on the bottom of the ladder.
 <i class="no-highlight">50</i>&nbsp;     */
-<i class="no-highlight">51</i>&nbsp;    public com.g1004.getout.Position getBottom() {
+<i class="no-highlight">51</i>&nbsp;    public com.g1004.getout.position.Position getBottom() {
 <b class="fc"><i class="no-highlight">52</i>&nbsp;        return bottom;</b>
 <i class="no-highlight">53</i>&nbsp;    }
 <i class="no-highlight">54</i>&nbsp;

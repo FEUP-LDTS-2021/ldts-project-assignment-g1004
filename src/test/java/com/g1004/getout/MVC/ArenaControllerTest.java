@@ -1,7 +1,7 @@
 package com.g1004.getout.MVC;
 
-import com.g1004.getout.Platform;
-import com.g1004.getout.Position;
+import com.g1004.getout.structures.Platform;
+import com.g1004.getout.position.Position;
 import com.g1004.getout.element.monster.Boss;
 import com.g1004.getout.element.monster.Goblin;
 import com.g1004.getout.gui.GUI;

@@ -1,7 +1,7 @@
-package com.g1004.getout;
+package com.g1004.getout.position;
 
 /**
- * com.g1004.getout.Position class. Describes location of elements.
+ * com.g1004.getout.position.Position class. Describes location of elements.
  */
 public class Position {
 

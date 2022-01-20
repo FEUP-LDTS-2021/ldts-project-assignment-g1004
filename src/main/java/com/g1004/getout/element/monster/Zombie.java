@@ -2,7 +2,7 @@ package com.g1004.getout.element.monster;
 
 import com.g1004.getout.strategy.ConfusedStrategy;
 import com.g1004.getout.strategy.MoveStrategy;
-import com.g1004.getout.Platform;
+import com.g1004.getout.structures.Platform;
 
 /**
  * com.g1004.getout.element.monster.Zombie monster class.

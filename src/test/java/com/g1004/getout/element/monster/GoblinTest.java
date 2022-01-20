@@ -1,7 +1,7 @@
 package com.g1004.getout.element.monster;
 
-import com.g1004.getout.Platform;
-import com.g1004.getout.Position;
+import com.g1004.getout.structures.Platform;
+import com.g1004.getout.position.Position;
 import com.g1004.getout.strategy.MoveStrategy;
 import com.g1004.getout.strategy.RegularStrategy;
 import org.junit.jupiter.api.Assertions;

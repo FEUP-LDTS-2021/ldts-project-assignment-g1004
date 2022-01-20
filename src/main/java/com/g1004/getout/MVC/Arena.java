@@ -1,8 +1,8 @@
 package com.g1004.getout.MVC;
 
-import com.g1004.getout.Ladder;
-import com.g1004.getout.Platform;
-import com.g1004.getout.builder.*;
+import com.g1004.getout.structures.Ladder;
+import com.g1004.getout.structures.Platform;
+import com.g1004.getout.MVC.builder.*;
 import com.g1004.getout.element.*;
 import com.g1004.getout.element.monster.Monster;
 

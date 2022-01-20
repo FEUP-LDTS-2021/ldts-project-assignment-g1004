@@ -1,6 +1,7 @@
-package com.g1004.getout;
+package com.g1004.getout.structures;
 
 import com.g1004.getout.element.Bar;
+import com.g1004.getout.position.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

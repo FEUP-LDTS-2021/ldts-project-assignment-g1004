@@ -94,14 +94,14 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc"><i class="no-highlight">19</i>&nbsp;            int s = r - l + 1;</b>
 <b class="fc"><i class="no-highlight">20</i>&nbsp;            int n = random.nextInt(s);</b>
 <i class="no-highlight">21</i>&nbsp;
-<b class="fc"><i class="no-highlight">22</i>&nbsp;            monster.setPosition(new com.g1004.getout.Position(l + n, y));</b>
+<b class="fc"><i class="no-highlight">22</i>&nbsp;            monster.setPosition(new com.g1004.getout.position.Position(l + n, y));</b>
 <b class="fc"><i class="no-highlight">23</i>&nbsp;            monster.reset();</b>
 <b class="fc"><i class="no-highlight">24</i>&nbsp;        }</b>
 <i class="no-highlight">25</i>&nbsp;        else {
 <b class="fc"><i class="no-highlight">26</i>&nbsp;            if (x == r)</b>
-<b class="nc"><i class="no-highlight">27</i>&nbsp;                monster.setPosition(new com.g1004.getout.Position(l, y));</b>
+<b class="nc"><i class="no-highlight">27</i>&nbsp;                monster.setPosition(new com.g1004.getout.position.Position(l, y));</b>
 <i class="no-highlight">28</i>&nbsp;            else
-<b class="fc"><i class="no-highlight">29</i>&nbsp;                monster.setPosition(new com.g1004.getout.Position(x + 1, y));</b>
+<b class="fc"><i class="no-highlight">29</i>&nbsp;                monster.setPosition(new com.g1004.getout.position.Position(x + 1, y));</b>
 <i class="no-highlight">30</i>&nbsp;
 <b class="fc"><i class="no-highlight">31</i>&nbsp;            monster.step();</b>
 <i class="no-highlight">32</i>&nbsp;        }

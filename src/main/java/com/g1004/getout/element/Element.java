@@ -1,6 +1,6 @@
 package com.g1004.getout.element;
 
-import com.g1004.getout.Position;
+import com.g1004.getout.position.Position;
 
 /**
  * Abstract element class. Describes behavior of some components of the game.
