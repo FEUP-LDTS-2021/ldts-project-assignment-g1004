@@ -21,7 +21,7 @@ public class GoblinLairTest {
     @BeforeEach
     public void setup() throws IOException {
         GUI gui = new LanternaGUI(75, 27);
-        arena = new Arena(gui, 1);
+        arena = new Arena(1);
     }
 
     @Test

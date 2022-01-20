@@ -20,7 +20,7 @@ public class LastChanceTest {
     @BeforeEach
     public void setup() throws IOException {
         GUI gui = new LanternaGUI(75, 27);
-        arena = new Arena(gui, 10);
+        arena = new Arena(10);
     }
 
     @Test
