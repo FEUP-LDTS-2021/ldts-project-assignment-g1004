@@ -9,6 +9,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static java.lang.System.exit;
 
@@ -402,7 +403,10 @@ public class Arena {
     }
 
     public void changeBossSpot() {
-        // to do
+        Random random = new Random();
+        int n = random.nextInt(4);
+
+        monsters.get(0).switchPlatform(platforms.get(n));
     }
 
     /**
