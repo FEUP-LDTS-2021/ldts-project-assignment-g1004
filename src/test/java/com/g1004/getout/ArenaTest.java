@@ -1,9 +1,7 @@
 package com.g1004.getout;
 
-import com.g1004.getout.element.Coin;
-import com.g1004.getout.element.Door;
-import com.g1004.getout.element.Hero;
-import com.g1004.getout.element.Key;
+import com.g1004.getout.element.*;
+import com.g1004.getout.element.monster.Goblin;
 import com.g1004.getout.element.monster.Monster;
 import com.g1004.getout.gui.GUI;
 import com.g1004.getout.gui.LanternaGUI;
@@ -23,6 +21,14 @@ public class ArenaTest {
     @BeforeEach
     public void setup() throws IOException {
         gui = new LanternaGUI(75, 27);
+    }
+
+    @Test
+    public void generateWalls() {
+        Arena arena = new Arena(gui, 1);
+
+        Assertions.assertEquals(new Wall(0, 0), arena.walls().get(0));
+        Assertions.assertEquals(new Wall(26, 74), arena.walls().get(arena.walls().size() - 1));
     }
 
     @Test
@@ -54,7 +60,7 @@ public class ArenaTest {
         Arena arena = new Arena(gui, 1); // hero spawns at coordinates (1, 23)
         arena.processKey(key);
 
-        Assertions.assertEquals(2, arena.getHero().getPosition().getX());
+        Assertions.assertEquals(2, arena.hero().getPosition().getX());
     }
 
     @Test
@@ -63,8 +69,8 @@ public class ArenaTest {
 
         arena.processKey(new KeyStroke(KeyType.ArrowLeft)); // just to set direction as 'h'
         // he'll stay in place because there's a wall to his left
-        Assertions.assertEquals(1, arena.getHero().getPosition().getX());
-        Assertions.assertEquals(23, arena.getHero().getPosition().getY());
+        Assertions.assertEquals(1, arena.hero().getPosition().getX());
+        Assertions.assertEquals(23, arena.hero().getPosition().getY());
         // to check if he stayed in place
 
         Position position = Mockito.mock(Position.class);
@@ -75,8 +81,8 @@ public class ArenaTest {
         arena.moveHero(position); // move right (with position mock)
         // canHeroMove() has calls to position getters
 
-        Assertions.assertEquals(2, arena.getHero().getPosition().getX());
-        Assertions.assertEquals(23, arena.getHero().getPosition().getY());
+        Assertions.assertEquals(2, arena.hero().getPosition().getX());
+        Assertions.assertEquals(23, arena.hero().getPosition().getY());
     }
 
     @Test
@@ -91,21 +97,21 @@ public class ArenaTest {
         Mockito.verify(arena, Mockito.never()).moveHero(pos1);
         arena.processKey(key1);
         Mockito.verify(arena, Mockito.times(1)).moveHero(pos1);
-        Assertions.assertEquals(pos1, arena.getHero().getPosition());
+        Assertions.assertEquals(pos1, arena.hero().getPosition());
 
         KeyStroke key2 = new KeyStroke(KeyType.ArrowDown);
         Position pos2 = new Position(2, 24);
         arena.processKey(key2);
         Mockito.verify(arena, Mockito.times(1)).moveHero(pos2);
         // there's a wall in pos2 so the hero won't be able to move to that place
-        Assertions.assertEquals(pos1, arena.getHero().getPosition());
+        Assertions.assertEquals(pos1, arena.hero().getPosition());
 
         KeyStroke key3 = new KeyStroke(KeyType.ArrowUp);
         Position pos3 = new Position(2, 22);
         arena.processKey(key3);
         Mockito.verify(arena, Mockito.times(1)).moveHero(pos3);
         // while on the ground the hero is only able to move left or right
-        Assertions.assertEquals(pos1, arena.getHero().getPosition());
+        Assertions.assertEquals(pos1, arena.hero().getPosition());
     }
 
     @Test
@@ -119,8 +125,8 @@ public class ArenaTest {
         arena.processKey(new KeyStroke(KeyType.ArrowLeft)); // just to set direction as 'h'
 
         // just checking if hero is where we set him
-        Assertions.assertEquals(35, arena.getHero().getPosition().getX());
-        Assertions.assertEquals(22, arena.getHero().getPosition().getY());
+        Assertions.assertEquals(35, arena.hero().getPosition().getX());
+        Assertions.assertEquals(22, arena.hero().getPosition().getY());
 
         Position position = Mockito.mock(Position.class);
         Mockito.when(position.getX()).thenReturn(36);
@@ -131,8 +137,18 @@ public class ArenaTest {
         // canHeroMove() has calls to position getters
 
         // he shouldn't be authorized to move right as he can't jump off ladders
-        Assertions.assertEquals(35, arena.getHero().getPosition().getX());
-        Assertions.assertEquals(22, arena.getHero().getPosition().getY());
+        Assertions.assertEquals(35, arena.hero().getPosition().getX());
+        Assertions.assertEquals(22, arena.hero().getPosition().getY());
+    }
+
+    @Test
+    public void moveMonsters() {
+        Arena arena = new Arena(gui, 1);
+
+        arena.moveMonsters();
+
+        Goblin g = new Goblin(16, 19, new Platform(new Position(15, 20), new Position(55, 20)));
+        Assertions.assertEquals(g, arena.monsters().get(0));
     }
 
     @Test
@@ -148,14 +164,14 @@ public class ArenaTest {
 
         arena.moveHero(position);
         Assertions.assertFalse(arena.verifyMonsterCollisions()); // only returns true if our hero dies in the process
-        Assertions.assertEquals(18, arena.getHero().getHP()); // hero gets hurt
+        Assertions.assertEquals(18, arena.hero().getHP()); // hero gets hurt
     }
 
     @Test
     public void score() {
         Arena arena = new Arena(gui, 1);
 
-        Assertions.assertEquals(0, arena.getScore());
+        Assertions.assertEquals(0, arena.score());
 
         arena.processKey(new KeyStroke(KeyType.ArrowRight));
 
@@ -165,7 +181,7 @@ public class ArenaTest {
         // coordinates of a coin
 
         arena.moveHero(position);
-        Assertions.assertEquals(1, arena.getScore());
+        Assertions.assertEquals(1, arena.score());
     }
 
     @Test
