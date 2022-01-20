@@ -73,7 +73,8 @@ public class GoblinLairTest {
 
         Goblin g1 = new Goblin(15, 19, new Platform(new Position(15, 20), new Position(55, 20)));
         Assertions.assertEquals(g1, arena.monsters().get(0));
+
         Goblin g2 = new Goblin(54, 7, new Platform(new Position(54, 8), new Position(73, 8)));
-        Assertions.assertEquals(g1, arena.monsters().get(size - 1));
+        Assertions.assertEquals(g2, arena.monsters().get(size - 1));
     }
 }

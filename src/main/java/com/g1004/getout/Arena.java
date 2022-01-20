@@ -39,6 +39,8 @@ public class Arena {
      * It also initializes user score (zero points) and sets a default value for direction parameter ('0').
      */
     public Arena(GUI gui, int numLevel) {
+        builder = new GoblinLair(); // so builder is never null
+
         switch (numLevel) {
             case 1 -> builder = new GoblinLair();
             case 2 -> builder = new TheUndead();

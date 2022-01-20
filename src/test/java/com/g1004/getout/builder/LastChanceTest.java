@@ -3,11 +3,9 @@ package com.g1004.getout.builder;
 import com.g1004.getout.Arena;
 import com.g1004.getout.Platform;
 import com.g1004.getout.Position;
-import com.g1004.getout.element.Coin;
 import com.g1004.getout.element.Door;
 import com.g1004.getout.element.Key;
 import com.g1004.getout.element.monster.Boss;
-import com.g1004.getout.element.monster.Goblin;
 import com.g1004.getout.gui.GUI;
 import com.g1004.getout.gui.LanternaGUI;
 import org.junit.jupiter.api.Assertions;
@@ -22,7 +20,7 @@ public class LastChanceTest {
     @BeforeEach
     public void setup() throws IOException {
         GUI gui = new LanternaGUI(75, 27);
-        arena = new Arena(gui, 1);
+        arena = new Arena(gui, 10);
     }
 
     @Test

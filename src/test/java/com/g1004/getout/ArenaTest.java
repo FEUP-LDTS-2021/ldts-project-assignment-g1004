@@ -28,7 +28,7 @@ public class ArenaTest {
         Arena arena = new Arena(gui, 1);
 
         Assertions.assertEquals(new Wall(0, 0), arena.walls().get(0));
-        Assertions.assertEquals(new Wall(26, 74), arena.walls().get(arena.walls().size() - 1));
+        Assertions.assertEquals(new Wall(74, 26), arena.walls().get(arena.walls().size() - 1));
     }
 
     @Test
