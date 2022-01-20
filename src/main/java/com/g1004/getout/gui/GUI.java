@@ -25,6 +25,7 @@ public interface GUI {
     void drawCoin(Coin coin);
     void drawHero(Hero hero, boolean ladder);
     void drawMonster(Monster monster, boolean ladder);
+    void drawMonster(Monster monster, boolean ladder, int index);
     void drawKey(Key key);
     void drawDoor(Door door);
     void drawHealthBar(Hero hero);

@@ -33,7 +33,7 @@ public class Game {
         gui = new LanternaGUI(width, height);
         state = new MenuState(this, gui);
         fps = 100;
-        progress = 1;
+        progress = 10;
         scores = new ArrayList<>();
         for (int i = 0; i < 10; i++)
             scores.add(0);

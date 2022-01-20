@@ -61,8 +61,12 @@ public class PlayState extends GameState {
 
         if (delay % 10 == 0) {
             arena.moveMonsters();
+
             if (arena.verifyMonsterCollisions())
                 game.changeState(new LevelsState(game, gui));
+
+            if (numLevel == 10 && delay % 30 == 0)
+                arena.changeBossSpot();
         }
     }
 }

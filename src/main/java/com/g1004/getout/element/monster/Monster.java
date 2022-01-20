@@ -1,5 +1,6 @@
 package com.g1004.getout.element.monster;
 
+import com.g1004.getout.Position;
 import com.g1004.getout.strategy.MoveStrategy;
 import com.g1004.getout.Platform;
 import com.g1004.getout.element.Element;
@@ -8,7 +9,7 @@ import com.g1004.getout.element.Element;
  * com.g1004.getout.element.monster.Monster class. Manages and controls the monsters' movement on each platform.
  */
 public abstract class Monster extends Element {
-    private final Platform platform;    /** platform of the monster */
+    private Platform platform;    /** platform of the monster */
     private boolean forward;            /** boolean that checks if the monster moves forward */
     private int steps;                  /** declares the monster steps */
     private MoveStrategy movement;      /** type of strategy that describes monster movement */
@@ -99,5 +100,14 @@ public abstract class Monster extends Element {
 
     public int attack() {
         return damage;
+    }
+
+    public void switchPlatform(Platform p) {
+        if ((position.getX() >= p.getLeft().getX()) && (position.getX() + 9 <= p.getRight().getX()))
+            setPosition(new Position(position.getX(), p.getLeft().getY() - 1));
+        else
+            setPosition(new Position(p.getLeft().getX(), p.getLeft().getY() - 1));
+
+        platform = p;
     }
 }

@@ -96,7 +96,7 @@ public class LanternaGUI implements GUI {
 
             switch (i) {
                 case 0:
-                    graphics.putString(new TerminalPosition(5, 9), x + " com.g1004.getout.element.monster.Goblin lair " + s);
+                    graphics.putString(new TerminalPosition(5, 9), x + " Goblin lair " + s);
                     break;
                 case 1:
                     graphics.putString(new TerminalPosition(5, 11), x + " The undead " + s);
@@ -235,6 +235,22 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
+    public void drawMonster(Monster monster, boolean ladder, int index) {
+        graphics.setForegroundColor(TextColor.Factory.fromString(monster.getColour()));
+        graphics.enableModifiers(SGR.BOLD);
+
+        if (monster.getSymbol().length() > 1) {
+            for (int i = 0; i < monster.getSymbol().length(); i++) {
+                if (ladder && i == index)
+                    graphics.setBackgroundColor(TextColor.Factory.fromString("#FFA500"));
+
+                graphics.putString(new TerminalPosition(monster.getPosition().getX() + i, monster.getPosition().getY()), String.valueOf(monster.getSymbol().charAt(i)));
+                graphics.setBackgroundColor(TextColor.Factory.fromString("#C99C99"));
+            }
+        }
+    }
+
+    @Override
     public void drawHealthBar(Hero hero) {
         String HP = "HP[" + Integer.toString(hero.getHP()) + "]";
         graphics.setBackgroundColor(TextColor.Factory.fromString("#964B00"));
@@ -270,7 +286,7 @@ public class LanternaGUI implements GUI {
 
         try {
             refresh();
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -282,11 +298,11 @@ public class LanternaGUI implements GUI {
 
         drawBackground("#0D455E");
         graphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
-        graphics.putString(new TerminalPosition(width/2 - 9, height/2), "You died! com.g1004.getout.Game over...");
+        graphics.putString(new TerminalPosition(width/2 - 9, height/2), "You died! Game over...");
 
         try {
             refresh();
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

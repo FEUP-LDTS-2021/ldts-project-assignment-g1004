@@ -4,6 +4,7 @@ import com.g1004.getout.Ladder;
 import com.g1004.getout.Platform;
 import com.g1004.getout.Position;
 import com.g1004.getout.element.*;
+import com.g1004.getout.element.monster.Boss;
 import com.g1004.getout.element.monster.Goblin;
 import com.googlecode.lanterna.TextColor;
 import org.junit.jupiter.api.Assertions;
@@ -131,6 +132,17 @@ public class LanternaGUITest {
         Assertions.assertEquals("g", gui.getScreen().getBackCharacter(10,10).getCharacterString());
         Assertions.assertEquals(TextColor.Factory.fromString("#FFA500"), gui.getScreen().getBackCharacter(10,10).getBackgroundColor());
         Assertions.assertEquals(TextColor.Factory.fromString("#0E630D"), gui.getScreen().getBackCharacter(10,10).getForegroundColor());
+    }
+
+    @Test
+    public void drawMonsterV2() {
+        Platform platform = Mockito.mock(Platform.class);
+        gui.drawMonster(new Boss(10, 10, platform), true, 2);
+
+        Assertions.assertEquals("{", gui.getScreen().getBackCharacter(12,10).getCharacterString());
+        Assertions.assertEquals(TextColor.Factory.fromString("#FFA500"), gui.getScreen().getBackCharacter(12,10).getBackgroundColor());
+        Assertions.assertEquals(TextColor.Factory.fromString("#071669"), gui.getScreen().getBackCharacter(12,10).getForegroundColor());
+        Assertions.assertEquals(TextColor.Factory.fromString("#C99C99"), gui.getScreen().getBackCharacter(14,10).getBackgroundColor());
     }
 
     @Test
