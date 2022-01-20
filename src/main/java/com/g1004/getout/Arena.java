@@ -324,12 +324,50 @@ public class Arena {
         return score;
     }
 
+    public List<Wall> walls() {
+        // to do
+        return new ArrayList<>();
+    }
+
     /**
      * Obtain hero of arena.
      * @return hero.
      */
     public Hero hero() {
         return hero;
+    }
+
+    public String background() {
+        // to do
+        return "";
+    }
+
+    public List<Platform> platforms() {
+        // to do
+        return new ArrayList<>();
+    }
+
+    public List<Ladder> ladders() {
+        // to do
+        return new ArrayList<>();
+    }
+
+    public List<Coin> coins() {
+        // to do
+        return new ArrayList<>();
+    }
+
+    public Key key() {
+        return key;
+    }
+
+    public Door door() {
+        return door;
+    }
+
+    public List<Monster> monsters() {
+        // to do
+        return new ArrayList<>();
     }
 }
 
