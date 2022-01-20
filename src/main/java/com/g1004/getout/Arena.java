@@ -1,8 +1,8 @@
 package com.g1004.getout;
 
+import com.g1004.getout.builder.*;
 import com.g1004.getout.element.*;
 import com.g1004.getout.element.monster.Boss;
-import com.g1004.getout.element.monster.Goblin;
 import com.g1004.getout.element.monster.Monster;
 import com.g1004.getout.gui.GUI;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -17,11 +17,13 @@ import static java.lang.System.exit;
  * com.g1004.getout.Arena class. This class creates an arena or level for the user to play.
  */
 public class Arena {
+    private ArenaBuilder builder;
     private final GUI gui;
     private final int width;
     private final int height;
     private final int numLevel;
     private char direction;             /** direction of user movement: horizontal or vertical */
+    private final String background;
     private List<Wall> walls;           /** walls that surround arena */
     private List<Platform> platforms;   /** horizontal platforms inside arena */
     private List<Ladder> ladders;       /** vertical ladders inside arena */
@@ -37,19 +39,32 @@ public class Arena {
      * It also initializes user score (zero points) and sets a default value for direction parameter ('0').
      */
     public Arena(GUI gui, int numLevel) {
+        switch (numLevel) {
+            case 1 -> builder = new GoblinLair();
+            case 2 -> builder = new TheUndead();
+            case 3 -> builder = new LostRuins();
+            case 4 -> builder = new HauntedMansion();
+            case 5 -> builder = new Necropolis();
+            case 6 -> builder = new DarkForest();
+            case 7 -> builder = new Dystopia();
+            case 8 -> builder = new TheShimmer();
+            case 9 -> builder = new Apocalypse();
+            case 10 -> builder = new LastChance();
+        }
         this.gui = gui;
         width = gui.getWidth();
         height = gui.getHeight();
         this.numLevel = numLevel;
         direction = '0';
-        walls = createWalls();
-        platforms = createPlatforms();
-        ladders = createLadders();
-        coins = createCoins();
-        key = createKey();
-        door = createDoor();
-        hero = createHero();
-        monsters = createMonsters();
+        background = builder.createBackground();
+        walls = generateWalls();
+        platforms = builder.createPlatforms();
+        ladders = builder.createLadders();
+        coins = builder.createCoins();
+        key = builder.createKey();
+        door = builder.createDoor();
+        hero = generateHero();
+        monsters = builder.createMonsters();
         score = 0;
     }
 
@@ -57,7 +72,7 @@ public class Arena {
      * Creates walls inside arena, delimiting the area for the user to move.
      * @return walls surrounding all the hero movements area.
      */
-    private List<Wall> createWalls() {
+    private List<Wall> generateWalls() {
         List<Wall> walls = new ArrayList<>();
 
         for (int c = 0; c < width; c++) {
@@ -75,178 +90,12 @@ public class Arena {
         return walls;
     }
 
-    /**
-     * Creates horizontal platforms inside arena.
-     * @return platforms that arena contains.
-     */
-    private List<Platform> createPlatforms() {
-        List<Platform> platforms = new ArrayList<>();
-
-        if (numLevel == 1) {
-            platforms.add(new Platform(new Position(15, 20), new Position(55, 20)));
-            platforms.add(new Platform(new Position(10, 16), new Position(30, 16)));
-            platforms.add(new Platform(new Position(40, 16), new Position(60, 16)));
-            platforms.add(new Platform(new Position(5, 12), new Position(20, 12)));
-            platforms.add(new Platform(new Position(25, 12), new Position(47, 12)));
-            platforms.add(new Platform(new Position(52, 12), new Position(65, 12)));
-            platforms.add(new Platform(new Position(1, 8), new Position(32, 8)));
-            platforms.add(new Platform(new Position(54, 8), new Position(73, 8)));
-        }
-        else if (numLevel == 2) {}
-        else if (numLevel == 3) {}
-        else if (numLevel == 4) {}
-        else if (numLevel == 5) {}
-        else if (numLevel == 6) {}
-        else if (numLevel == 7) {}
-        else if (numLevel == 8) {}
-        else if (numLevel == 9) {}
-        else if (numLevel == 10) {
-            platforms.add(new Platform(new Position(20, 16), new Position(52, 16)));
-            platforms.add(new Platform(new Position(15, 13), new Position(55, 13)));
-            platforms.add(new Platform(new Position(20, 10), new Position(39, 10)));
-            platforms.add(new Platform(new Position(27, 7), new Position(50, 7)));
-            platforms.add(new Platform(new Position(30, 20), new Position(40, 20)));
-            platforms.add(new Platform(new Position(48, 21), new Position(73, 21)));
-            platforms.add(new Platform(new Position(4, 4), new Position(22, 4)));
-        }
-
-        return platforms;
-    }
-
-    /**
-     * Creates vertical ladders inside arena.
-     * @return ladders that arena contains.
-     */
-    private List<Ladder> createLadders() {
-        List<Ladder> ladders = new ArrayList<>();
-
-        if (numLevel == 1) {
-            ladders.add(new Ladder(new Position(35, 20), new Position(35, 23)));
-            ladders.add(new Ladder(new Position(20, 16), new Position(20, 19)));
-            ladders.add(new Ladder(new Position(50, 16), new Position(50, 19)));
-            ladders.add(new Ladder(new Position(15, 12), new Position(15, 15)));
-            ladders.add(new Ladder(new Position(43, 12), new Position(43, 15)));
-            ladders.add(new Ladder(new Position(55, 12), new Position(55, 15)));
-            ladders.add(new Ladder(new Position(10, 8), new Position(10, 11)));
-            ladders.add(new Ladder(new Position(29, 8), new Position(29, 11)));
-            ladders.add(new Ladder(new Position(60, 8), new Position(60, 11)));
-        }
-        else if (numLevel == 2) {}
-        else if (numLevel == 3) {}
-        else if (numLevel == 4) {}
-        else if (numLevel == 5) {}
-        else if (numLevel == 6) {}
-        else if (numLevel == 7) {}
-        else if (numLevel == 8) {}
-        else if (numLevel == 9) {}
-        else if (numLevel == 10) {
-            ladders.add(new Ladder(new Position(33, 20), new Position(33, 23)));
-            ladders.add(new Ladder(new Position(37, 16), new Position(37, 19)));
-            ladders.add(new Ladder(new Position(49, 16), new Position(49, 20)));
-            ladders.add(new Ladder(new Position(24, 13), new Position(24, 15)));
-            ladders.add(new Ladder(new Position(48, 7), new Position(48, 12)));
-            ladders.add(new Ladder(new Position(21, 4), new Position(21, 9)));
-            ladders.add(new Ladder(new Position(34, 7), new Position(34, 9)));
-        }
-
-        return ladders;
-    }
-
-    /**
-     * Creates coins inside arena.
-     * @return coins that arena contains.
-     */
-    private List<Coin> createCoins() {
-        List<Coin> coins = new ArrayList<>();
-
-        if (numLevel == 1) {
-            coins.add(new Coin(45, 23));
-            coins.add(new Coin(27, 19));
-            coins.add(new Coin(28, 15));
-            coins.add(new Coin(58, 15));
-            coins.add(new Coin(7, 11));
-            coins.add(new Coin(26, 11));
-            coins.add(new Coin(63, 11));
-            coins.add(new Coin(15, 7));
-            coins.add(new Coin(22, 7));
-            coins.add(new Coin(56, 7));
-        }
-        else if (numLevel == 2) {}
-        else if (numLevel == 3) {}
-        else if (numLevel == 4) {}
-        else if (numLevel == 5) {}
-        else if (numLevel == 6) {}
-        else if (numLevel == 7) {}
-        else if (numLevel == 8) {}
-        else if (numLevel == 9) {}
-        else if (numLevel == 10) {}
-
-        return coins;
-    }
-
-    private Key createKey() {
-        if (numLevel == 10)
-            return new Key(7, 3);
-
-        return new Key(2, 7);
-    }
-
-    private Door createDoor() {
-        if (numLevel == 10)
-            return new Door(73, 20);
-
-        return new Door(73, 7);
-    }
-
-    private Hero createHero() {
+    private Hero generateHero() {
         return new Hero(1, height - 4);
     }
 
-    /**
-     * Creates monsters inside arena.
-     * @return monsters that arena contains.
-     */
-    private List<Monster> createMonsters() {
-        List<Monster> monsters = new ArrayList<>();
-
-        if (numLevel == 1) {
-            for (Platform p : platforms)
-                monsters.add(new Goblin(p.getLeft().getX(), p.getLeft().getY() - 1, p));
-        }
-        else if (numLevel == 2) {}
-        else if (numLevel == 3) {}
-        else if (numLevel == 4) {}
-        else if (numLevel == 5) {}
-        else if (numLevel == 6) {}
-        else if (numLevel == 7) {}
-        else if (numLevel == 8) {}
-        else if (numLevel == 9) {}
-        else if (numLevel == 10) {
-            monsters.add(new Boss(platforms.get(0).getLeft().getX(), platforms.get(0).getLeft().getY() - 1, platforms.get(0)));
-        }
-
-        return monsters;
-    }
-
     public void draw() {
-        String colour = "";
-
-        if (numLevel == 1)
-            colour = "#90EE90";
-        else if (numLevel == 2)
-            colour = "#A9A9A9";
-        else if (numLevel == 3) {}
-        else if (numLevel == 4) {}
-        else if (numLevel == 5) {}
-        else if (numLevel == 6) {}
-        else if (numLevel == 7) {}
-        else if (numLevel == 8) {}
-        else if (numLevel == 9) {}
-        else if (numLevel == 10) {
-            colour = "#C99C99";
-        }
-
-        gui.drawBackground(colour);
+        gui.drawBackground(background);
         gui.drawWalls(walls);
 
         for (Platform platform : platforms)
@@ -260,7 +109,7 @@ public class Arena {
                 h = true;
         }
 
-        gui.setBGColour(colour);
+        gui.setBGColour(background);
 
         if (!hero.hasKey())
             gui.drawKey(key);
@@ -270,7 +119,7 @@ public class Arena {
             gui.drawCoin(coin);
 
         gui.drawHero(hero, h);
-        gui.setBGColour(colour);
+        gui.setBGColour(background);
 
         for (Monster monster : monsters) {
             boolean m = false;
@@ -303,7 +152,7 @@ public class Arena {
                 gui.drawMonster(monster, m);
             }
 
-            gui.setBGColour(colour);
+            gui.setBGColour(background);
         }
 
         gui.drawHealthBar(hero);
@@ -353,14 +202,6 @@ public class Arena {
             retrieveCoins();
             retrieveKey();
         }
-    }
-
-    /**
-     * Obtain hero of arena.
-     * @return hero.
-     */
-    public Hero getHero() {
-        return hero;
     }
 
     /**
@@ -454,14 +295,6 @@ public class Arena {
         }
     }
 
-    /**
-     * Obtain the game score.
-     * @return total score.
-     */
-    public Integer getScore() {
-        return score;
-    }
-
     private void retrieveKey(){
         if (hero.getPosition().equals(key.getPosition()))
             hero.catchKey();
@@ -481,6 +314,22 @@ public class Arena {
 
     private void loss() {
         gui.drawDefeat();
+    }
+
+    /**
+     * Obtain the game score.
+     * @return total score.
+     */
+    public Integer score() {
+        return score;
+    }
+
+    /**
+     * Obtain hero of arena.
+     * @return hero.
+     */
+    public Hero hero() {
+        return hero;
     }
 }
 

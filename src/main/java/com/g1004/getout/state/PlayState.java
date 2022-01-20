@@ -48,7 +48,7 @@ public class PlayState extends GameState {
             if (arena.leave()) {
                 if (numLevel == game.getProgress())
                     game.passLevel();
-                game.setScore(numLevel - 1, arena.getScore());
+                game.setScore(numLevel - 1, arena.score());
                 game.changeState(new LevelsState(game, gui));
                 return;
             }
