@@ -23,19 +23,19 @@ public class LostRuins implements ArenaBuilder {
     public List<Platform> createPlatforms() {
         List<Platform> platforms = new ArrayList<>();
 
-        platforms.add(new Platform(new Position(13, 20), new Position(19, 20)));
-        platforms.add(new Platform(new Position(18, 17), new Position(26, 17)));
-        platforms.add(new Platform(new Position(25, 20), new Position(33, 20)));
-        platforms.add(new Platform(new Position(24, 14), new Position(31, 14)));
-        platforms.add(new Platform(new Position(30, 11), new Position(47, 11)));
+        platforms.add(new Platform(new Position(9, 20), new Position(19, 20)));
+        platforms.add(new Platform(new Position(14, 17), new Position(29, 17)));
+        platforms.add(new Platform(new Position(23, 20), new Position(33, 20)));
+        platforms.add(new Platform(new Position(21, 14), new Position(34, 14)));
+        platforms.add(new Platform(new Position(26, 11), new Position(51, 11)));
         platforms.add(new Platform(new Position(45, 14), new Position(56, 14)));
-        platforms.add(new Platform(new Position(48, 17), new Position(58, 17)));
-        platforms.add(new Platform(new Position(44, 20), new Position(50, 20)));
+        platforms.add(new Platform(new Position(48, 17), new Position(59, 17)));
+        platforms.add(new Platform(new Position(39, 20), new Position(50, 20)));
         platforms.add(new Platform(new Position(54, 20), new Position(69, 20)));
-        platforms.add(new Platform(new Position(65, 18), new Position(73, 18)));
-        platforms.add(new Platform(new Position(66, 15), new Position(73, 15)));
+        platforms.add(new Platform(new Position(64, 18), new Position(73, 18)));
+        platforms.add(new Platform(new Position(65, 15), new Position(73, 15)));
         platforms.add(new Platform(new Position(67, 12), new Position(73, 12)));
-        platforms.add(new Platform(new Position(68, 9), new Position(73, 9)));
+        platforms.add(new Platform(new Position(65, 9), new Position(73, 9)));
         platforms.add(new Platform(new Position(69, 6), new Position(73, 6)));
 
         return platforms;
