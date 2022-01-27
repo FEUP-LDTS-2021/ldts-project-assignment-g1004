@@ -90,7 +90,7 @@ public class ArenaController {
 
         if (direction == 'v') {
             for (Ladder ladder : arena.ladders())
-                if (ladder.hasElement(pos) || ladder.getTop().getY() - 1 == pos.getY())
+                if ((pos.getX() == ladder.getBottom().getX()) && (pos.getY() <= ladder.getBottom().getY()) && (pos.getY() >= ladder.getTop().getY() - 1))
                     return true;
         }
         else if (direction == 'h') {
