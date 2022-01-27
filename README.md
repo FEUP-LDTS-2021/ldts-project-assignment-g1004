@@ -24,8 +24,8 @@ In this challenging platform game, help Nick escape alive and collect as many co
 - **Instructions menu**
 - **Different levels**
 - **Arena space** (the player's environment) for each level, made of platforms and ladders
-- **Walking** on the arena's floor or on platforms
-- **Climbing** using ladders to reach other platforms
+- **Walk** on the arena's floor or on platforms
+- **Climb** using ladders to reach other platforms
 - **Collect coins**
 - **Score** (number of coins collected for that level)
 - **Different monsters** (goblins, zombies, ghosts)
