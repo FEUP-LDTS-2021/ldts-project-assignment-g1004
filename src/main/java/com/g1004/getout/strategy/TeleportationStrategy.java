@@ -5,15 +5,7 @@ import com.g1004.getout.element.monster.Monster;
 
 import java.util.Random;
 
-/**
- * Teleportation Strategy class.
- * Each monster moves four steps forward and then teleports itself to another random position of the platform.
- */
 public class TeleportationStrategy implements MoveStrategy {
-    /**
-     * Moves monster four steps forward and then changes its position to another random position of the platform he is in.
-     * @param monster
-     */
     @Override
     public void moveMonster(Monster monster) {
         int x = monster.getPosition().getX(), y = monster.getPosition().getY();
