@@ -158,16 +158,16 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [Monster]()
-- [Goblin]()
-- [RegularStrategy]()
-- [Zombie]()
-- [ConfusedStrategy]()
-- [Ghost]()
-- [TeleportationStrategy]()
-- [Boss]()
-- [SpecialStrategy]()
-- [MoveStrategy]()
+- [Monster](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/element/monster/Monster.java)
+- [Goblin](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/element/monster/Goblin.java)
+- [RegularStrategy](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/strategy/RegularStrategy.java)
+- [Zombie](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/element/monster/Zombie.java)
+- [ConfusedStrategy](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/strategy/ConfusedStrategy.java)
+- [Ghost](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/element/monster/Ghost.java)
+- [TeleportationStrategy](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/strategy/TeleportationStrategy.java)
+- [Boss](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/element/monster/Boss.java)
+- [SpecialStrategy](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/strategy/SpecialStrategy.java)
+- [MoveStrategy](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/strategy/MoveStrategy.java)
 
 **Consequences**
 
@@ -200,7 +200,7 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [Game]()
+- [Game](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/Game.java)
 
 **Consequences**
 
@@ -234,8 +234,8 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [GUI]()
-- [LanternaGUI]()
+- [GUI](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/gui/GUI.java)
+- [LanternaGUI](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/gui/LanternaGUI.java)
 
 **Consequences**
 
@@ -268,12 +268,12 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [Game]()
-- [GameState]()
-- [MenuState]()
-- [InstructionsState]()
-- [LevelsState]()
-- [PlayState]()
+- [Game](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/Game.java)
+- [GameState](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/state/GameState.java)
+- [MenuState](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/state/MenuState.java)
+- [InstructionsState](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/state/InstructionsState.java)
+- [LevelsState](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/state/LevelsState.java)
+- [PlayState](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/state/PlayState.java)
 
 **Consequences**
 
@@ -308,18 +308,18 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [Arena]()
-- [ArenaBuilder]()
-- [GoblinLair]()
-- [TheUndead]()
-- [LostRuins]()
-- [HauntedMansion]()
-- [Necropolis]()
-- [DarkForest]()
-- [Dystopia]()
-- [TheShimmer]()
-- [Apocalypse]()
-- [LastChance]()
+- [Arena](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/Arena.java)
+- [ArenaBuilder](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/builder/ArenaBuilder.java)
+- [GoblinLair](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/builder/GoblinLair.java)
+- [TheUndead](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/builder/TheUndead.java)
+- [LostRuins](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/builder/LostRuins.java)
+- [HauntedMansion](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/builder/HauntedMansion.java)
+- [Necropolis](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/builder/Necropolis.java)
+- [DarkForest](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/builder/DarkForest.java)
+- [Dystopia](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/builder/Dystopia.java)
+- [TheShimmer](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/builder/TheShimmer.java)
+- [Apocalypse](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/builder/Apocalypse.java)
+- [LastChance](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/builder/LastChance.java)
 
 **Consequences**
 
@@ -355,9 +355,9 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [Arena]()
-- [ArenaViewer]()
-- [ArenaController]()
+- [Arena](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/Arena.java)
+- [ArenaViewer](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/ArenaViewer.java)
+- [ArenaController](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/MVC/ArenaController.java)
 
 **Consequences**
 
@@ -394,7 +394,9 @@ easier partnered with a more dynamic development.
 
 > This section contains the diagram that represents our project classes and their relationships.
 
-![img]()
+![img](screenshots/diagrams/classdiagram.png)
+
+- This image doesn't reveal the dependencies between each class as that would make the image itself illegible.
 
 ------
 
@@ -442,7 +444,7 @@ Coverage report:
 
 ![img](screenshots/testing/structurescoverage.png)
 
-Mutation testing report ([link](finalreport/202201280009/index.html))
+Mutation testing report ([link](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/tree/master/finalreport/202201280009))
 
 ![img](screenshots/testing/mutationcoverage.png)
 
