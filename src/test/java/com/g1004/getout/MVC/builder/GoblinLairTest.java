@@ -7,8 +7,6 @@ import com.g1004.getout.element.Coin;
 import com.g1004.getout.element.Door;
 import com.g1004.getout.element.Key;
 import com.g1004.getout.element.monster.Goblin;
-import com.g1004.getout.gui.GUI;
-import com.g1004.getout.gui.LanternaGUI;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,7 +18,6 @@ public class GoblinLairTest {
 
     @BeforeEach
     public void setup() throws IOException {
-        GUI gui = new LanternaGUI(75, 27);
         arena = new Arena(1);
     }
 

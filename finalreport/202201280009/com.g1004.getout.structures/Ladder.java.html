@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Ladder.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.g1004.getout.structures;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.g1004.getout.position.Position;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.g1004.getout.element.Bar;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * com.g1004.getout.structures.Ladder class. Allows the main character to move between platforms through ladders.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Ladder {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Position top;    /** position on the top of the ladder */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Position bottom; /** position on the bottom of the ladder */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;Bar&#62; bars;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Constructor.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param top position.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param bottom position.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Ladder(Position top, Position bottom) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.top = top;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.bottom = bottom;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        bars = createBars();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Creates the list of bars of the ladder that integrate the constructor.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return list of bars.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private List&#60;Bar&#62; createBars() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;Bar&#62; bars = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_35'>2</a>
+<span>
+
+1. createBars : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+2. createBars : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        int n = bottom.getY() - top.getY() + 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_36'/>
+36
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_36'>3</a>
+<span>
+
+1. createBars : Changed increment from 1 to -1 &rarr; TIMED_OUT<br/>
+
+2. createBars : changed conditional boundary &rarr; KILLED<br/>
+
+3. createBars : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        for (int i = 0; i &#60; n; i++)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_37'>1</a>
+<span>
+
+1. createBars : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            bars.add(new Bar(top.getX(), top.getY() + i));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_39'>1</a>
+<span>
+
+1. createBars : replaced return value with Collections.emptyList for com/g1004/getout/structures/Ladder::createBars &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return bars;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Obtain position on the top of the ladder.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return position on the top of the ladder.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Position getTop() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_47'/>
+47
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_47'>1</a>
+<span>
+
+1. getTop : replaced return value with null for com/g1004/getout/structures/Ladder::getTop &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return top;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Obtain position on the bottom of the ladder.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return position on the bottom of the ladder.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Position getBottom() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_55'>1</a>
+<span>
+
+1. getBottom : replaced return value with null for com/g1004/getout/structures/Ladder::getBottom &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return bottom;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Obtain the list of bars of the ladder.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return list of bars.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;Bar&#62; getBars() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_63'>1</a>
+<span>
+
+1. getBars : replaced return value with Collections.emptyList for com/g1004/getout/structures/Ladder::getBars &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return bars;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean hasElement(Position position) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_67'/>
+67
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_67'>6</a>
+<span>
+
+1. hasElement : replaced boolean return with true for com/g1004/getout/structures/Ladder::hasElement &rarr; SURVIVED<br/>
+
+2. hasElement : changed conditional boundary &rarr; SURVIVED<br/>
+
+3. hasElement : changed conditional boundary &rarr; SURVIVED<br/>
+
+4. hasElement : negated conditional &rarr; KILLED<br/>
+
+5. hasElement : negated conditional &rarr; KILLED<br/>
+
+6. hasElement : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return ((bottom.getX() == position.getX()) &#38;&#38; (position.getY() &#60;= bottom.getY()) &#38;&#38; (position.getY() &#62;= top.getY()));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@310f8a05_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@310f8a05_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createBars<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:createBars()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createBars<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:createBars()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@310f8a05_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createBars<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:createBars()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createBars<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>createBars<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:createBars()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@310f8a05_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createBars<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:createBars()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@310f8a05_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createBars<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:createBars()]</span></span> replaced return value with Collections.emptyList for com/g1004/getout/structures/Ladder::createBars &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@310f8a05_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_47'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTop<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:tips()]</span></span> replaced return value with null for com/g1004/getout/structures/Ladder::getTop &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@310f8a05_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBottom<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:tips()]</span></span> replaced return value with null for com/g1004/getout/structures/Ladder::getBottom &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@310f8a05_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBars<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:createBars()]</span></span> replaced return value with Collections.emptyList for com/g1004/getout/structures/Ladder::getBars &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@310f8a05_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@310f8a05_67'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasElement<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for com/g1004/getout/structures/Ladder::hasElement &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hasElement<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>hasElement<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>hasElement<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:hasElement()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>hasElement<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:hasElement()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>hasElement<br/><b>Killed by : </b>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:hasElement()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>NULL_RETURN_VALUES</li>
+
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.g1004.getout.MVC.builder.LastChanceTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.LastChanceTest]/[method:createPlatforms()] (15 ms)</li><li>com.g1004.getout.MVC.ArenaControllerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaControllerTest]/[method:verifyMonsterCollisions()] (40 ms)</li><li>com.g1004.getout.state.LevelsStateTest.[engine:junit-jupiter]/[class:com.g1004.getout.state.LevelsStateTest]/[method:readKey()] (16 ms)</li><li>com.g1004.getout.MVC.builder.GoblinLairTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.GoblinLairTest]/[method:createBackground()] (22 ms)</li><li>com.g1004.getout.MVC.builder.LastChanceTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.LastChanceTest]/[method:createLadders()] (4 ms)</li><li>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:createBars()] (10 ms)</li><li>com.g1004.getout.MVC.ArenaControllerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaControllerTest]/[method:leave()] (16 ms)</li><li>com.g1004.getout.MVC.ArenaControllerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaControllerTest]/[method:checkScore()] (21 ms)</li><li>com.g1004.getout.MVC.builder.GoblinLairTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.GoblinLairTest]/[method:createCoins()] (9 ms)</li><li>com.g1004.getout.MVC.ArenaControllerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaControllerTest]/[method:changeBossSpot()] (15 ms)</li><li>com.g1004.getout.MVC.builder.GoblinLairTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.GoblinLairTest]/[method:createPlatforms()] (7 ms)</li><li>com.g1004.getout.MVC.ArenaControllerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaControllerTest]/[method:moveMonsters()] (17 ms)</li><li>com.g1004.getout.MVC.ArenaControllerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaControllerTest]/[method:jumpOffLadder()] (22 ms)</li><li>com.g1004.getout.MVC.builder.LastChanceTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.LastChanceTest]/[method:createDoor()] (9 ms)</li><li>com.g1004.getout.MVC.ArenaControllerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaControllerTest]/[method:moveHero()] (38 ms)</li><li>com.g1004.getout.MVC.ArenaControllerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaControllerTest]/[method:processKey()] (10 ms)</li><li>com.g1004.getout.MVC.builder.GoblinLairTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.GoblinLairTest]/[method:createKey()] (48 ms)</li><li>com.g1004.getout.MVC.builder.GoblinLairTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.GoblinLairTest]/[method:createDoor()] (10 ms)</li><li>com.g1004.getout.MVC.ArenaControllerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaControllerTest]/[method:heroCall()] (18 ms)</li><li>com.g1004.getout.MVC.ArenaViewerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaViewerTest]/[method:loss()] (11 ms)</li><li>com.g1004.getout.MVC.builder.GoblinLairTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.GoblinLairTest]/[method:createLadders()] (13 ms)</li><li>com.g1004.getout.MVC.ArenaViewerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaViewerTest]/[method:win()] (23 ms)</li><li>com.g1004.getout.state.PlayStateTest.[engine:junit-jupiter]/[class:com.g1004.getout.state.PlayStateTest]/[method:display()] (15 ms)</li><li>com.g1004.getout.MVC.ArenaViewerTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.ArenaViewerTest]/[method:draw()] (32 ms)</li><li>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:hasElement()] (6 ms)</li><li>com.g1004.getout.MVC.builder.GoblinLairTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.GoblinLairTest]/[method:createMonster()] (5 ms)</li><li>com.g1004.getout.MVC.builder.LastChanceTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.LastChanceTest]/[method:createBackground()] (9 ms)</li><li>com.g1004.getout.state.PlayStateTest.[engine:junit-jupiter]/[class:com.g1004.getout.state.PlayStateTest]/[method:process()] (28 ms)</li><li>com.g1004.getout.MVC.builder.LastChanceTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.LastChanceTest]/[method:createCoins()] (5 ms)</li><li>com.g1004.getout.MVC.builder.LastChanceTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.LastChanceTest]/[method:createKey()] (12 ms)</li><li>com.g1004.getout.MVC.builder.LastChanceTest.[engine:junit-jupiter]/[class:com.g1004.getout.MVC.builder.LastChanceTest]/[method:createMonster()] (0 ms)</li><li>com.g1004.getout.state.PlayStateTest.[engine:junit-jupiter]/[class:com.g1004.getout.state.PlayStateTest]/[method:readKey()] (7 ms)</li><li>com.g1004.getout.structures.LadderTest.[engine:junit-jupiter]/[class:com.g1004.getout.structures.LadderTest]/[method:tips()] (5 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.6.7
+
+</body>
+</html>

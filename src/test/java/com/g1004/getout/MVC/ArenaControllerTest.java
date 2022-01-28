@@ -5,7 +5,6 @@ import com.g1004.getout.position.Position;
 import com.g1004.getout.element.monster.Boss;
 import com.g1004.getout.element.monster.Goblin;
 import com.g1004.getout.gui.GUI;
-import com.g1004.getout.gui.LanternaGUI;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import org.junit.jupiter.api.Assertions;
@@ -22,7 +21,7 @@ public class ArenaControllerTest {
 
     @BeforeEach
     public void setup() throws IOException {
-        gui = new LanternaGUI(75, 27);
+        gui = Mockito.mock(GUI.class);
         arena = new Arena(1);
         controller = new ArenaController(arena, gui);
     }

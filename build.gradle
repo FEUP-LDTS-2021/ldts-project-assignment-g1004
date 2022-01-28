@@ -29,5 +29,7 @@ application {
 }
 
 pitest {
-    junit5PluginVersion = '0.12'
+    junit5PluginVersion = '0.15'
+    pitestVersion = '1.6.7'
+    verbose = true
 }
