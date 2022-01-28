@@ -29,14 +29,6 @@ public class ArenaController {
         viewer.draw();
     }
 
-    /**
-     * Given a user input from the keyboard, moves hero if it is possible, setting a direction for hero's movement.
-     * This makes it easier when it comes to dealing with the user's movement permissions:
-     * Vertical movement, 'v' -> arrows up and down.
-     * Horizontal movement, 'h' -> arrows left and right.
-     * In the case of other movements (keys) the hero will not move.
-     * @param key pressed by the user.
-     */
     public void processKey(KeyStroke key) {
         switch (key.getKeyType()) {
             case EOF:
@@ -62,10 +54,6 @@ public class ArenaController {
         }
     }
 
-    /**
-     * Changes hero position, if hero has permission to make that move.
-     * @param position is the place to where the user wants the hero to move.
-     */
     public void moveHero(Position position) {
         if (canHeroMove(position)) {
             arena.hero().setPosition(position);
@@ -74,15 +62,6 @@ public class ArenaController {
         }
     }
 
-    /**
-     * Determines if the hero's movement is possible according to the place where he is and the direction he wants to go:
-     * The hero must move inside area delimited with walls.
-     * On ladders, the movement can only be vertical, 'v'. Also, the hero can get down to one of them.
-     * On platforms or on the floor wall, the movement can only be horizontal, 'h'.
-     * In the case of other movements the hero will not move.
-     * @param pos to where hero wants to move to.
-     * @return true if hero can move or false if hero can´t move.
-     */
     private boolean canHeroMove(Position pos) {
         for (Wall wall : arena.walls())
             if (wall.getPosition().equals(pos))
@@ -105,9 +84,6 @@ public class ArenaController {
         return false;
     }
 
-    /**
-     * Moves all the monsters in arena.
-     */
     public void moveMonsters() {
         for (Monster monster : arena.monsters())
             monster.move();
@@ -120,10 +96,6 @@ public class ArenaController {
         arena.monsters().get(0).switchPlatform(arena.platforms().get(n));
     }
 
-    /**
-     * Checks if any of the monsters collided with hero, in which case he will die, showing user's score.
-     * @return true if hero died, otherwise false.
-     */
     public boolean verifyMonsterCollisions() {
         if (arena.monsters().get(0) instanceof Boss) {
             for (int i = 0; i < 13; i++) {
@@ -151,10 +123,6 @@ public class ArenaController {
         return false;
     }
 
-    /**
-     * Each coin is removed if its position equals hero´s position.
-     * Also, provides the score of the hero .
-     */
     private void retrieveCoins() {
         for (Coin coin : arena.coins()) {
             if (arena.hero().getPosition().equals(coin.getPosition())) {

@@ -9,29 +9,22 @@ import com.g1004.getout.element.monster.Monster;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * com.g1004.getout.MVC.Arena class. This class creates an arena or level for the user to play.
- */
 public class Arena {
     private ArenaBuilder builder;
     private final int width;
     private final int height;
     private final int numLevel;
-    private Integer score;                  /** points got by the user due to caught of coins */
-    private List<Wall> walls;           /** walls that surround arena */
-    private Hero hero;                  /** game character controlled by the user */
+    private Integer score;
+    private List<Wall> walls;
+    private Hero hero;
     private final String background;
-    private List<Platform> platforms;   /** horizontal platforms inside arena */
-    private List<Ladder> ladders;       /** vertical ladders inside arena */
-    private List<Coin> coins;           /** coins that can be caught by user */
-    private Key key;                    /** key that can be caught by user */
-    private Door door;                  /** door for the user to get out of arena */
-    private List<Monster> monsters;     /** monsters that exist and move inside arena */
+    private List<Platform> platforms;
+    private List<Ladder> ladders;
+    private List<Coin> coins;
+    private Key key;
+    private Door door;
+    private List<Monster> monsters;
 
-    /**
-     * Constructor. It defines a size for the arena and adds all its components.
-     * It also initializes user score (zero points) and sets a default value for direction parameter ('0').
-     */
     public Arena(int numLevel) {
         builder = new GoblinLair(); // so builder is never null
         switch (numLevel) {
@@ -61,10 +54,6 @@ public class Arena {
         monsters = builder.createMonsters();
     }
 
-    /**
-     * Creates walls inside arena, delimiting the area for the user to move.
-     * @return walls surrounding all the hero movements area.
-     */
     private List<Wall> generateWalls() {
         List<Wall> walls = new ArrayList<>();
 
@@ -99,10 +88,6 @@ public class Arena {
         return height;
     }
 
-    /**
-     * Obtain the game score.
-     * @return total score.
-     */
     public Integer score() {
         return score;
     }
@@ -111,10 +96,6 @@ public class Arena {
         return walls;
     }
 
-    /**
-     * Obtain hero of arena.
-     * @return hero.
-     */
     public Hero hero() {
         return hero;
     }
