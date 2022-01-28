@@ -9,9 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * com.g1004.getout.Game class. This class sets the screen and the arena or level.
- */
 public class Game {
     private final int width;
     private final int height;
@@ -23,10 +20,6 @@ public class Game {
 
     private static Game singleton = null;
 
-    /**
-     * Constructor.
-     * It initializes arena and implements Lanterna methods, adding the screen to the arena.
-     */
     private Game() throws IOException {
         width = 75;
         height = 27;
