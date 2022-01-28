@@ -157,14 +157,16 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [com.g1004.getout.element.monster.Monster]()
-- [com.g1004.getout.element.monster.Goblin]()
-- [com.g1004.getout.strategy.RegularStrategy]()
-- [com.g1004.getout.element.monster.Zombie]()
-- [com.g1004.getout.strategy.ConfusedStrategy]()
-- [com.g1004.getout.element.monster.Ghost]()
-- [com.g1004.getout.strategy.TeleportationStrategy]()
-- [com.g1004.getout.strategy.MoveStrategy]()
+- [Monster]()
+- [Goblin]()
+- [RegularStrategy]()
+- [Zombie]()
+- [ConfusedStrategy]()
+- [Ghost]()
+- [TeleportationStrategy]()
+- [Boss]()
+- [SpecialStrategy]()
+- [MoveStrategy]()
 
 **Consequences**
 
@@ -176,15 +178,18 @@ The use of the Factory Method Pattern in the current design allows the following
 
 ------
 
-#### (SINGLETON)
+#### THERE SHOULD BE ONLY ONE GAME RUNNING DURING THE WHOLE EXECUTION
 
 **Problem in Context**
 
-(...)
+During any gameplay of our project, an obvious aspect that came to our minds was that there was always one single instance of the Game class present from start to finish.
+This makes sense as, from a logical point of view, the concept of game here is similar to a global entity, a space where the user can interact with the properties of our
+code mostly inside the arenas. Therefore, we needed to ensure that the Game class had only one instance with a global point to access it.
 
 **The Pattern**
 
-We have applied the **Singleton** pattern. (...)
+The **Singleton** pattern deals with this process, but it is considered an anti-pattern. We decided to make the Game's constructor private and instantiate a single
+instance within the class itself and then propagate it to places that use the object.
 
 **Implementation**
 
@@ -194,25 +199,31 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [com.g1004.getout]()
+- [Game]()
 
 **Consequences**
 
-The use of the Singleton Pattern in the current design allows the following benefits:
+The use of this feature in the current design allows the following benefits:
  
-- (...)
+- There's a relative level of instance control as this prevents other objects from instantiating their own copies of the considered object, ensuring that all objects 
+access the single instance. 
+- The class controls the instantiation process, having the flexibility to change the instantiation process.
 
 ------
 
-#### (FACADE)
+#### THERE SHOULD BE AN ORGANIZED WAY OF DEALING WITH THE GAME SCREEN PROCESSES
 
 **Problem in Context**
 
-(...)
+This game, being a text-based project, takes advantage of the lanterna library which has a lot of functionalities
+with little to no use in our program. Also, it doesn't present us directly with some methods that would be of
+great use in specific cases. With that said, we saw the need to implement a feature which could provide us a 
+simplified (but limited) interface to this complex library.
 
 **The Pattern**
 
-We have applied the **Facade** pattern. (...)
+We have applied the **Facade** pattern. As mentioned before, this provides us with a simplified interface of a
+complex system, giving us room to implement the features we need.
 
 **Implementation**
 
@@ -222,25 +233,29 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [com.g1004.getout]()
+- [GUI]()
+- [LanternaGUI]()
 
 **Consequences**
 
 The use of the Facade Pattern in the current design allows the following benefits:
 
-- (...)
+- Makes (in this case) a library easier to use which is good for maintenance and readability.
+- It decreases the overall complexity of the application and helps to move unwanted dependencies to one place.
 
 ------
 
-#### (STATE)
+#### THE GAME HAS A MENU, INSTRUCTIONS, LEVELS AND GAMEPLAY
 
 **Problem in Context**
 
-(...)
+For our project, a game instance (with which the user interacts) should take different forms, depending on whether the user
+was on the main menu, checking the levels, reading the instructions or playing in the arenas.
+So ideally, what we wanted to do was to allow the game object to appear to change its class in run-time.
 
 **The Pattern**
 
-We have applied the **State** pattern. (...)
+We have applied the **State** pattern. It allows an object to alter its behaviour when its internal state changes.
 
 **Implementation**
 
@@ -252,25 +267,37 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [com.g1004.getout]()
+- [Game]()
+- [GameState]()
+- [MenuState]()
+- [InstructionsState]()
+- [LevelsState]()
+- [PlayState]()
 
 **Consequences**
 
 The use of the State Pattern in the current design allows the following benefits:
 
-- (...)
+- It localizes and partitions behavior for different states in our code, making it more organized and separating concerns.
+- Makes state transitions explicit, while also minimizing conditional complexity, eliminating the need for if and switch 
+statements in objects that have different behavior requirements unique to different state transitions.
 
 ------
 
-#### (Builder)
+#### ARENAS HAVE DIFFERENT REPRESENTATIONS FOR DIFFERENT LEVELS
 
 **Problem in Context**
 
-(...)
+The creation of an Arena object requires the placement of unique sets of platforms, ladders, coins, monsters as well as 
+different spots for a key and a door. We planned to create 10 distinct arenas for the 10 different levels in our game
+and the process of making the decision of which instance of arena to build and to which corresponding level inside
+the class seemed a bit messy. So, all we needed was a feature that would allow us to generate different types of an
+arena object using similar code.
 
 **The Pattern**
 
-We have applied the **Builder** pattern. (...)
+We have applied the **Builder** pattern. It's a creational pattern that lets us construct complex objects step 
+by step, allowing us to produce different types and representations of a product using the same construction code.
 
 **Implementation**
 
@@ -280,25 +307,44 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [com.g1004.getout]()
+- [Arena]()
+- [ArenaBuilder]()
+- [GoblinLair]()
+- [TheUndead]()
+- [LostRuins]()
+- [HauntedMansion]()
+- [Necropolis]()
+- [DarkForest]()
+- [Dystopia]()
+- [TheShimmer]()
+- [Apocalypse]()
+- [LastChance]()
 
 **Consequences**
 
 The use of the Builder Pattern in the current design allows the following benefits:
 
-- (...)
+- It provides better control over the construction process and a clear separation between the construction and 
+representation of an object.
+- It supports internal changes on the representation of objects.
 
 ------
 
-#### (Model-View-Controller)
+#### ARENA'S ASPECTS (DATA, MANIPULATION, VISUALIZATION) SHOULD BE SEPARATED INTO INTERCONNECTED SYSTEMS
 
 **Problem in Context**
 
-(...)
+Having concluded that we had a considerable level of complexity in our code, mainly in the Arena class, we thought it
+would be better to separate some main issues into concerns. Given that we've been developing a somewhat complex user 
+interface where the Arena class has a model and simultaneously is responsible for both manipulation of its fields and
+displaying its properties for the user on screen, the code seemed a bit mixed and harder to deal with.
 
 **The Pattern**
 
-We have applied the **Model-View-Controller** pattern. (...)
+We have applied the **Model-View-Controller** pattern. Well, we didn't apply it to the entirety of our application but 
+only a version of it dedicated to the Arena (this is not ideal and is explained below in a side note). This pattern 
+separates systems' concerns into three parts (model - represents the data; view - displays the model data; controller - 
+interprets user actions and processes data).
 
 **Implementation**
 
@@ -308,21 +354,26 @@ The following figure shows how the pattern's roles were mapped to the applicatio
 
 These classes can be found in the following files:
 
-- [com.g1004.getout]()
+- [Arena]()
+- [ArenaViewer]()
+- [ArenaController]()
 
 **Consequences**
 
 The use of the Model-View-Controller Pattern in the current design allows the following benefits:
 
-- (...)
+- Makes code easy to manage and maintain.
+- Supports quality test-driven development (TDD):
+- It allows us to easily apply several modifications.
+- Promotes faster and more practical development.
 
-Side note:
+**Side note:**
 
-- Maybe the implementation of this pattern in our project was not ideal. We understand that the Model-View-Controller pattern should be applied to the generality of our classes to have a whole system interconnected with this pattern.
+- Maybe the implementation of this pattern in our project was not ideal. We understand that the Model-View-Controller pattern should be applied to the generality of our classes to have a whole system following this architecture.
 The issue was that at first we planned to implement this aspect later in the project and started adding a considerable number of features. So when the time came to add this new pattern we considered that as we had a much more complex
-work at that moment it would be a messier job to do this correctly, and we ended up applying it exclusively to the Arena class.
+work at that moment it would be a messier job to do this correctly (and unfortunately time was running out a bit), and we ended up applying it exclusively to the Arena class.
 - If we had the chance to remake this project, one aspect we would've done differently would be the addition of the Model-View-Controller pattern on an early stage of our code so that the future implementation of new features could be
-easier and more dynamic.
+easier partnered with a more dynamic development.
 
 ------
 
@@ -397,10 +448,6 @@ Mutation testing report ([link](finalreport/202201280009/index.html))
 BetterCodeHub:
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/FEUP-LDTS-2021/ldts-project-assignment-g1004?branch=master&token=73feb3fa9b1ae335a3a3d4351a8b4c848976adf9)](https://bettercodehub.com/)
-
-Error-prone:
-
-(...)
 
 Some notes:
 
