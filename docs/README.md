@@ -58,7 +58,7 @@ Also, there are some coins spread across the arena that can be collected to dete
 - **Death** - The hero dies when all his health points are lost by taking damage from the monsters.
 - **Quit level** - The user can leave a level at any moment by pressing 'q'.
 - **Catch key** - The hero must collect a key (represented by the character 'F') to be able to open the corresponding door.
-- **Open door** - The hero, having collected the key, may open the door (represented by the character 'O') to escape/complete that level.
+- **Open door** - The hero, having collected the key, may open the door (represented by the character '0') to escape/complete that level.
 - **Progress** - The hero starts his journey at level 1. By completing a level, the next one is unlocked and progress is therefore made, being recorded on the levels' menu.
 
 ###### Progress:
@@ -190,7 +190,7 @@ We have applied the **Singleton** pattern. (...)
 
 The following figure shows how the pattern's roles were mapped to the application classes.
 
-![img]()
+![img](screenshots/diagrams/singleton.png)
 
 These classes can be found in the following files:
 
@@ -218,7 +218,7 @@ We have applied the **Facade** pattern. (...)
 
 The following figure shows how the pattern's roles were mapped to the application classes.
 
-![img]()
+![img](screenshots/diagrams/facade.png)
 
 These classes can be found in the following files:
 
@@ -246,7 +246,9 @@ We have applied the **State** pattern. (...)
 
 The following figure shows how the pattern's roles were mapped to the application classes.
 
-![img]()
+![img](screenshots/diagrams/statefields.png)
+
+![img](screenshots/diagrams/state.png)
 
 These classes can be found in the following files:
 
@@ -274,7 +276,7 @@ We have applied the **Builder** pattern. (...)
 
 The following figure shows how the pattern's roles were mapped to the application classes.
 
-![img]()
+![img](screenshots/diagrams/builder.png)
 
 These classes can be found in the following files:
 
@@ -302,7 +304,7 @@ We have applied the **Model-View-Controller** pattern. (...)
 
 The following figure shows how the pattern's roles were mapped to the application classes.
 
-![img]()
+![img](screenshots/diagrams/MVC.png)
 
 These classes can be found in the following files:
 
@@ -313,6 +315,14 @@ These classes can be found in the following files:
 The use of the Model-View-Controller Pattern in the current design allows the following benefits:
 
 - (...)
+
+Side note:
+
+- Maybe the implementation of this pattern in our project was not ideal. We understand that the Model-View-Controller pattern should be applied to the generality of our classes to have a whole system interconnected with this pattern.
+The issue was that at first we planned to implement this aspect later in the project and started adding a considerable number of features. So when the time came to add this new pattern we considered that as we had a much more complex
+work at that moment it would be a messier job to do this correctly, and we ended up applying it exclusively to the Arena class.
+- If we had the chance to remake this project, one aspect we would've done differently would be the addition of the Model-View-Controller pattern on an early stage of our code so that the future implementation of new features could be
+easier and more dynamic.
 
 ------
 
@@ -338,21 +348,67 @@ The use of the Model-View-Controller Pattern in the current design allows the fo
 
 ### TESTING
 
-Test coverage:
-
-![img](screenshots/testcoverage.png)
-
 Coverage report:
 
-![img](screenshots/coveragereport.png)
+###### getout package:
+
+![img](screenshots/testing/getoutcoverage.png)
+
+###### General coverage:
+
+![img](screenshots/testing/testcoverage.png)
+
+###### element package:
+
+![img](screenshots/testing/elementcoverage.png)
+
+###### monster package:
+
+![img](screenshots/testing/monstercoverage.png)
+
+###### gui package:
+
+![img](screenshots/testing/guicoverage.png)
+
+###### MVC package:
+
+![img](screenshots/testing/mvccoverage.png)
+
+###### position package:
+
+![img](screenshots/testing/positioncoverage.png)
+
+###### state package:
+
+![img](screenshots/testing/statecoverage.png)
+
+###### strategy package:
+
+![img](screenshots/testing/strategycoverage.png)
+
+###### structures package:
+
+![img](screenshots/testing/structurescoverage.png)
+
+Mutation testing report ([link](finalreport/202201280009/index.html))
+
+![img](screenshots/testing/mutationcoverage.png)
 
 BetterCodeHub:
 
-(...)
+[![BCH compliance](https://bettercodehub.com/edge/badge/FEUP-LDTS-2021/ldts-project-assignment-g1004?branch=master&token=73feb3fa9b1ae335a3a3d4351a8b4c848976adf9)](https://bettercodehub.com/)
 
 Error-prone:
 
 (...)
+
+Some notes:
+
+- We didn't believe creating GUI mocks in LanternaGUITest was a good idea as we wouldn't get objects returned from a screen proving that characters were placed in the respective positions.
+Because of that, while executing pitest we had to discard the analysis of this specific test to avoid errors on the build process and so the respective percentages come off as 0.
+- A similar concept applies to GameTest but this time a screen is being created inside the private constructor of Game, and we had to disable this one as well.
+- There are some classes on the builder package which have 0 coverage mainly because we were short of time and had to create those "basic" classes before the demo, and therefore their tests are missing.
+However, these are nothing but a small variation of classes which we tested before, so this situation ends up being less problematic but still a minor flaw.
 
 ------
 
