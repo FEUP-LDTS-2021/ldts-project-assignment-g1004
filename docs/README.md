@@ -384,9 +384,45 @@ easier partnered with a more dynamic development.
 
 ------
 
-#### CODE SMELL 1
+#### LARGE CLASS
 
-(...)
+This smell is present in some places on our code, some justifiable other less. The LanternaGUI class is a good example 
+where there are a lot of methods but in this case we kept it that way because of the purpose this specific class serves. 
+On the other hand, there's the Arena class which in an early stage had a lot of fields (still has) and methods that 
+could be somewhat separated into different components. These class being split into distinct classes, one for instance 
+dealing with data display and other with data manipulation could be seen as the refactoring process applied here.
+
+------
+
+#### LAZY CLASS
+
+The Bar class, after our projects' full development, has little to no value assigned to it as it does virtually nothing
+and only serves as a ladder (Ladder class) component. Nevertheless, we have decided to leave the Bar class in our
+project at least to represent some coherence with regard to perceiving the building blocks of an arena.
+
+------
+
+#### DUPLICATE CODE
+
+At first there was a code fragment which we realized showed up several times in different places and represented a 
+repeated functionality - a set of conditions that checked if an element was present in a platform or a ladder. 
+The refactoring behind this involved the creation of two methods, one for Platform and other for Ladder that 
+processed information the same way and fulfilled the intended purpose (the hasElement() methods).
+
+------
+
+#### DATA CLASS 
+
+For instance, the sole purpose of the Arena class is to represent data and is basically composed by getters and setters. 
+However, in our project this doesn't represent a problem due to the architecture wrapped around the arena system.
+
+------
+
+#### SWITCH STATEMENTS
+
+Our project also contains a complex sequence of if statements inside the ConfuseStrategy class to deal with how a monster 
+using this strategy would move. This was a code fragment we had to be careful with as its implementation or even changes 
+in it could lead to some trouble.
 
 ------
 
@@ -459,6 +495,8 @@ Because of that, while executing pitest we had to discard the analysis of this s
 - A similar concept applies to GameTest but this time a screen is being created inside the private constructor of Game, and we had to disable this one as well.
 - There are some classes on the builder package which have 0 coverage mainly because we were short of time and had to create those "basic" classes before the demo, and therefore their tests are missing.
 However, these are nothing but a small variation of classes which we tested before, so this situation ends up being less problematic but still a minor flaw.
+- Three aspects in our code were not approved in the analyses made on BetterCodeHub. The one related to testing ("Automate Tests") is mostly justified by the topics addressed before. The other two 
+("Separate Concerns in Modules" and "Couple Architecture Components Loosely") could probably be improved with a proper implementation of the Model-View-Controller pattern throughout our system.
 
 ------
 
