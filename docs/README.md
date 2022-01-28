@@ -115,15 +115,16 @@ We can choose a unique behaviour for each monster movement, having more flexibil
 
 The following figure shows how the pattern's roles were mapped to the application classes.
 
-![img](screenshots/strategy.png)
+![img](screenshots/diagrams/strategy.png)
 
 These classes can be found in the following files:
 
-- [com.g1004.getout.element.monster.Monster]()
-- [com.g1004.getout.strategy.MoveStrategy]()
-- [com.g1004.getout.strategy.RegularStrategy]()
-- [com.g1004.getout.strategy.ConfusedStrategy]()
-- [com.g1004.getout.strategy.TeleportationStrategy]()
+- [Monster](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/element/monster/Monster.java)
+- [MoveStrategy](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/strategy/MoveStrategy.java)
+- [RegularStrategy](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/strategy/RegularStrategy.java)
+- [ConfusedStrategy](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/strategy/ConfusedStrategy.java)
+- [TeleportationStrategy](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/strategy/TeleportationStrategy.java)
+- [SpecialStrategy](https://github.com/FEUP-LDTS-2021/ldts-project-assignment-g1004/blob/master/src/main/java/com/g1004/getout/strategy/SpecialStrategy.java)
 
 **Consequences**
 
@@ -153,7 +154,7 @@ We can create different types of monsters this way, each one with its own instan
 
 The following figure shows how the pattern's roles were mapped to the application classes.
 
-![img](screenshots/factorymethod.png)
+![img](screenshots/diagrams/factorymethod.png)
 
 These classes can be found in the following files:
 
@@ -363,7 +364,7 @@ These classes can be found in the following files:
 The use of the Model-View-Controller Pattern in the current design allows the following benefits:
 
 - Makes code easy to manage and maintain.
-- Supports quality test-driven development (TDD):
+- Supports quality test-driven development (TDD).
 - It allows us to easily apply several modifications.
 - Promotes faster and more practical development.
 
