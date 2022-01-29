@@ -39,7 +39,7 @@ Also, there are some coins spread across the arena that can be collected to dete
 
 ![img](screenshots/instructions.png)
 
-- **Different levels** - The game will have 10 levels, each one with its unique arena and combination of monsters.
+- **Different levels** - The game has 10 levels, each one with its unique arena and combination of monsters.
 - **Arena space** - A level has an arena, the player's environment, made of platforms and ladders.
 - **Walk** - The hero can walk on the arena's floor or on platforms by pressing arrow left key or arrow right key. However, he is not allowed to walk beyond the tips.
 - **Climb** - The hero can use ladders to move up or down to other platforms by pressing arrow up key or arrow down key.
