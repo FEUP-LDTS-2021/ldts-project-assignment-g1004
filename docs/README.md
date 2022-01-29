@@ -12,7 +12,7 @@ This LDTS 2021⁄22 project was developed by:
 
 ### CONTEXT
 
-The present project's goal is to create a 2D video game based on the use of platforms (connected by ladders) to reach elements which allow the player to pass through different levels.
+The present project's goal is to create a 2D video game based on the use of platforms, connected by ladders, to reach elements which allow the player to pass through different levels.
 
 The player must get to the key that opens the correspondent level door without being killed by any of the monsters that roam the platforms in the arena.
 
