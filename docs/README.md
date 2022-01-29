@@ -292,7 +292,7 @@ statements in objects that have different behavior requirements unique to differ
 
 **Problem in Context**
 
-The creation of an Arena object requires the placement of unique sets of platforms, ladders, coins, monsters as well as 
+The creation of an Arena object requires the placement of unique sets of platforms, ladders, coins and monsters, as well as 
 different spots for a key and a door. We planned to create 10 distinct arenas for the 10 different levels in our game
 and the process of making the decision of which instance of arena to build and to which corresponding level inside
 the class seemed a bit messy. So, all we needed was a feature that would allow us to generate different types of an
