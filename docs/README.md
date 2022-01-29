@@ -50,7 +50,7 @@ Also, there are some coins spread across the arena that can be collected to dete
 
 - **Collect coins** - When the hero gets a coin, he collects it and the correspondent level score increases.
 - **Score** - Equivalent to the number of coins collected for a level. Each level's max score is 10 and a score accomplished is only kept for that level if the player passes it.
-- **Different monsters** - Monsters only exist on platforms and have 3 types, goblins, zombies and ghosts. Each type possesses a different way of moving and does distinct amounts of damage.
+- **Different monsters** - Monsters only exist on platforms and have 3 types: goblins, zombies and ghosts. Each type possesses a different way of moving and does distinct amounts of damage.
 
 ###### Different monsters:
 
