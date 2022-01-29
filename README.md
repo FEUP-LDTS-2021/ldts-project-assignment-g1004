@@ -27,7 +27,7 @@ In this challenging platform game, help Nick escape alive and collect as many co
 - **Walk** on the arena's floor or on platforms
 - **Climb** using ladders to reach other platforms
 - **Collect coins**
-- **Score** (number of coins collected for that level)
+- **Score** (highest number of coins collected for that level)
 - **Different monsters** (goblins, zombies, ghosts)
 - **Damage** applied to the hero by monsters
 - **Health points**
