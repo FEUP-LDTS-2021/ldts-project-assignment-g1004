@@ -16,7 +16,7 @@ The present project's goal is to create a 2D video game based on the use of plat
 
 The player must get the key that opens the correspondent level door without being killed by any of the monsters that roam the platforms in the arena.
 
-Notice that he isn't able to kill monsters as he has no guns, all our hero can do is escape.
+Notice that he isn't able to kill monsters as he has no guns, so all our hero can do is escape.
 Also, there are some coins spread across the arena that can be collected to determine a final score.
 
 ###### Side note:
