@@ -219,7 +219,7 @@ access the single instance.
 
 **Problem in Context**
 
-This game, being a text-based project, takes advantage of the lanterna library which has a lot of functionalities
+This game, being a text-based project, takes advantage of the Lanterna library which has a lot of functionalities
 with little to no use in our program. Also, it doesn't present us directly with some methods that would be of
 great use in specific cases. With that said, we saw the need to implement a feature which could provide us a 
 simplified (but limited) interface to this complex library.
