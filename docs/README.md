@@ -20,7 +20,7 @@ Notice that he isn't able to kill monsters as he has no guns, so all our hero ca
 Also, there are some coins spread across the arena that can be collected to determine a final score.
 
 ###### Side note:
-- ###### You start the game at level 1 and don't have the option to choose another level to play as you need to pass them one by one to unlock the next. If you desire to immediately test any level at will you need to change the value assigned to the attribute "progress" inside the Game class constructor to 10 (which for the Game itself means that you have passed all levels and have access to all of them).
+- ###### You start the game at level 1 and don't have the option to choose another level to play as you need to pass them one by one to unlock the next. If you desire to immediately test any level at your will, you need to change the value assigned to the attribute "progress" inside the Game class constructor to 10 (which for the Game itself means that you have passed all levels and have access to all of them).
 
 ------
 
