@@ -2,7 +2,7 @@
 
 ------
 
-This project (for LDTS 2021⁄22) was developed by:
+This LDTS 2021⁄22 project was developed by:
 
 * *Diogo Silva* (*up202004288*@edu.fe.up.pt)
 * *Maria Luísa Salvador* (*up202006471*@edu.fe.up.pt)
